@@ -1,8 +1,19 @@
-import { MessageSquare, PencilLine, Wand2 } from 'lucide-react';
+import { BarChart3, ClipboardCheck, MessageSquare, Wand2 } from 'lucide-react';
 import { PlanAssistantDemo } from '@/components/plan/plan-assistant-demo';
 import { Reveal } from '@/components/reveal';
+// 기존 analysis-loop-section 의 흐름 UI 를 그대로 재사용한다. (섹션 통합)
+import loopStyles from '@/components/plan/analysis-loop-section/analysis-loop-section.module.scss';
 import styles from './plan-assistant-section.module.scss';
 
+// VC 분석 결과 → 플랜비서에게 질문 → 추가 정보 정리 → 실제 계획서 수정
+const loop = [
+  { icon: BarChart3, label: 'VC 분석 결과', detail: '72점', kind: 'score' },
+  { icon: MessageSquare, label: '플랜비서에게 질문', detail: '점수가 낮은 이유를 확인' },
+  { icon: ClipboardCheck, label: '추가 정보 정리', detail: '부족한 근거를 보완' },
+  { icon: Wand2, label: '실제 계획서 수정', detail: '“계획서에 넣어줘”', accent: true },
+];
+
+/* Hidden: overlaps with the demo below — 플랜비서 기능 카드 3종
 const features = [
   {
     icon: MessageSquare,
@@ -21,6 +32,7 @@ const features = [
     accent: true,
   },
 ];
+*/
 
 export function PlanAssistantSection() {
   return (
@@ -29,15 +41,34 @@ export function PlanAssistantSection() {
         <Reveal className={styles.head}>
           <span className={styles.eyebrow}>Plan Assistant</span>
           <h2 className={styles.title}>
-            내 계획서와 분석을 이해하는
+            분석 결과보다 중요한 건,
             <br />
-            AI 플랜비서.
+            그다음 무엇을 바꾸느냐입니다.
           </h2>
           <p className={styles.sub}>
-            현재 계획서와 VC 분석 결과를 기준으로 질문하고, 필요한 경우 실제 계획서 수정까지 요청할 수 있습니다.
+            점수가 낮은 이유를 물어보고, 부족한 정보를 보완하고, 완성된 내용을 실제 계획서에 반영하세요.
           </p>
         </Reveal>
 
+        <ol className={`${loopStyles.loop} ${styles.loop}`}>
+          {loop.map((node, index) => (
+            <Reveal key={node.label} as="li" className={loopStyles.item} delay={index * 0.06}>
+              <div className={`${loopStyles.node} ${node.accent ? loopStyles.nodeAccent : ''}`}>
+                <span className={loopStyles.nodeIcon} aria-hidden="true">
+                  <node.icon />
+                </span>
+                <span className={loopStyles.nodeLabel}>{node.label}</span>
+                <span className={`${loopStyles.nodeDetail} ${node.kind === 'score' ? loopStyles.nodeScore : ''}`}>
+                  {node.detail}
+                </span>
+              </div>
+
+              {index < loop.length - 1 && <span className={loopStyles.arrow} aria-hidden="true" />}
+            </Reveal>
+          ))}
+        </ol>
+
+        {/* Hidden: overlaps with the demo below — 플랜비서 기능 카드 3종
         <div className={styles.grid}>
           {features.map((feature, index) => (
             <Reveal
@@ -50,20 +81,17 @@ export function PlanAssistantSection() {
               </span>
               <h3 className={styles.cardTitle}>{feature.title}</h3>
 
-              {feature.examples ? (
-                <ul className={styles.quoteList}>
-                  {feature.examples.map((example) => (
-                    <li key={example} className={styles.quote}>
-                      “{example}”
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className={styles.cardDesc}>{feature.desc}</p>
-              )}
+              <ul className={styles.quoteList}>
+                {feature.examples.map((example) => (
+                  <li key={example} className={styles.quote}>
+                    “{example}”
+                  </li>
+                ))}
+              </ul>
             </Reveal>
           ))}
         </div>
+        */}
 
         <Reveal className={styles.demoWrap} delay={0.08}>
           <PlanAssistantDemo />

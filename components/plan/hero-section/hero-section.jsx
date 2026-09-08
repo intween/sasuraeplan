@@ -2,6 +2,36 @@ import { ArrowRight, Sparkles, Upload } from 'lucide-react';
 import { ProductMockup } from '@/components/plan/product-mockup';
 import styles from './hero-section.module.scss';
 
+/* Hidden: overlaps with the hero sub copy and the core product flow below
+const flow = [
+  {
+    no: '01',
+    icon: Sparkles,
+    title: '계획서를 만들거나 올려보세요',
+    desc: 'AI와 처음부터 작성하거나 기존 계획서를 그대로 업로드',
+  },
+  {
+    no: '02',
+    icon: BarChart3,
+    title: 'VC 관점으로 분석해보세요',
+    desc: '시장 · 고객 · 사업모델의 강점과 빈틈 확인',
+  },
+  {
+    no: '03',
+    icon: Wand2,
+    title: '분석에서 끝내지 마세요',
+    desc: '플랜비서와 이야기하며 실제 계획서에 반영',
+    accent: true,
+  },
+  {
+    no: '04',
+    icon: UserCheck,
+    title: '전문가의 시선까지 더해보세요',
+    desc: 'AI가 놓칠 수 있는 부분을 전문가 피드백으로 확인',
+  },
+];
+*/
+
 export function HeroSection() {
   return (
     <section className={styles.section} id="top">
@@ -11,22 +41,26 @@ export function HeroSection() {
         <div className={styles.copy}>
           <span className={styles.badge}>
             <Sparkles aria-hidden="true" />
-            AI 사업계획서 작성부터 VC 분석까지
+            AI 작성 · VC 분석 · 전문가 피드백
           </span>
 
           <h1 className={styles.headline}>
-            사업계획서,
-            <br />
-            혼자 작성하지 마세요.
+            <span className={styles.headlineAsk}>
+              사업계획서,
+              <br />
+              잘 썼다고 생각하세요?
+            </span>
+            <span className={styles.headlineTurn}>
+              평가자는
+              <br />
+              다르게 볼 수 있습니다.
+            </span>
           </h1>
 
-          <p className={styles.lead}>
-            <span className={styles.leadAccent}>AI와 같이 만들고, VC에게 분석받고, 계속 발전시키세요.</span>
-          </p>
-
           <p className={styles.description}>
-            아이디어부터 사업계획서까지. AI와 함께 작성하고,
-            <br /> VC 관점으로 분석하며 완성도를 높여보세요.
+            내가 놓친 사업의 빈틈을 VC 관점으로 분석하고,
+            <br />
+            플랜비서와 보완하고, 전문가의 시선으로 한 번 더 점검하세요.
           </p>
 
           <div className={styles.ctaRow}>
@@ -39,9 +73,22 @@ export function HeroSection() {
               기존 계획서 업로드
             </a>
           </div>
-
-          <p className={styles.trust}>계획서 1건 · 신규 작성 또는 기존 업로드 · 첫 VC 분석 포함</p>
         </div>
+
+        {/* Hidden: overlaps with the hero sub copy and the core product flow below
+        <ol className={styles.flow} id="how-it-works">
+          {flow.map((step) => (
+            <li key={step.no} className={`${styles.flowItem} ${step.accent ? styles.flowItemAccent : ''}`}>
+              <span className={styles.flowIcon} aria-hidden="true">
+                <step.icon />
+              </span>
+              <span className={styles.flowNo}>{step.no}</span>
+              <span className={styles.flowTitle}>{step.title}</span>
+              <span className={styles.flowDesc}>{step.desc}</span>
+            </li>
+          ))}
+        </ol>
+        */}
 
         <div className={styles.product}>
           <ProductMockup />

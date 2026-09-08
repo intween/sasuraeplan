@@ -15,12 +15,14 @@ export function AuthoringSection() {
         <Reveal className={styles.head}>
           <span className={styles.eyebrow}>AI Business Plan</span>
           <h2 className={styles.title}>
-            아이디어만 있어도
+            아이디어만 있어도,
             <br />
-            사업계획서부터 같이 만듭니다.
+            계획서는 시작할 수 있습니다.
           </h2>
           <p className={styles.desc}>
-            AI가 처음부터 사업계획서를 임의로 만들어내는 것이 아니라, 사용자의 사업 정보를 질문하고 답변을 문서 구조로 정리합니다.
+            AI와 대화하며 사업을 구체화하고, 필요한 내용을 사업계획서로 정리하세요.
+            <br />
+            이미 작성한 계획서가 있다면 그대로 올려서 시작할 수도 있습니다.
           </p>
         </Reveal>
 
@@ -34,7 +36,7 @@ export function AuthoringSection() {
               <span className={styles.stepNo}>01</span>
             </div>
             <h3 className={styles.cardTitle}>AI가 질문</h3>
-            <p className={styles.cardDesc}>사업 아이템, 고객, 문제, 수익 모델 등 계획서에 필요한 내용을 단계적으로 질문합니다.</p>
+            <p className={styles.cardDesc}>고객, 문제, 수익 모델 등 계획서에 필요한 내용을 단계적으로 묻습니다.</p>
 
             <div className={styles.example}>
               <span className={styles.exLabel}>AI</span>
@@ -57,7 +59,7 @@ export function AuthoringSection() {
               <span className={styles.stepNo}>02</span>
             </div>
             <h3 className={styles.cardTitle}>사용자가 답변</h3>
-            <p className={styles.cardDesc}>사용자의 실제 사업 내용과 아이디어를 입력합니다.</p>
+            <p className={styles.cardDesc}>내 사업 이야기를 그대로 적으면 됩니다.</p>
 
             <div className={styles.example}>
               <span className={styles.exLabel}>내 답변</span>
@@ -74,7 +76,7 @@ export function AuthoringSection() {
               <span className={styles.stepNo}>03</span>
             </div>
             <h3 className={styles.cardTitle}>계획서 작성</h3>
-            <p className={styles.cardDesc}>AI가 답변을 사업계획서에 적합한 구조와 문장으로 정리합니다.</p>
+            <p className={styles.cardDesc}>답변을 사업계획서 구조와 문장으로 정리합니다.</p>
 
             <div className={styles.example}>
               <span className={`${styles.exLabel} ${styles.exLabelAi}`}>계획서에 작성됨</span>

@@ -2,6 +2,7 @@ import { Check } from 'lucide-react';
 import { Reveal } from '@/components/reveal';
 import styles from './pricing-section.module.scss';
 
+/* Hidden: 요금제 카드는 문의형 단일 상품으로 대체 — 코드는 유지한다.
 const plans = [
   {
     name: 'STANDARD',
@@ -43,24 +44,20 @@ const plans = [
   },
 ];
 
-const commonFeatures = [
-  '사업 아이템 기준 계획서 1건',
-  'AI 신규 작성',
-  '기존 계획서 업로드',
-  '첫 VC Full 분석',
-  '플랜비서',
-  'AI 계획서 수정',
-  '직접 수정 및 개선',
-  '자료 추가',
-  '정부지원사업 추천',
-  '관련 지원사업 이메일 안내',
-  '지원사업 양식 변환',
-];
-
 const notes = [
   '첫 VC Full 분석은 모든 플랜에 포함됩니다.',
   '직접 수정, AI 수정, 계획서 개선, 자료 추가, 플랜비서 대화는 별도 횟수로 차감하지 않습니다.',
   '재분석은 결과가 정상 생성된 경우에만 횟수를 사용합니다.',
+];
+*/
+
+const commonFeatures = [
+  'AI 사업계획서 작성',
+  '기존 계획서 업로드',
+  'VC 관점 분석',
+  '플랜비서 · 계획서 수정',
+  '정부지원사업 확인',
+  '전문가 피드백',
 ];
 
 export function PricingSection() {
@@ -70,16 +67,39 @@ export function PricingSection() {
         <Reveal className={styles.head}>
           <span className={styles.eyebrow}>Pricing</span>
           <h2 className={styles.title}>
-            작성부터 첫 분석까지,
+            필요한 만큼만,
             <br />
-            모든 플랜에 포함됩니다.
+            상담 후 안내드립니다.
           </h2>
           <p className={styles.desc}>
-            모든 플랜에는 사업 아이템 기준 계획서 1건이 제공되며, AI 신규 작성 또는 기존 계획서 업로드 중 원하는 방식으로 시작할 수
-            있습니다. 첫 VC 분석도 기본 포함됩니다.
+            서비스 이용 범위와 전문가 피드백 여부에 따라 달라지기 때문에, 문의 주시면 사업 상황에 맞게 안내드립니다.
           </p>
         </Reveal>
 
+        <div className={styles.single}>
+          <Reveal className={`${styles.card} ${styles.cardFeatured}`}>
+            <h3 className={styles.planName}>이용 요금</h3>
+
+            <p className={styles.price}>협의</p>
+
+            <p className={styles.planDesc}>사업 상황과 필요한 이용 범위를 알려주시면 확인 후 안내드립니다.</p>
+
+            <ul className={`${styles.commonList} ${styles.singleList}`}>
+              {commonFeatures.map((item) => (
+                <li key={item} className={styles.commonChip}>
+                  <Check aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <a href="#contact" className={styles.ctaFeatured}>
+              이용 문의하기
+            </a>
+          </Reveal>
+        </div>
+
+        {/* Hidden: 요금제 비교 · 공통 포함 · 안내 문구는 문의형 단일 상품으로 대체
         <div className={styles.grid}>
           {plans.map((plan, index) => (
             <Reveal
@@ -143,6 +163,7 @@ export function PricingSection() {
             ))}
           </ul>
         </Reveal>
+        */}
       </div>
     </section>
   );

@@ -7,10 +7,10 @@ import { BrandLogo } from '@/components/brand-logo';
 import styles from './header.module.scss';
 
 const navItems = [
-  { label: '서비스 소개', href: '#how-it-works' },
   { label: 'AI 작성', href: '#authoring' },
   { label: 'VC 분석', href: '#vc-analysis' },
   { label: '플랜비서', href: '#plan-assistant' },
+  { label: '전문가 피드백', href: '#expert-review' },
   { label: '지원사업', href: '#funding' },
   { label: '이용요금', href: '#pricing' },
 ];
@@ -64,7 +64,7 @@ export function Header() {
 
         <div className={styles.actions}>
           <a href="#contact" className={styles.cta}>
-            계획서 시작하기
+            이용 문의하기
           </a>
         </div>
 
@@ -97,7 +97,7 @@ export function Header() {
                 </a>
               ))}
               <a href="#contact" className={styles.mobileCta} onClick={() => setIsMenuOpen(false)}>
-                계획서 시작하기
+                이용 문의하기
               </a>
             </div>
           </motion.div>

@@ -17,9 +17,11 @@
   gap: 32px;
   align-items: start;
 
+  // 설명을 줄인 뒤 좌우 높이 차가 커져 데스크톱에서는 세로 중앙 정렬한다.
   @include lg {
     grid-template-columns: minmax(0, 40fr) minmax(0, 60fr);
     gap: 48px;
+    align-items: center;
   }
 }
 

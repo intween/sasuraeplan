@@ -181,6 +181,16 @@
   color: $primary;
 }
 
+// ── 문의형 단일 상품 ───────────────────────────
+.single {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.singleList {
+  margin-bottom: 24px;
+}
+
 .cta {
   @include button-secondary;
   width: 100%;

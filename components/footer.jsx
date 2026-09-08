@@ -2,18 +2,17 @@ import { BrandLogo } from '@/components/brand-logo';
 import styles from './footer.module.scss';
 
 const serviceLinks = [
-  { label: '서비스 소개', href: '#how-it-works' },
+  { label: 'AI 작성', href: '#authoring' },
   { label: 'VC 분석', href: '#vc-analysis' },
   { label: '플랜비서', href: '#plan-assistant' },
+  { label: '전문가 피드백', href: '#expert-review' },
   { label: '지원사업', href: '#funding' },
-  { label: '지원사업 이메일 안내', href: '#funding-email' },
 ];
 
 const supportLinks = [
   { label: '이용요금', href: '#pricing' },
-  { label: '전문가 검토', href: '#expert-review' },
   { label: 'FAQ', href: '#faq' },
-  { label: '문의하기', href: '#contact' },
+  { label: '이용 문의하기', href: '#contact' },
 ];
 
 // 개인정보처리방침 / 이용약관은 아직 실제 페이지가 없어 링크를 만들지 않는다.

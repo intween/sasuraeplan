@@ -114,4 +114,13 @@
   word-break: keep-all;
 }
 
+// analysis-loop-section 의 흐름 UI 를 4단계로 재사용한다.
+// (다른 모듈의 클래스를 함께 쓰므로 우선순위를 올려 둔다)
+.loop.loop {
+  margin-bottom: 40px;
+
+  @include md { margin-bottom: 52px; }
+  @include lg { grid-template-columns: repeat(4, 1fr); }
+}
+
 .demoWrap { display: block; }

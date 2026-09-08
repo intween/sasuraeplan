@@ -1,14 +1,10 @@
-import { ArrowRight, BarChart3, CheckCircle2, Download, FileText, Info, MessageSquare, UserCheck } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Download, FileText, Info, UserCheck } from 'lucide-react';
 import { BrandLogo } from '@/components/brand-logo';
 import { Reveal } from '@/components/reveal';
 import styles from './expert-review-section.module.scss';
 
-const features = [
-  '사업계획서 원본 검토',
-  'VC 분석 결과·세부지표 참고',
-  '전문가 세부 피드백 작성',
-  '전문가 검토본 제공·다운로드',
-];
+// 핵심 3단계만 보여준다.
+const features = ['사업계획서 검토', '전문가 피드백', '보완 포인트 확인'];
 
 // 전문가 검토 진행 상태
 const statuses = [
@@ -30,19 +26,19 @@ const comments = [
   },
 ];
 
-// 전문가가 무엇을 읽고 무엇을 만들어내는지
+/* Hidden: 진행 방식 설명 축소 — 핵심 3단계(features)로 대체
 const pipeline = [
   { icon: FileText, title: '사업계획서 원본', note: '전문가가 직접 읽는 주 검토 대상', primary: true },
   { icon: BarChart3, title: 'VC 분석 결과 · 세부지표', note: '더 세밀하게 보기 위한 참고자료' },
 ];
 
-// 검토본을 받은 뒤 플랜비서로 이어지는 흐름
 const afterReview = [
   { from: 'expert', text: '고객 검증에서 실제 구매 의향 근거가 부족합니다.' },
   { from: 'user', text: '전문가가 이렇게 피드백했는데 어떤 자료가 필요해?' },
   { from: 'ai', text: '구매 의향을 확인할 수 있는 인터뷰 응답이나 사전 예약 기록이 근거가 될 수 있습니다.' },
   { from: 'user', text: '내가 가지고 있는 인터뷰 결과를 기준으로 계획서에 반영해줘.', command: true },
 ];
+*/
 
 export function ExpertReviewSection() {
   return (
@@ -54,18 +50,13 @@ export function ExpertReviewSection() {
             <span className={styles.badge}>Expert Review</span>
 
             <h2 className={styles.title}>
-              VC 분석에,
+              AI와 충분히 다듬었다면,
               <br />
-              <span className={styles.titleAccent}>전문가의 세밀한 피드백</span>을 더합니다.
+              이제 <span className={styles.titleAccent}>전문가의 시선으로.</span>
             </h2>
 
             <p className={styles.desc}>
-              전문가가 사업계획서 원본을 직접 읽고, VC 분석 결과와 세부 지표를 참고해 AI 분석만으로 놓치기 쉬운 부분까지 세밀하게
-              피드백합니다.
-            </p>
-
-            <p className={styles.desc}>
-              피드백이 작성된 전문가 검토본을 제공하며, 사용자는 검토본을 확인하고 다운로드할 수 있습니다.
+              사업계획서의 논리와 설득력을 전문가 피드백으로 한 번 더 확인하세요.
             </p>
 
             <ul className={styles.featureList}>
@@ -152,7 +143,8 @@ export function ExpertReviewSection() {
           </Reveal>
         </div>
 
-        {/* 전문가가 무엇을 보고 무엇을 만드는지 */}
+        {/* Hidden: 진행 방식 설명이 길어 축소 — 좌측 핵심 3단계로 대체
+        --- 전문가가 무엇을 보고 무엇을 만드는지 ---
         <Reveal className={styles.pipeline}>
           <div className={styles.sources}>
             {pipeline.map((item) => (
@@ -187,7 +179,7 @@ export function ExpertReviewSection() {
           </div>
         </Reveal>
 
-        {/* 검토본 → 플랜비서 */}
+        --- 검토본 → 플랜비서 ---
         <Reveal className={styles.afterCard}>
           <div className={styles.afterHead}>
             <MessageSquare aria-hidden="true" />
@@ -206,14 +198,15 @@ export function ExpertReviewSection() {
             ))}
           </ul>
         </Reveal>
+        */}
 
         <Reveal className={styles.premium}>
           <Info aria-hidden="true" />
           <p>
-            <strong>PREMIUM 플랜에는 전문가 검토 1회가 포함됩니다.</strong>
+            <strong>전문가 피드백은 사업 분야와 검토 범위에 따라 상담 후 안내드립니다.</strong>
           </p>
-          <a href="#pricing" className={styles.premiumCta}>
-            PREMIUM 확인하기
+          <a href="#contact" className={styles.premiumCta}>
+            이용 문의하기
             <ArrowRight aria-hidden="true" />
           </a>
         </Reveal>

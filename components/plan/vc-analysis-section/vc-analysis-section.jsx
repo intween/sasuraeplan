@@ -42,13 +42,12 @@ export function VCAnalysisSection() {
           <Reveal className={styles.copyCol}>
             <span className={styles.eyebrow}>VC Analysis</span>
             <h2 className={styles.title}>
-              내 사업을
+              내 사업계획서,
               <br />
-              VC는 어떻게 볼까요?
+              VC가 보면 몇 점일까요?
             </h2>
             <p className={styles.desc}>
-              계획서가 완벽해야만 분석할 수 있는 것은 아닙니다. 핵심 사업 정보가 존재하면 현재 상태를 VC 관점에서 분석하고, 강점과 부족한
-              부분을 확인합니다.
+              작성자의 시선이 아니라 평가자의 관점에서 사업의 강점과 빈틈을 확인하세요.
             </p>
 
             <ul className={styles.checkList}>
