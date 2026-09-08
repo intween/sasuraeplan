@@ -1,0 +1,421 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-spacing;
+  background: $background-purple;
+}
+
+.container {
+  @include container($container-wide);
+}
+
+// 좌: 설명 / 우: 실제 분석 화면 (데스크톱에서 스크린샷이 약 60%)
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+
+  @include lg {
+    grid-template-columns: minmax(0, 40fr) minmax(0, 60fr);
+    gap: 48px;
+  }
+}
+
+.copyCol {
+  min-width: 0;
+}
+.shotCol {
+  min-width: 0;
+}
+
+.checkList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  @include md {
+    font-size: 15px;
+  }
+
+  svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    padding: 3px;
+    border-radius: 50%;
+    background: $primary-light;
+    color: $primary;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 14px;
+}
+.title {
+  @include section-title;
+  margin: 0 0 16px;
+  word-break: keep-all;
+}
+.desc {
+  @include section-desc;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.report {
+  @include product-frame;
+  font-size: 13px;
+}
+
+// ── 리포트 상단 바 ─────────────────────────────
+.reportBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: $surface-muted;
+  border-bottom: 1px solid $border-light;
+
+  @include md {
+    padding: 14px 20px;
+  }
+}
+
+.reportTitle {
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: $text-primary;
+  white-space: nowrap;
+}
+
+.reportChip {
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: $surface;
+  border: 1px solid $border;
+  font-size: 11px;
+  font-weight: 700;
+  color: $text-muted;
+  white-space: nowrap;
+}
+
+// ── 패널 그리드 ────────────────────────────────
+.panels {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.panel {
+  padding: 20px 16px;
+  border-bottom: 1px solid $border-light;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @include md {
+    padding: 24px 20px;
+  }
+}
+
+.panelLabel {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+// ── 점수 ───────────────────────────────────────
+.scoreRow {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.scoreValue {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  color: $primary;
+
+  @include md {
+    font-size: 60px;
+  }
+}
+
+.scoreMax {
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-muted;
+}
+
+.metaList {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 12px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+}
+
+.metaKey {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+}
+
+.metaValue {
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.metaBadge {
+  margin: 0;
+  padding: 3px 11px;
+  border-radius: 999px;
+  background: $primary;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.metaStage {
+  margin: 0;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: $primary-light;
+  color: $primary;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+// ── 5축 ────────────────────────────────────────
+.axisList {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.axisHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.axisName {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.axisScore {
+  font-size: 13px;
+  font-weight: 700;
+  color: $text-primary;
+  font-variant-numeric: tabular-nums;
+}
+
+.axisScoreWatch {
+  color: $warning;
+}
+
+.axisTrack {
+  height: 7px;
+  border-radius: 999px;
+  background: $border-light;
+  overflow: hidden;
+}
+
+.axisFill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: $primary;
+  transform-origin: left center;
+}
+
+.axisFillWatch {
+  background: $warning;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .axisFill {
+      animation: axisGrow 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+}
+
+@keyframes axisGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+// ── 진단 / 강점 / 보완 ─────────────────────────
+.diagnosis {
+  position: relative;
+  margin: 0 0 18px;
+  padding: 14px 14px 14px 40px;
+  background: $primary-light;
+  border-radius: $radius-sm;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.65;
+  color: $text-primary;
+  word-break: keep-all;
+
+  svg {
+    position: absolute;
+    top: 15px;
+    left: 14px;
+    width: 16px;
+    height: 16px;
+    color: $primary;
+  }
+}
+
+.blockLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 9px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $text-muted;
+
+  svg {
+    width: 13px;
+    height: 13px;
+    color: $success;
+  }
+}
+
+.strengthList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.strengthItem {
+  padding: 6px 11px;
+  background: $success-soft;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.priorityList {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.priorityItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+}
+
+.priorityNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: $surface;
+  border: 1px solid $border;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: $primary;
+  flex-shrink: 0;
+}
+
+.priorityBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.priorityTitle {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: $text-primary;
+  word-break: keep-all;
+}
+
+.priorityHint {
+  font-size: 11px;
+  color: $text-muted;
+}
+
+.note {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-muted;
+}

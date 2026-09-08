@@ -1,0 +1,142 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-spacing;
+  background: $background;
+}
+
+.container {
+  @include container($container-wide);
+}
+
+.head {
+  max-width: 700px;
+  margin: 0 auto 36px;
+  text-align: center;
+
+  @include md {
+    margin-bottom: 44px;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 14px;
+}
+.title {
+  @include section-title;
+  margin: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.item {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  overflow: hidden;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+
+  &:hover {
+    border-color: $border-strong;
+  }
+}
+
+.itemOpen {
+  border-color: rgba($primary, 0.35);
+  box-shadow: $shadow-soft;
+}
+
+.itemHeading {
+  margin: 0;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 18px;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: -3px;
+  }
+
+  @include md {
+    padding: 21px 24px;
+  }
+}
+
+.question {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md {
+    font-size: 16.5px;
+  }
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: $surface-muted;
+  color: $text-muted;
+  flex-shrink: 0;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+  background: $primary-light;
+  color: $primary;
+}
+
+.panel {
+  overflow: hidden;
+}
+
+.answer {
+  margin: 0;
+  padding: 0 18px 20px;
+  font-size: 14.5px;
+  line-height: 1.78;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  @include md {
+    padding: 0 24px 23px;
+    font-size: 15px;
+  }
+}

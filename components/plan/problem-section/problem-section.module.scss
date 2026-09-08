@@ -1,0 +1,155 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-spacing;
+  background: $background;
+}
+
+.container {
+  @include container($container-wide);
+}
+
+.head {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+
+  @include md {
+    margin-bottom: 52px;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 14px;
+}
+
+.title {
+  @include section-title;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+.card {
+  position: relative;
+  padding: 24px 20px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+
+  @include md {
+    padding: 30px 26px;
+  }
+
+  &:hover {
+    border-color: rgba($primary, 0.35);
+    box-shadow: $shadow-card;
+    transform: translateY(-2px);
+  }
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: $primary-light;
+  color: $primary;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.cardNum {
+  display: block;
+  margin: 18px 0 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: $text-muted;
+}
+
+.cardTitle {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md {
+    font-size: 18.5px;
+  }
+}
+
+.cardDesc {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.bridge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 18px 20px;
+  background: $primary-light;
+  border: 1px solid rgba($primary, 0.18);
+  border-radius: $radius-md;
+  text-align: center;
+
+  @include md {
+    margin-top: 36px;
+    padding: 22px 24px;
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: $primary;
+  }
+
+  p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: $text-primary;
+    word-break: keep-all;
+
+    @include md {
+      font-size: 17px;
+    }
+  }
+
+  strong {
+    color: $primary;
+    font-weight: 800;
+  }
+}

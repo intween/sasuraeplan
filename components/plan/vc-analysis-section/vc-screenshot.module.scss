@@ -1,0 +1,137 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.frame {
+  @include product-frame;
+  margin: 0;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 28px 68px rgba(17, 24, 39, 0.13);
+  }
+
+  @include reduced-motion {
+    &:hover { transform: none; }
+  }
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  background: $surface-muted;
+  border-bottom: 1px solid $border-light;
+
+  @include md { padding: 12px 18px; }
+}
+
+.barLogo {
+  display: block;
+  height: 17px;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+
+  @include md { height: 19px; }
+}
+
+.barTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+  white-space: nowrap;
+}
+
+.zoomButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  padding: 6px 11px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: border-color 0.16s ease, color 0.16s ease;
+
+  &:hover { border-color: $primary; color: $primary; }
+  &:focus-visible { outline: 2px solid $primary; outline-offset: 2px; }
+
+  svg { width: 12px; height: 12px; }
+}
+
+.imageButton {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: $surface;
+  border: none;
+  cursor: zoom-in;
+
+  &:focus-visible { outline: 2px solid $primary; outline-offset: -2px; }
+}
+
+// 원본 비율 그대로. crop 하지 않는다.
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+// ── 확대 모달 ──────────────────────────────────
+.dialog {
+  width: 96vw;
+  max-width: 1400px;
+  max-height: 92vh;
+  padding: 0;
+  border: none;
+  border-radius: $radius-lg;
+  background: $surface;
+  overflow: visible;
+
+  &::backdrop {
+    background: rgba(16, 18, 32, 0.72);
+  }
+}
+
+.dialogInner {
+  position: relative;
+  max-height: 92vh;
+  overflow: auto;
+  border-radius: $radius-lg;
+}
+
+.dialogImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid $border;
+  border-radius: 10px;
+  color: $text-primary;
+  cursor: pointer;
+  box-shadow: $shadow-soft;
+
+  &:hover { background: #fff; }
+  &:focus-visible { outline: 2px solid $primary; outline-offset: 2px; }
+
+  svg { width: 18px; height: 18px; }
+}

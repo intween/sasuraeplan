@@ -1,0 +1,195 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-spacing;
+  background: $background-soft;
+}
+
+.container {
+  @include container($container-wide);
+}
+
+.head {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+
+  @include md {
+    margin-bottom: 56px;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 14px;
+}
+.title {
+  @include section-title;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  // 7개이므로 마지막 줄이 홀로 남지 않도록 중앙 정렬한다
+  @include lg {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+.step {
+  position: relative;
+  padding: 20px 18px 20px 46px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+
+  // 모바일: 왼쪽 세로 타임라인
+  &:not(:last-child) {
+    margin-bottom: 14px;
+  }
+
+  &:hover {
+    border-color: rgba($primary, 0.32);
+    box-shadow: $shadow-card;
+  }
+
+  // 모바일 타임라인 선
+  &::before {
+    content: '';
+    position: absolute;
+    top: 44px;
+    left: 27px;
+    bottom: -14px;
+    width: 2px;
+    background: $border;
+  }
+
+  &:last-child::before {
+    display: none;
+  }
+
+  @include md {
+    padding: 26px 22px;
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+    &::before {
+      display: none;
+    }
+  }
+
+  @include lg {
+    flex: 0 1 calc((100% - 40px) / 3);
+  }
+}
+
+.stepAccent {
+  border-color: rgba($primary, 0.4);
+  background: linear-gradient(180deg, $primary-light 0%, $surface 58%);
+}
+
+.stepTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.stepIcon {
+  position: absolute;
+  top: 20px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: $primary-light;
+  color: $primary;
+  z-index: 1;
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  @include md {
+    position: static;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.stepNo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: $primary;
+}
+
+.stepFlag {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: $surface-muted;
+  border: 1px solid $border;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: $text-muted;
+}
+
+.stepTitle {
+  margin: 0 0 8px;
+  font-size: 16.5px;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md {
+    font-size: 18px;
+  }
+}
+
+.stepDesc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  @include md {
+    font-size: 14.5px;
+  }
+}

@@ -1,0 +1,113 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.footer {
+  background: $surface-muted;
+  border-top: 1px solid $border-light;
+  padding-top: 48px;
+  padding-bottom: 32px;
+
+  @include md { padding-top: 64px; padding-bottom: 40px; }
+}
+
+.container { @include container($container-wide); }
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding-bottom: 32px;
+
+  @include md { grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; padding-bottom: 40px; }
+}
+
+.brandCol { max-width: 340px; }
+
+.brandLogo {
+  display: block;
+  height: 30px;
+  width: auto; // 873x200 원본 비율 유지
+  object-fit: contain;
+}
+
+.tagline {
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.col { min-width: 0; }
+
+.colTitle {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  font-size: 14px;
+  color: $text-secondary;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover { color: $primary; }
+  &:focus-visible { outline: 2px solid $primary; outline-offset: 3px; border-radius: 4px; }
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid $border;
+
+  @include md { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+
+.copyright {
+  margin: 0;
+  font-size: 13px;
+  color: $text-muted;
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legalItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: $text-muted;
+}
+
+.legalNote {
+  padding: 2px 7px;
+  border: 1px solid $border;
+  border-radius: 999px;
+  background: $surface;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: $text-muted;
+}

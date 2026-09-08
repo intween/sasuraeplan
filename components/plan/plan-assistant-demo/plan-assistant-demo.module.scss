@@ -1,0 +1,403 @@
+@use "sass:color";
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.demo { width: 100%; }
+
+// ── 탭 ─────────────────────────────────────────
+.tabsWrap {
+  @include scroll-x;
+  margin-bottom: 16px;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar { display: none; }
+}
+
+.tabs {
+  display: inline-flex;
+  gap: 6px;
+  padding: 5px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: 14px;
+  min-width: min-content;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: $text-secondary;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+
+  &:hover { color: $text-primary; }
+  &:focus-visible { outline: 2px solid $primary; outline-offset: 2px; }
+
+  svg { width: 15px; height: 15px; }
+}
+
+.tabActive {
+  background: $surface;
+  border-color: $border;
+  color: $primary;
+  box-shadow: $shadow-soft;
+}
+
+// ── 무대 ───────────────────────────────────────
+.stage {
+  display: flex;
+  flex-direction: column;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+
+  &:focus-visible { outline: 2px solid $primary; outline-offset: 2px; }
+}
+
+// 서비스 화면 상단 바
+.stageBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  background: $surface-muted;
+  border-bottom: 1px solid $border-light;
+
+  @include md { padding: 12px 18px; }
+}
+
+.stageLogo {
+  display: block;
+  height: 17px;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+
+  @include md { height: 19px; }
+}
+
+.stageDoc {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  display: none;
+  @include sm { display: block; }
+}
+
+.stageChip {
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: $surface;
+  border: 1px solid $border;
+  font-size: 11px;
+  font-weight: 700;
+  color: $text-muted;
+  white-space: nowrap;
+}
+
+.stageBody {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include lg { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+}
+
+// ── 대화 ───────────────────────────────────────
+.chat {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 16px;
+  background: linear-gradient(180deg, $background-purple 0%, $surface 40%);
+  border-bottom: 1px solid $border-light;
+
+  @include md { padding: 22px 20px; }
+  @include lg { border-bottom: none; border-right: 1px solid $border-light; }
+}
+
+.chatHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid $border-light;
+}
+
+.chatBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 9px;
+  background: $brand-gradient;
+  color: #fff;
+  flex-shrink: 0;
+
+  svg { width: 14px; height: 14px; }
+}
+
+.chatName {
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: $text-primary;
+}
+
+.chatCtx {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  color: $text-muted;
+  white-space: nowrap;
+
+  display: none;
+  @include sm { display: block; }
+}
+
+.thread {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.message {
+  max-width: 90%;
+  margin: 0;
+  padding: 11px 14px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
+.messageAi {
+  align-self: flex-start;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 14px 14px 14px 4px;
+  color: $text-secondary;
+  box-shadow: $shadow-soft;
+}
+
+.messageUser {
+  align-self: flex-end;
+  background: $primary;
+  border-radius: 14px 14px 4px 14px;
+  color: #fff;
+}
+
+// 실제 문서를 바꾸는 "수정 요청"은 단순 질문과 시각적으로 구분한다.
+.messageCommand {
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba($primary, 0.28);
+}
+
+.applied {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 90%;
+  padding: 10px 13px;
+  background: $success-soft;
+  border: 1px solid rgba($success, 0.3);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: color.adjust($success, $lightness: -8%);
+  word-break: keep-all;
+
+  svg { width: 14px; height: 14px; flex-shrink: 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .message,
+  .applied {
+    animation: msgIn 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--msg-delay, 0s);
+  }
+}
+
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+// ── 결과 패널 ──────────────────────────────────
+.side {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 16px;
+  background: $surface-muted;
+
+  @include md { padding: 22px 20px; }
+}
+
+.sideLabel {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+.diffBlock { margin-bottom: 12px; }
+
+.diffLabel {
+  display: inline-block;
+  margin-bottom: 7px;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: $surface;
+  border: 1px solid $border;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: $text-muted;
+}
+
+.diffLabelAfter {
+  background: $success-soft;
+  border-color: rgba($success, 0.3);
+  color: color.adjust($success, $lightness: -8%);
+}
+
+.diffText {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: $radius-sm;
+  font-size: 13px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+.diffBefore {
+  background: $surface;
+  border: 1px solid $border;
+  color: $text-muted;
+  text-decoration: line-through;
+  text-decoration-color: rgba($text-muted, 0.5);
+}
+
+.diffAfter {
+  background: $surface;
+  border: 1px solid rgba($success, 0.35);
+  color: $text-primary;
+  font-weight: 500;
+}
+
+.untouched {
+  display: flex;
+  gap: 10px;
+  padding: 16px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+
+  svg { width: 20px; height: 20px; flex-shrink: 0; color: $primary; }
+
+  p {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.68;
+    color: $text-secondary;
+    word-break: keep-all;
+  }
+
+  strong { font-size: 14px; font-weight: 700; color: $text-primary; }
+}
+
+// 지원사업
+.fundingCard {
+  padding: 16px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+}
+
+.fundingTitle {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  padding: 5px 10px;
+  background: $primary-light;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: $primary;
+}
+
+.fundingNote {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.65;
+  color: $text-muted;
+  word-break: keep-all;
+}
+
+.panelActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.panelButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 13px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+
+  svg { width: 12px; height: 12px; }
+}
+
+.caption {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-muted;
+}

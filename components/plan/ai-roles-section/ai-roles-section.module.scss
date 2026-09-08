@@ -1,0 +1,194 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.section {
+  @include section-spacing;
+  background: $background;
+}
+
+.container { @include container($container-wide); }
+
+.head {
+  max-width: 660px;
+  margin: 0 auto 36px;
+  text-align: center;
+
+  @include md { margin-bottom: 48px; }
+}
+
+.title { @include section-title; margin: 0; word-break: keep-all; }
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: 940px;
+  margin: 0 auto;
+
+  @include lg { grid-template-columns: repeat(2, 1fr); gap: 44px; }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+
+  @include md { padding: 30px 26px; }
+}
+
+.cardAccent {
+  border-color: rgba($primary, 0.4);
+  background: linear-gradient(180deg, $primary-light 0%, $surface 46%);
+  box-shadow: $shadow-card;
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid $border-light;
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: $primary-light;
+  color: $primary;
+  flex-shrink: 0;
+
+  svg { width: 20px; height: 20px; }
+}
+
+.cardAccent .cardIcon {
+  background: $brand-gradient;
+  color: #fff;
+}
+
+.cardHeadText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.stage {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+.role {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $text-primary;
+
+  @include md { font-size: 20px; }
+}
+
+.cardDesc {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.72;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.direction {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.line {
+  padding: 11px 13px;
+  font-size: 13px;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.lineAi {
+  align-self: flex-start;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: 12px 12px 12px 4px;
+  color: $text-secondary;
+}
+
+.lineUser {
+  align-self: flex-end;
+  background: $primary;
+  border-radius: 12px 12px 4px 12px;
+  color: #fff;
+  text-align: right;
+}
+
+// 두 단계가 이어진다는 표시
+.bridge {
+  display: none;
+
+  @include lg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: $surface;
+    border: 1px solid $border;
+    color: $primary;
+    box-shadow: $shadow-soft;
+
+    svg { width: 16px; height: 16px; }
+  }
+}
+
+.note {
+  max-width: 940px;
+  margin: 20px auto 0;
+  padding: 18px 20px;
+  background: $surface-muted;
+  border-radius: $radius-md;
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: $text-secondary;
+    word-break: keep-all;
+
+    @include md { font-size: 15.5px; }
+  }
+
+  strong { font-weight: 700; color: $primary; }
+}

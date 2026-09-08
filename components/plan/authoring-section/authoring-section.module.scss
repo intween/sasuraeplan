@@ -1,0 +1,171 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.section {
+  @include section-spacing;
+  background: $background-soft;
+}
+
+.container { @include container($container-wide); }
+
+.head {
+  max-width: 660px;
+  margin: 0 auto 40px;
+  text-align: center;
+
+  @include md { margin-bottom: 52px; }
+}
+
+.eyebrow { @include eyebrow; margin-bottom: 14px; }
+.title { @include section-title; margin: 0 0 16px; word-break: keep-all; }
+.desc { @include section-desc; margin: 0; word-break: keep-all; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include lg { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+
+  @include md { padding: 28px 24px; }
+
+  &:hover {
+    border-color: rgba($primary, 0.32);
+    box-shadow: $shadow-card;
+    transform: translateY(-2px);
+  }
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 14px;
+}
+
+.stepNo {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: $primary;
+}
+
+.cardAccent {
+  border-color: rgba($primary, 0.4);
+  background: linear-gradient(180deg, $primary-light 0%, $surface 50%);
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: $primary-light;
+  color: $primary;
+
+  svg { width: 19px; height: 19px; }
+}
+
+.cardTitle {
+  margin: 0 0 9px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md { font-size: 18.5px; }
+}
+
+.cardDesc {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.72;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+// ── 예시 블록 ──────────────────────────────────
+.example {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  padding: 16px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+}
+
+.exLabel {
+  margin-bottom: 7px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+.exLabelAi { color: $primary; }
+
+.askList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.exAsk {
+  margin: 0;
+  padding: 11px 13px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 12px 12px 12px 4px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.exUser {
+  margin: 0;
+  padding: 11px 13px;
+  background: $primary;
+  border-radius: 12px 12px 4px 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #fff;
+  word-break: keep-all;
+}
+
+.exWritten {
+  margin: 0;
+  padding: 12px 13px;
+  background: $surface;
+  border: 1px solid rgba($primary, 0.3);
+  border-radius: $radius-xs;
+  font-size: 13px;
+  line-height: 1.7;
+  color: $text-primary;
+  word-break: keep-all;
+}
+
+

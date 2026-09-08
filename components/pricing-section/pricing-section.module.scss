@@ -1,0 +1,226 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-spacing;
+  background: $background-soft;
+}
+
+.container {
+  @include container($container-wide);
+}
+
+.head {
+  max-width: 700px;
+  margin: 0 auto 44px;
+  text-align: center;
+
+  @include md {
+    margin-bottom: 56px;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 14px;
+}
+.title {
+  @include section-title;
+  margin: 0 0 12px;
+}
+.message {
+  @include section-message;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: start;
+
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 26px 22px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-soft;
+
+  @include md {
+    padding: 30px 26px;
+  }
+}
+
+.cardFeatured {
+  border: 1.5px solid $primary;
+  box-shadow: $shadow-card;
+}
+
+.badge {
+  position: absolute;
+  top: -11px;
+  left: 26px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: $primary;
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.planName {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: $primary;
+}
+
+.price {
+  margin: 0 0 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $border-light;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: $text-primary;
+
+  @include sm {
+    font-size: 34px;
+  }
+}
+
+.keyList {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.keyRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 13px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+  font-size: 13px;
+}
+
+.keyRowStrong {
+  border-color: rgba($primary, 0.3);
+  background: $primary-light;
+}
+
+.keyName {
+  font-weight: 600;
+  color: $text-secondary;
+}
+.keyValue {
+  font-weight: 700;
+  color: $text-primary;
+  text-align: right;
+}
+.keyValueMuted {
+  color: $text-muted;
+}
+.keyValueBrand {
+  color: $primary;
+}
+
+.cta {
+  @include button-secondary;
+  width: 100%;
+  margin-top: auto;
+}
+
+.ctaFeatured {
+  @include button-primary;
+  width: 100%;
+  margin-top: auto;
+}
+
+// ── 공통 기능 / 안내 ────────────────────────────
+.common {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 26px;
+  padding: 22px 24px;
+  background: $surface;
+  border: 1px solid $border-light;
+  border-radius: $radius-lg;
+
+  @include md {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+.commonLabel {
+  @include label-text;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.commonList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.commonChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: $text-secondary;
+
+  svg {
+    width: 12px;
+    height: 12px;
+    color: $primary;
+  }
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 18px 0 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: $text-secondary;
+
+  svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    color: $primary;
+  }
+}

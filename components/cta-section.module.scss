@@ -1,0 +1,191 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.section {
+  @include section-spacing;
+  background: $background-deep;
+}
+
+.container { @include container($container-wide); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: start;
+
+  @include lg { grid-template-columns: 44fr 56fr; gap: 56px; }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 14px;
+  color: #a7b0ff;
+}
+
+.title {
+  margin: 0 0 12px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.36;
+  letter-spacing: -0.028em;
+  color: #fff;
+  text-wrap: balance;
+
+  @include md { font-size: 36px; }
+  @include lg { font-size: 40px; }
+}
+
+.desc {
+  margin: 0 0 26px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.78);
+
+  @include md { font-size: 22px; }
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.point {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.82);
+
+  svg { width: 15px; height: 15px; flex-shrink: 0; color: #a7b0ff; }
+}
+
+// ── Form ───────────────────────────────────────
+.formCard {
+  padding: 24px 20px;
+  background: $surface;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-product;
+
+  @include md { padding: 30px 28px; }
+}
+
+.formTitle {
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+}
+
+.formHint {
+  margin: 0 0 20px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: $text-muted;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+
+  @include sm { grid-template-columns: 1fr 1fr; }
+}
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+
+.fieldWide {
+  @include sm { grid-column: 1 / -1; }
+}
+
+.label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: $text-secondary;
+}
+
+.required { color: $primary; }
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 13px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  color: $text-primary;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+  &::placeholder { color: $text-muted; }
+
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.14);
+  }
+}
+
+.textarea {
+  min-height: 104px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.select { appearance: none; background-image: none; cursor: pointer; }
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 18px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: $text-secondary;
+}
+
+.checkbox {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  accent-color: $primary;
+  cursor: pointer;
+
+  &:focus-visible { outline: 2px solid $primary; outline-offset: 2px; }
+}
+
+.submit {
+  @include button-primary;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 18px;
+  font-size: 15.5px;
+
+  &:disabled { opacity: 0.55; cursor: not-allowed; }
+}
+
+.status {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 13px 15px;
+  background: $primary-light;
+  border-radius: $radius-sm;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: $text-secondary;
+
+  svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; color: $primary; }
+}

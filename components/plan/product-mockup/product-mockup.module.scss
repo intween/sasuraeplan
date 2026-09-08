@@ -1,0 +1,432 @@
+@use "sass:color";
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.frame {
+  @include product-frame;
+  width: 100%;
+  font-size: 13px;
+  color: $text-primary;
+}
+
+// ── 상단 바 ────────────────────────────────────
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  background: $surface-muted;
+  border-bottom: 1px solid $border-light;
+
+  @include md { padding: 12px 18px; }
+}
+
+.brandLogo {
+  display: block;
+  height: 17px;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+
+  @include md { height: 19px; }
+}
+
+.divider {
+  width: 1px;
+  height: 14px;
+  background: $border;
+  flex-shrink: 0;
+
+  display: none;
+  @include sm { display: block; }
+}
+
+.docTitle {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  display: none;
+  @include sm { display: block; }
+}
+
+.saveState {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  color: $success;
+  white-space: nowrap;
+
+  svg { width: 12px; height: 12px; }
+}
+
+// ── 단계 내비게이션 (작성 → VC 분석 → 플랜비서) ─
+.stepNav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 10px 14px;
+  background: $surface;
+  border-bottom: 1px solid $border-light;
+
+  @include md { padding: 11px 18px; gap: 4px; }
+}
+
+.stepWrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.step {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  @include md { font-size: 11.5px; padding: 5px 12px; }
+
+  svg { width: 11px; height: 11px; }
+}
+
+.done {
+  background: $success-soft;
+  color: color.adjust($success, $lightness: -8%);
+}
+
+.active {
+  background: $primary;
+  color: #fff;
+}
+
+.stepArrow {
+  width: 12px;
+  height: 1px;
+  margin: 0 3px;
+  background: $border-strong;
+  flex-shrink: 0;
+
+  @include md { width: 16px; }
+}
+
+// ── 내 계획서 카드 ─────────────────────────────
+.planCard {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 18px;
+  padding: 12px 13px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+}
+
+.planLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+.planName {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: $text-primary;
+  word-break: keep-all;
+}
+
+.planState {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  color: color.adjust($success, $lightness: -8%);
+
+  svg { width: 11px; height: 11px; flex-shrink: 0; }
+}
+
+// ── 본문 ───────────────────────────────────────
+.body {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include md { grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr); }
+}
+
+.paneLabel {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+// ── VC 분석 ────────────────────────────────────
+.analysis {
+  padding: 18px 16px;
+  border-bottom: 1px solid $border-light;
+
+  @include md { padding: 22px 20px; border-bottom: none; border-right: 1px solid $border-light; }
+}
+
+.scoreRow {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+.scoreValue {
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  color: $text-primary;
+
+  @include md { font-size: 54px; }
+}
+
+.scoreMax {
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-muted;
+}
+
+.grade {
+  margin-left: auto;
+  align-self: center;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: $primary-light;
+  color: $primary;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.axisList {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.axisItem { min-width: 0; }
+
+.axisHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.axisName {
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.axisScore {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: $text-primary;
+  font-variant-numeric: tabular-nums;
+}
+
+.axisScoreWatch { color: $warning; }
+
+.axisTrack {
+  height: 6px;
+  border-radius: 999px;
+  background: $border-light;
+  overflow: hidden;
+}
+
+.axisFill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: $primary;
+  transform-origin: left center;
+}
+
+.axisFillWatch { background: $warning; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .axisFill {
+    animation: axisGrow 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--axis-delay, 0s);
+  }
+}
+
+@keyframes axisGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+// ── 플랜비서 ───────────────────────────────────
+.assistant {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 16px;
+  background: linear-gradient(180deg, $background-purple 0%, $surface 42%);
+
+  @include md { padding: 22px 20px; }
+}
+
+.assistantHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid $border-light;
+}
+
+.assistantBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  background: $brand-gradient;
+  color: #fff;
+  flex-shrink: 0;
+
+  svg { width: 13px; height: 13px; }
+}
+
+.assistantName {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.assistantCtx {
+  margin-left: auto;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: $text-muted;
+  white-space: nowrap;
+
+  display: none;
+  @include sm { display: block; }
+}
+
+.thread {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.message {
+  max-width: 88%;
+  padding: 10px 13px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  word-break: keep-all;
+
+  strong { font-weight: 700; color: $primary; }
+}
+
+.messageAi {
+  align-self: flex-start;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 14px 14px 14px 4px;
+  color: $text-secondary;
+  box-shadow: $shadow-soft;
+}
+
+.messageUser {
+  align-self: flex-end;
+  background: $primary;
+  border-radius: 14px 14px 4px 14px;
+  color: #fff;
+}
+
+// "계획서에 넣어줘" 처럼 실제 문서를 바꾸는 수정 요청은 시각적으로 구분한다.
+.messageCommand {
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba($primary, 0.28);
+}
+
+.applied {
+  align-self: stretch;
+  margin-top: 3px;
+  padding: 12px 13px;
+  background: $success-soft;
+  border: 1px solid rgba($success, 0.3);
+  border-radius: 12px;
+}
+
+.appliedHead {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: color.adjust($success, $lightness: -8%);
+  word-break: keep-all;
+
+  svg { width: 14px; height: 14px; flex-shrink: 0; }
+}
+
+.appliedActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.appliedButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: $text-secondary;
+
+  svg { width: 11px; height: 11px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .message,
+  .applied {
+    animation: msgIn 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--msg-delay, 0s);
+  }
+}
+
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}

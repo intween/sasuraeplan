@@ -1,0 +1,615 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+// 전문가 영역도 플랜 사수 제품의 한 기능으로 보이도록
+// 별도 팔레트 없이 랜딩 전체와 동일한 브랜드 토큰만 사용한다.
+// (색이 아니라 Product UI 와 내용으로 "사람이 직접 읽는다"는 차이를 보여준다.)
+
+.section {
+  @include section-spacing;
+  background: $background-soft;
+}
+
+.container { @include container($container-wide); }
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+
+  @include lg { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 48px; }
+}
+
+// ── 좌: 설명 ───────────────────────────────────
+.copyCol { min-width: 0; }
+
+.badge {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: $primary-light;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $primary;
+}
+
+.title {
+  @include section-title;
+  margin: 0 0 16px;
+  word-break: keep-all;
+}
+
+.titleAccent { color: $primary; }
+
+.desc {
+  @include section-desc;
+  margin: 0 0 14px;
+  word-break: keep-all;
+
+  &:last-of-type { margin-bottom: 0; }
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  @include md { font-size: 15px; }
+
+  svg { width: 18px; height: 18px; flex-shrink: 0; color: $primary; }
+}
+
+.assignNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 22px 0 0;
+  padding: 14px 16px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  font-size: 13px;
+  line-height: 1.7;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; color: $primary; }
+}
+
+// ── 우: 검토 완료 제품 화면 ────────────────────
+.mockCol { min-width: 0; }
+
+.mock {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-soft;
+}
+
+.mockBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  background: $surface-muted;
+  border-bottom: 1px solid $border-light;
+
+  @include md { padding: 12px 20px; }
+}
+
+.mockLogo {
+  display: block;
+  height: 17px;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+
+  @include md { height: 19px; }
+}
+
+.mockBarTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+  white-space: nowrap;
+}
+
+.mockBadge {
+  margin-left: auto;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: $primary-light;
+  color: $primary;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.mockBody {
+  padding: 20px 18px;
+
+  @include md { padding: 24px 26px; }
+}
+
+// 진행 상태
+.statusRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.statusItem {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: $text-muted;
+  white-space: nowrap;
+}
+
+.statusDone {
+  color: $text-secondary;
+}
+
+.statusCurrent {
+  background: $primary;
+  border-color: $primary;
+  color: #fff;
+  font-weight: 700;
+}
+
+.mockMessage {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.72;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  @include md { font-size: 14.5px; }
+}
+
+// 검토본 파일
+.fileCard {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px 16px;
+  background: $background-soft;
+  border: 1px solid $border;
+  border-radius: $radius-sm;
+}
+
+.fileIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: $primary-light;
+  color: $primary;
+  flex-shrink: 0;
+
+  svg { width: 18px; height: 18px; }
+}
+
+.fileBody {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  flex: 1;
+}
+
+.fileName {
+  font-size: 14px;
+  font-weight: 700;
+  color: $text-primary;
+  word-break: break-all;
+}
+
+.fileMeta {
+  font-size: 12px;
+  color: $text-muted;
+}
+
+.fileStatus {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: $primary-light;
+  font-size: 11px;
+  font-weight: 700;
+  color: $primary;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.fileActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.filePrimary {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: $primary;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.fileGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: $surface;
+  border: 1px solid $border-strong;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: $text-primary;
+
+  svg { width: 14px; height: 14px; color: $primary; }
+}
+
+// 전문가 의견
+.previewLabel {
+  display: block;
+  margin: 22px 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.comment {
+  padding: 14px 15px;
+  background: $background-soft;
+  border: 1px solid $border;
+  border-radius: $radius-sm;
+}
+
+.commentSource {
+  margin: 0 0 10px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+// 계획서 원문에서 전문가가 짚은 부분 (아주 연한 브랜드 블루)
+.mark {
+  background: rgba($primary, 0.08);
+  border-radius: 4px;
+  box-shadow: 0 0 0 3px rgba($primary, 0.08);
+  color: inherit;
+}
+
+.commentNote {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 13px;
+  background: $surface;
+  border: 1px solid $border-light;
+  border-left: 3px solid $primary;
+  border-radius: 0 10px 10px 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: $text-primary;
+  word-break: keep-all;
+}
+
+.commentTag {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: $primary;
+}
+
+.noEdit {
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid $border-light;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: $text-muted;
+  word-break: keep-all;
+}
+
+// ── 원본 + VC 참고 → 검토 → 검토본 ─────────────
+.pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 24px;
+  padding: 22px 20px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+
+  @include lg { flex-direction: row; align-items: center; padding: 26px 24px; }
+}
+
+.sources {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @include lg { flex: 1.3; }
+}
+
+.sourceCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+}
+
+.sourcePrimary {
+  background: $primary-light;
+  border-color: rgba($primary, 0.22);
+}
+
+.sourceIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: $surface;
+  border: 1px solid $border-light;
+  color: $primary;
+  flex-shrink: 0;
+
+  svg { width: 17px; height: 17px; }
+}
+
+.sourceBody {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.sourceTitle {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md { font-size: 14.5px; }
+}
+
+.sourceNote {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+  color: $text-muted;
+  flex-shrink: 0;
+
+  svg { width: 17px; height: 17px; transform: rotate(90deg); }
+
+  @include lg {
+    padding: 0 16px;
+    svg { transform: none; }
+  }
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 16px 18px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+  text-align: center;
+
+  @include lg { flex: 1; }
+}
+
+// 핵심 단계 강조
+.stageActive {
+  background: $surface;
+  border: 1.5px solid $primary;
+}
+
+.stageTitle {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+
+  @include md { font-size: 16px; }
+}
+
+.stageActive .stageTitle { color: $primary; }
+
+.stageNote {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+// ── 검토본 이후 플랜비서 ───────────────────────
+.afterCard {
+  margin-top: 16px;
+  padding: 24px 20px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+
+  @include md { padding: 28px 26px; }
+}
+
+.afterHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+
+  svg { width: 18px; height: 18px; flex-shrink: 0; color: $primary; }
+}
+
+.afterTitle {
+  margin: 0;
+  font-size: 16.5px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md { font-size: 18px; }
+}
+
+.afterThread {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.afterLine {
+  max-width: 92%;
+  padding: 11px 14px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  word-break: keep-all;
+
+  @include md { max-width: 78%; }
+}
+
+.afterexpert {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: $surface;
+  border: 1px solid $border;
+  border-left: 3px solid $primary;
+  border-radius: 0 12px 12px 0;
+  color: $text-primary;
+  font-weight: 600;
+}
+
+.afterTag {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: $primary;
+}
+
+.afterai {
+  align-self: flex-start;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: 12px 12px 12px 4px;
+  color: $text-secondary;
+}
+
+.afteruser {
+  align-self: flex-end;
+  background: $primary;
+  border-radius: 12px 12px 4px 12px;
+  color: #fff;
+}
+
+.afterCommand {
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba($primary, 0.26);
+}
+
+// ── PREMIUM 안내 ───────────────────────────────
+.premium {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 20px 22px;
+  background: $primary-light;
+  border: 1px solid rgba($primary, 0.2);
+  border-radius: $radius-lg;
+  text-align: center;
+
+  @include md { flex-direction: row; justify-content: center; gap: 16px; }
+
+  > svg { width: 17px; height: 17px; flex-shrink: 0; color: $primary; }
+
+  p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: $text-primary;
+    word-break: keep-all;
+
+    @include md { font-size: 15.5px; }
+  }
+
+  strong { font-weight: 700; }
+}
+
+.premiumCta {
+  @include button-primary;
+  min-height: 42px;
+  padding: 0 18px;
+  font-size: 14px;
+  flex-shrink: 0;
+}

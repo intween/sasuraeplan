@@ -1,0 +1,419 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-spacing;
+  background: $background-soft;
+}
+
+.container {
+  @include container($container-wide);
+}
+
+.head {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+
+  @include md {
+    margin-bottom: 48px;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 14px;
+}
+.title {
+  @include section-title;
+  margin: 0 0 16px;
+  word-break: keep-all;
+}
+.desc {
+  @include section-desc;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  align-items: start;
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  @include lg {
+    grid-template-columns: 1.15fr 1fr 0.85fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+
+  @include md {
+    padding: 26px 24px;
+  }
+}
+
+.cardFeatured {
+  border-color: rgba($primary, 0.38);
+  box-shadow: $shadow-card;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: $primary-light;
+  color: $primary;
+  flex-shrink: 0;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.cardBadge {
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  font-size: 11px;
+  font-weight: 700;
+  color: $text-muted;
+  white-space: nowrap;
+}
+
+.cardBadgeFeatured {
+  background: $primary;
+  border-color: $primary;
+  color: #fff;
+}
+
+.cardTitle {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md {
+    font-size: 19px;
+  }
+}
+
+.cardDesc {
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  padding: 6px 11px;
+  background: $primary-light;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: $primary;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 18px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid $border-light;
+  list-style: none;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 13px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-secondary;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: $primary;
+  }
+}
+
+// ── 매칭 기준 ──────────────────────────────────
+.matchCard {
+  padding: 22px 20px;
+  background: $surface;
+  border: 1px dashed $border-strong;
+  border-radius: $radius-md;
+
+  @include md {
+    padding: 26px 24px;
+  }
+}
+
+.matchLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $text-muted;
+
+  svg {
+    width: 13px;
+    height: 13px;
+    color: $primary;
+  }
+}
+
+.matchList {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0 0 12px;
+}
+
+.matchRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  background: $surface-muted;
+  border-radius: $radius-sm;
+
+  dt {
+    margin: 0;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: $text-secondary;
+  }
+
+  dd {
+    margin: 0;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: $text-primary;
+  }
+}
+
+.matchNote {
+  margin: 0;
+  font-size: 12px;
+  color: $text-muted;
+}
+
+// ── 안내 ───────────────────────────────────────
+.disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 16px 18px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+
+  svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: $text-muted;
+  }
+
+  p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+    color: $text-secondary;
+    word-break: keep-all;
+
+    @include md {
+      font-size: 13.5px;
+    }
+  }
+}
+
+// ── §20 지원사업 → 계획서 준비 흐름 ────────────
+.linkHead {
+  max-width: 700px;
+  margin: 56px auto 28px;
+  text-align: center;
+
+  @include md {
+    margin-top: 76px;
+    margin-bottom: 34px;
+  }
+}
+
+.linkTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.44;
+  letter-spacing: -0.028em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md {
+    font-size: 26px;
+  }
+  @include lg {
+    font-size: 30px;
+  }
+}
+
+.linkFlow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include lg {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+  }
+}
+
+.linkItem {
+  display: flex;
+}
+
+.linkCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 18px 14px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  text-align: center;
+
+  @include md {
+    padding: 22px 16px;
+  }
+}
+
+.linkCardAccent {
+  border-color: rgba($primary, 0.4);
+  background: linear-gradient(180deg, $primary-light 0%, $surface 60%);
+  box-shadow: $shadow-card;
+}
+
+.linkIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 11px;
+  border-radius: 10px;
+  background: $primary-light;
+  color: $primary;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.linkLabel {
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md {
+    font-size: 14px;
+  }
+}
+
+.linkQuote {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: 9px;
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.linkNote {
+  margin-top: 16px;
+  padding: 16px 18px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: $text-secondary;
+    word-break: keep-all;
+
+    @include md {
+      font-size: 15px;
+    }
+  }
+
+  strong {
+    font-weight: 700;
+    color: $primary;
+  }
+}

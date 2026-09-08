@@ -1,0 +1,135 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.section {
+  padding-top: 56px;
+  padding-bottom: 56px;
+  background: $background-soft;
+
+  @include md { padding-top: 76px; padding-bottom: 76px; }
+}
+
+.container { @include container($container-wide); }
+
+.head {
+  max-width: 620px;
+  margin: 0 auto 28px;
+  text-align: center;
+
+  @include md { margin-bottom: 36px; }
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md { font-size: 28px; }
+  @include lg { font-size: 32px; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+
+  @include md { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 18px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+
+  @include md { padding: 24px 22px; }
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 13px;
+  border-radius: 10px;
+  background: $primary-light;
+  color: $primary;
+
+  svg { width: 17px; height: 17px; }
+}
+
+.cardTitle {
+  margin: 0 0 8px;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md { font-size: 16.5px; }
+}
+
+.cardDesc {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.72;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  @include md { font-size: 14px; }
+}
+
+// 되돌리기 강조
+.revert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 18px 20px;
+  background: $primary-light;
+  border: 1px solid rgba($primary, 0.22);
+  border-radius: $radius-md;
+
+  @include md { justify-content: center; }
+}
+
+.revertIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: $primary;
+  color: #fff;
+  flex-shrink: 0;
+
+  svg { width: 17px; height: 17px; }
+}
+
+.revert p {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  @include md { flex-direction: row; align-items: baseline; gap: 10px; font-size: 14.5px; }
+}
+
+.revert strong {
+  font-size: 15px;
+  font-weight: 800;
+  color: $primary;
+  white-space: nowrap;
+}

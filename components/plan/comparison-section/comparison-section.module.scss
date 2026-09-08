@@ -1,0 +1,214 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-spacing;
+  background: $background-soft;
+}
+
+.container {
+  @include container($container-wide);
+}
+
+.head {
+  max-width: 700px;
+  margin: 0 auto 36px;
+  text-align: center;
+
+  @include md {
+    margin-bottom: 48px;
+  }
+}
+
+.title {
+  @include section-title;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.tableWrap {
+  display: block;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.caption {
+  @include visually-hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+// ── 모바일: 행을 카드로 ────────────────────────
+@include below-md {
+  .table thead {
+    @include visually-hidden;
+  }
+
+  .table tr {
+    display: block;
+    margin-bottom: 12px;
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+    overflow: hidden;
+  }
+
+  .cellFeature {
+    display: block;
+    padding: 13px 16px;
+    background: $surface-muted;
+    border-bottom: 1px solid $border-light;
+    font-size: 14px;
+    font-weight: 700;
+    color: $text-primary;
+    text-align: left;
+    word-break: keep-all;
+  }
+
+  .cellGeneral,
+  .cellPlan {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    word-break: keep-all;
+
+    &::before {
+      content: attr(data-label);
+      flex-shrink: 0;
+      width: 96px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: $text-muted;
+    }
+  }
+
+  .cellGeneral {
+    color: $text-muted;
+  }
+
+  .cellPlan {
+    background: $primary-light;
+    font-weight: 700;
+    color: $text-primary;
+
+    &::before {
+      color: $primary;
+    }
+    .planValue svg {
+      display: none;
+    }
+  }
+}
+
+// ── 데스크톱: 일반 표 ──────────────────────────
+@include md {
+  .table th,
+  .table td {
+    padding: 16px 20px;
+    text-align: left;
+    vertical-align: middle;
+    background: $surface;
+    border-bottom: 1px solid $border-light;
+  }
+
+  .table thead th {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    background: $surface-muted;
+    font-size: 13px;
+    font-weight: 700;
+    color: $text-secondary;
+    white-space: nowrap;
+  }
+
+  .table tr:first-child th:first-child {
+    border-top-left-radius: $radius-md;
+  }
+  .table tr:first-child th:last-child {
+    border-top-right-radius: $radius-md;
+  }
+  .table tbody tr:last-child th {
+    border-bottom-left-radius: $radius-md;
+  }
+  .table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: $radius-md;
+  }
+  .table tbody tr:last-child th,
+  .table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .table tbody tr:hover th,
+  .table tbody tr:hover td {
+    background: $surface-muted;
+  }
+
+  .colFeature {
+    width: 24%;
+  }
+  .colGeneral {
+    width: 34%;
+  }
+
+  .colPlan {
+    width: 42%;
+    background: $primary-light !important;
+    border-bottom-color: rgba($primary, 0.16) !important;
+  }
+
+  .planHead {
+    display: inline-block;
+    padding: 5px 13px;
+    border-radius: 999px;
+    background: $primary;
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: 800;
+  }
+
+  .cellFeature {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: $text-primary;
+    word-break: keep-all;
+  }
+
+  .cellGeneral {
+    font-size: 14px;
+    color: $text-muted;
+    word-break: keep-all;
+  }
+
+  .cellPlan {
+    background: $primary-light;
+    border-bottom-color: rgba($primary, 0.16);
+    font-size: 14.5px;
+    font-weight: 700;
+    color: $text-primary;
+    word-break: keep-all;
+  }
+
+  .planValue {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      color: $primary;
+    }
+  }
+
+  .table tbody tr:hover .cellPlan {
+    background: rgba($primary, 0.12);
+  }
+}

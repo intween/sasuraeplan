@@ -1,0 +1,397 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  @include section-spacing;
+  background: $background-soft;
+}
+
+.container { @include container($container-wide); }
+
+.head {
+  max-width: 660px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.eyebrow { @include eyebrow; margin-bottom: 14px; }
+.title { @include section-title; margin: 0 0 12px; }
+.message { @include section-message; margin: 0; }
+
+// ── Plan cards ─────────────────────────────────
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  align-items: stretch;
+
+  @include md { grid-template-columns: repeat(2, 1fr); }
+  @include lg { grid-template-columns: 1.3fr 1fr 1fr; gap: 18px; }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 24px 22px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-soft;
+}
+
+.cardBase {
+  border-color: rgba($primary, 0.35);
+
+  @include md { grid-column: 1 / -1; }
+  @include lg { grid-column: auto; }
+}
+
+.formName {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border: 1px solid $border;
+  border-radius: 999px;
+  background: $surface-muted;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: $text-secondary;
+
+  svg { width: 14px; height: 14px; color: $text-muted; }
+}
+
+.formNameBase {
+  border-color: rgba($primary, 0.28);
+  background: $primary-light;
+  color: $primary;
+
+  svg { color: $primary; }
+}
+
+.versions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.versionChip {
+  padding: 6px 12px;
+  border: 1px solid $border-light;
+  border-radius: 8px;
+  background: $surface-muted;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: $text-secondary;
+}
+
+.freeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.freeChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: $text-secondary;
+
+  svg { width: 11px; height: 11px; color: $primary; }
+}
+
+.newBadge {
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: $secondary-light;
+  color: $secondary;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: auto;
+  padding: 13px 14px;
+  border-radius: $radius-sm;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.resultSame {
+  background: $primary-light;
+  color: $primary;
+}
+
+.resultNew {
+  background: $background-deep;
+  color: #fff;
+}
+
+// ── Rules ──────────────────────────────────────
+.rules {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 26px;
+
+  @include sm { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+
+.rule {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 22px;
+  border-radius: $radius-md;
+
+  svg { width: 20px; height: 20px; flex-shrink: 0; color: $primary; }
+
+  strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: $text-primary;
+  }
+
+  span span,
+  > span {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: $text-secondary;
+  }
+}
+
+.ruleFree {
+  background: $surface;
+  border: 1px solid $border-light;
+}
+
+.ruleNew {
+  background: $primary-light;
+  border: 1px solid rgba($primary, 0.28);
+}
+
+// ── Detail ─────────────────────────────────────
+.detailGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 26px;
+  align-items: start;
+
+  @include lg { grid-template-columns: 1fr 1fr; gap: 22px; }
+}
+
+.panel {
+  padding: 24px 22px;
+  background: $surface;
+  border: 1px solid $border-light;
+  border-radius: $radius-lg;
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+
+  svg { width: 17px; height: 17px; color: $primary; }
+}
+
+.panelDesc {
+  margin: 0 0 18px;
+  font-size: 13.5px;
+  color: $text-secondary;
+}
+
+.mapList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mapRow {
+  display: grid;
+  grid-template-columns: 1fr 16px 1fr;
+  gap: 9px;
+  align-items: center;
+}
+
+.mapFrom,
+.mapTo {
+  padding: 10px 12px;
+  border-radius: 9px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.mapFrom {
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  color: $text-secondary;
+}
+
+.mapTo {
+  background: $primary-light;
+  border: 1px solid rgba($primary, 0.24);
+  color: $primary;
+}
+
+.mapArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-muted;
+
+  svg { width: 14px; height: 14px; }
+}
+
+// ── Modal mockup ───────────────────────────────
+.modalStage {
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px;
+  background: rgba($background-deep, 0.05);
+  border: 1px solid $border-light;
+  border-radius: $radius-lg;
+}
+
+.modal {
+  width: 100%;
+  max-width: 380px;
+  padding: 22px 20px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-product;
+}
+
+.modalTitle {
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+}
+
+.modalDesc {
+  margin: 0 0 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $primary;
+}
+
+.modalCompare {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.modalArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-muted;
+
+  svg { width: 15px; height: 15px; transform: rotate(90deg); }
+}
+
+.modalRow {
+  padding: 11px 13px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+}
+
+.modalRowNew {
+  background: $primary-light;
+  border-color: rgba($primary, 0.26);
+}
+
+.modalRowLabel {
+  @include label-text;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.modalRowItem {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.modalNotice {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 16px;
+  padding: 11px 13px;
+  border-radius: $radius-sm;
+  background: $warning-soft;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: $warning;
+
+  svg { width: 14px; height: 14px; flex-shrink: 0; }
+}
+
+.modalActions {
+  display: flex;
+  gap: 8px;
+}
+
+.modalPrimary {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: $primary;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.modalSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border: 1px solid $border;
+  border-radius: 10px;
+  background: $surface;
+  color: $text-secondary;
+  font-size: 13px;
+  font-weight: 600;
+}

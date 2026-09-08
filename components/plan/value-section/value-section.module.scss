@@ -1,0 +1,272 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-spacing;
+  background: $background-soft;
+}
+
+.container {
+  @include container($container-wide);
+}
+
+.head {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+
+  @include md {
+    margin-bottom: 48px;
+  }
+}
+
+.title {
+  @include section-title;
+  margin: 0 0 16px;
+  word-break: keep-all;
+}
+
+.desc {
+  @include section-desc;
+  margin: 0;
+  word-break: keep-all;
+
+  strong {
+    font-weight: 700;
+    color: $primary;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: stretch;
+
+  @include lg {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 20px;
+  }
+}
+
+// ── 계획서 1건 ─────────────────────────────────
+.mainCard {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  background: linear-gradient(180deg, $primary-light 0%, $surface 42%);
+  border: 1px solid rgba($primary, 0.32);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+
+  @include md {
+    padding: 30px 28px;
+  }
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid rgba($primary, 0.16);
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: $primary;
+  color: #fff;
+  flex-shrink: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.cardHeadText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  flex: 1;
+}
+
+.cardLabel {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $primary;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md {
+    font-size: 20px;
+  }
+}
+
+.cardBadge {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: $primary;
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.versionList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+
+  @include sm {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.version {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 11px 14px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-sm;
+
+  @include sm {
+    flex: 1 1 auto;
+    min-width: 130px;
+  }
+}
+
+.versionLabel {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: $text-primary;
+  word-break: keep-all;
+}
+
+.versionNote {
+  font-size: 11.5px;
+  color: $text-muted;
+  word-break: keep-all;
+}
+
+.mainNote {
+  margin: auto 0 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: $primary;
+  word-break: keep-all;
+}
+
+// ── 새 사업 아이템 ─────────────────────────────
+.sideCard {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  background: $surface;
+  border: 1px dashed $border-strong;
+  border-radius: $radius-lg;
+
+  @include md {
+    padding: 30px 28px;
+  }
+}
+
+.sideIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  background: $surface-muted;
+  border: 1px solid $border;
+  color: $text-muted;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.sideTitle {
+  margin: 4px 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md {
+    font-size: 20px;
+  }
+}
+
+.sideDesc {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.72;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.sideBadge {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: $surface-muted;
+  border: 1px solid $border;
+  font-size: 12px;
+  font-weight: 700;
+  color: $text-secondary;
+}
+
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 16px 18px;
+  background: $surface-muted;
+  border-radius: $radius-md;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: $text-muted;
+  }
+
+  p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: $text-secondary;
+    word-break: keep-all;
+  }
+}

@@ -1,0 +1,320 @@
+@use "sass:color";
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.frame {
+  @include product-frame;
+  width: 100%;
+  font-size: 13px;
+  color: $text-primary;
+}
+
+// ── Top bar ────────────────────────────────────
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: $surface-muted;
+  border-bottom: 1px solid $border-light;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: $text-primary;
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: $brand-gradient;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.divider {
+  width: 1px;
+  height: 14px;
+  background: $border;
+}
+
+.docTitle {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: $text-secondary;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.saveState {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: $success;
+
+  svg { width: 12px; height: 12px; }
+}
+
+// ── Layout ─────────────────────────────────────
+.body {
+  display: flex;
+  min-height: 396px;
+}
+
+.sidebar {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  width: 150px;
+  flex-shrink: 0;
+  padding: 12px 10px;
+  background: #fbfcfe;
+  border-right: 1px solid $border-light;
+
+  @include sm { display: flex; }
+}
+
+.sidebarLabel {
+  @include label-text;
+  padding: 4px 8px 8px;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 8px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 500;
+  color: $text-secondary;
+  white-space: nowrap;
+
+  .dot {
+    width: 5px;
+    height: 5px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: $border-strong;
+  }
+
+  &.done .dot { background: $success; }
+
+  &.active {
+    background: $primary-light;
+    color: $primary;
+    font-weight: 600;
+
+    .dot { background: $primary; }
+  }
+}
+
+.navSplit {
+  height: 1px;
+  margin: 10px 8px;
+  background: $border-light;
+}
+
+.navItemAccent {
+  color: $secondary;
+
+  .dot { background: $secondary; }
+}
+
+// ── Editor ─────────────────────────────────────
+.editor {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 14px;
+
+  @include sm { padding: 18px 20px; }
+}
+
+.editorHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.editorTitle {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+}
+
+.stepBadge {
+  flex-shrink: 0;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: $primary-light;
+  color: $primary;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.block {
+  padding: 13px 14px;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+  background: $surface;
+}
+
+.blockLabel {
+  @include label-text;
+  display: block;
+  margin-bottom: 7px;
+  color: $text-muted;
+}
+
+.blockBody {
+  font-size: 12.5px;
+  line-height: 1.72;
+  color: $text-secondary;
+}
+
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 12px;
+  margin-left: 2px;
+  vertical-align: -2px;
+  background: $primary;
+  animation: blink 1.2s steps(2, start) infinite;
+
+  @include reduced-motion { animation: none; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.metaCard {
+  padding: 11px 12px;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+  background: $surface-muted;
+}
+
+.metaCardWide {
+  grid-column: 1 / -1;
+}
+
+.metaLabel {
+  @include label-text;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.metaValue {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+// ── AI 작성 제안 ────────────────────────────────
+.aiPanel {
+  padding: 13px 14px;
+  border: 1px solid rgba($secondary, 0.22);
+  border-radius: $radius-sm;
+  background: $secondary-light;
+}
+
+.aiHead {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 8px;
+}
+
+.aiBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba($secondary, 0.12);
+  color: $secondary;
+  font-size: 10.5px;
+  font-weight: 700;
+
+  svg { width: 11px; height: 11px; }
+}
+
+.aiTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.aiText {
+  font-size: 12px;
+  line-height: 1.7;
+  color: $text-secondary;
+}
+
+.aiActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 11px;
+}
+
+.aiButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 11px;
+  border: 1px solid rgba($secondary, 0.3);
+  border-radius: 8px;
+  background: $surface;
+  color: $secondary;
+  font-size: 11.5px;
+  font-weight: 600;
+
+  svg { width: 12px; height: 12px; }
+}
+
+.applyButton {
+  border-color: transparent;
+  background: $primary;
+  color: #fff;
+}
+
+.aiNote {
+  margin-top: 9px;
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: $text-muted;
+}

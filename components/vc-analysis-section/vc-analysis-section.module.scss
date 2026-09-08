@@ -1,0 +1,375 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+  @include section-spacing;
+  background: linear-gradient(180deg, $primary-light 0%, $background-soft 42%, $background-soft 100%);
+}
+
+.container {
+  @include container($container-wide);
+}
+
+.head {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+
+  @include md {
+    margin-bottom: 52px;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 14px;
+}
+.title {
+  @include section-title;
+  margin: 0 0 12px;
+}
+.message {
+  @include section-message;
+  margin: 0;
+}
+
+// ── Product frame ──────────────────────────────
+.product {
+  @include product-frame;
+}
+
+.reportBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  background: $surface-muted;
+  border-bottom: 1px solid $border-light;
+}
+
+.reportTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.reportDoc {
+  overflow: hidden;
+  font-size: 12px;
+  color: $text-muted;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reportChip {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: $primary-light;
+  color: $primary;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.panels {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include md {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include lg {
+    grid-template-columns: 250px 1fr 268px;
+  }
+}
+
+.panel {
+  padding: 20px 18px;
+  border-bottom: 1px solid $border-light;
+
+  @include md {
+    padding: 22px 20px;
+  }
+  @include lg {
+    border-bottom: none;
+    border-right: 1px solid $border-light;
+  }
+
+  &:last-child {
+    border-bottom: none;
+    border-right: none;
+
+    // md 에서는 2열이므로 마지막 패널이 한 줄을 모두 사용한다
+    @include md {
+      grid-column: 1 / -1;
+    }
+    @include lg {
+      grid-column: auto;
+    }
+  }
+}
+
+.panelLabel {
+  @include label-text;
+  display: block;
+  margin-bottom: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+// ── Score ──────────────────────────────────────
+.scoreRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.scoreValue {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: $primary;
+
+  @include md {
+    font-size: 56px;
+  }
+}
+
+.scoreMax {
+  padding-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-muted;
+}
+
+.gradeBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  margin-bottom: 4px;
+  margin-left: auto;
+  padding: 5px 11px;
+  border-radius: 9px;
+  background: $primary;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.scoreMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding-top: 14px;
+  border-top: 1px solid $border-light;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12.5px;
+}
+
+.metaKey {
+  color: $text-muted;
+}
+.metaVal {
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.stageChip {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: $secondary-light;
+  color: $secondary;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+// ── Axes ───────────────────────────────────────
+.axisList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.axisHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 7px;
+}
+
+.axisName {
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.axisScore {
+  font-size: 13.5px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: $primary;
+}
+
+.axisTrack {
+  height: 7px;
+  border-radius: 999px;
+  background: $border-light;
+  overflow: hidden;
+}
+
+.axisFill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: $primary;
+  // 폭은 인라인 스타일로 항상 지정된다. 아래는 시각 효과일 뿐이다.
+  transform-origin: left center;
+}
+
+@keyframes axisGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .axisFill {
+    animation: axisGrow 0.7s ease-out both;
+    animation-delay: var(--axis-delay, 0s);
+  }
+
+  @supports (animation-timeline: view()) {
+    .axisFill {
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+}
+
+.axisFillWatch {
+  background: $warning;
+}
+
+// ── Priority ───────────────────────────────────
+.priorityList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.priorityItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 13px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+}
+
+.priorityNum {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.5;
+  color: $primary;
+  font-variant-numeric: tabular-nums;
+}
+
+.priorityText {
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: $text-primary;
+}
+
+.priorityHint {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  color: $text-muted;
+}
+
+// ── Report nav ─────────────────────────────────
+.reportFoot {
+  padding: 18px;
+  background: $surface-muted;
+  border-top: 1px solid $border-light;
+}
+
+.reportNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.reportNavItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+
+  svg {
+    width: 12px;
+    height: 12px;
+    color: $primary;
+  }
+}
+
+.reportNavActive {
+  border-color: rgba($primary, 0.35);
+  background: $primary-light;
+  color: $primary;
+}
+
+.reportNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: $text-secondary;
+
+  svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: $primary;
+  }
+  strong {
+    color: $text-primary;
+    font-weight: 700;
+  }
+}

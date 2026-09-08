@@ -1,0 +1,149 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: 'Pretendard', 'Geist', 'Geist Fallback', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-success: var(--success);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* 사수래 Brand Colors */
+  --background: #ffffff;
+  --foreground: #2e2e36;
+  --card: #ffffff;
+  --card-foreground: #2e2e36;
+  --popover: #ffffff;
+  --popover-foreground: #2e2e36;
+  --primary: #4757f3;
+  --primary-foreground: #ffffff;
+  --secondary: #e1e7f7;
+  --secondary-foreground: #292951;
+  --muted: #f5f7fb;
+  --muted-foreground: #515157;
+  --accent: #a0c1ff;
+  --accent-foreground: #292951;
+  --destructive: #ef4444;
+  --border: #e8e8eb;
+  --input: #e8e8eb;
+  --ring: #4757f3;
+  --success: #56c57c;
+  --chart-1: #4757f3;
+  --chart-2: #56c57c;
+  --chart-3: #a0c1ff;
+  --chart-4: #292951;
+  --chart-5: #e1e7f7;
+  --radius: 1.25rem;
+  --sidebar: #fafbfc;
+  --sidebar-foreground: #2e2e36;
+  --sidebar-primary: #4757f3;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e1e7f7;
+  --sidebar-accent-foreground: #292951;
+  --sidebar-border: #e8e8eb;
+  --sidebar-ring: #4757f3;
+}
+
+.dark {
+  --background: #0f0f12;
+  --foreground: #f5f5f7;
+  --card: #1a1a1f;
+  --card-foreground: #f5f5f7;
+  --popover: #1a1a1f;
+  --popover-foreground: #f5f5f7;
+  --primary: #4757f3;
+  --primary-foreground: #ffffff;
+  --secondary: #292951;
+  --secondary-foreground: #e1e7f7;
+  --muted: #1a1a1f;
+  --muted-foreground: #a1a1aa;
+  --accent: #3948d6;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --border: #2a2a30;
+  --input: #2a2a30;
+  --ring: #4757f3;
+  --success: #56c57c;
+  --chart-1: #4757f3;
+  --chart-2: #56c57c;
+  --chart-3: #a0c1ff;
+  --chart-4: #e1e7f7;
+  --chart-5: #292951;
+  --sidebar: #1a1a1f;
+  --sidebar-foreground: #f5f5f7;
+  --sidebar-primary: #4757f3;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #292951;
+  --sidebar-accent-foreground: #e1e7f7;
+  --sidebar-border: #2a2a30;
+  --sidebar-ring: #4757f3;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+    /* 고정 헤더 높이만큼 앵커 이동 위치를 보정한다 */
+    scroll-padding-top: 88px;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    overflow-x: hidden;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+// 사수래AI 디자인 토큰
+// 기존 프로젝트 브랜드 컬러(#4757F3)를 Primary로 유지한다.
+
+// Brand
+$primary: #4757f3;
+$primary-dark: #3948d6;
+$primary-light: #eef1fe;
+$primary-soft: #e1e7f7;
+
+// AI 보조 포인트 (제한적으로 사용)
+$secondary: #7c3aed;
+$secondary-light: #f5f3ff;
+
+// Text
+$text-primary: #16162c;
+$text-secondary: #4e5169;
+$text-muted: #6b718d; // WCAG AA: 흰 배경 4.8:1, surface-muted 4.5:1
+$text-invert: #ffffff;
+
+// Background
+$background: #ffffff;
+$background-soft: #f7f9ff;
+$background-purple: #faf9ff;
+$background-deep: #1c1c3a;
+
+// Surface
+$surface: #ffffff;
+$surface-muted: #f6f8fd;
+
+// Border
+$border: #e5e8f0;
+$border-light: #f0f2f8;
+$border-strong: #d5d9e6;
+
+// Status
+$success: #16a34a;
+$success-soft: #e9f7ee;
+$warning: #b45309; // WCAG AA: 흰 배경 5.0:1
+$warning-soft: #fdf3e3;
+$error: #dc2626;
+$error-soft: #fdeded;
+
+// Brand Gradient
+$brand-gradient: linear-gradient(135deg, #4757f3 0%, #5a5bf2 48%, #7c3aed 100%);
+
+// Radius
+$radius-xs: 8px;
+$radius-sm: 10px;
+$radius-md: 16px;
+$radius-lg: 24px;
+$radius-xl: 32px;
+
+// Shadow
+$shadow-card: 0 8px 24px rgba(17, 24, 39, 0.06);
+$shadow-soft: 0 4px 14px rgba(17, 24, 39, 0.05);
+$shadow-product: 0 24px 60px rgba(17, 24, 39, 0.1);
+$shadow-float: 0 12px 32px rgba(17, 24, 39, 0.1);
+
+// Layout
+$container-max: 1200px;
+$container-wide: 1280px;

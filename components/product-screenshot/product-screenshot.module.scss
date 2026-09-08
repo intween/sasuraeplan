@@ -1,0 +1,53 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.wrap {
+  position: relative;
+}
+
+.frame {
+  @include product-frame;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: $surface-muted;
+  border-bottom: 1px solid $border-light;
+}
+
+.barLogo {
+  display: block;
+  height: 17px;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+
+  @include md { height: 19px; }
+}
+
+.barTitle {
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.note {
+  display: block;
+  margin-top: 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: $text-muted;
+  text-align: right;
+}

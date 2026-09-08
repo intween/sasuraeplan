@@ -1,0 +1,212 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-spacing;
+  background: $background;
+}
+
+.container {
+  @include container($container-wide);
+}
+
+.head {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+
+  @include md {
+    margin-bottom: 52px;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 14px;
+}
+.title {
+  @include section-title;
+  margin: 0 0 16px;
+  word-break: keep-all;
+}
+
+.desc {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.65;
+  letter-spacing: -0.02em;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  @include md {
+    font-size: 18px;
+  }
+}
+
+.flow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+.stageItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  @include lg {
+    display: block;
+  }
+}
+
+.stage {
+  height: 100%;
+  padding: 24px 22px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  text-align: center;
+
+  @include md {
+    padding: 30px 26px;
+  }
+}
+
+.stageAccent {
+  border-color: rgba($primary, 0.4);
+  background: linear-gradient(180deg, $primary-light 0%, $surface 55%);
+  box-shadow: $shadow-card;
+}
+
+.stageIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 14px;
+  border-radius: 13px;
+  background: $primary-light;
+  color: $primary;
+
+  svg {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+.stageLabel {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+
+  @include md {
+    font-size: 18.5px;
+  }
+}
+
+.stageDesc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  @include md {
+    font-size: 14.5px;
+  }
+}
+
+// 단계 사이 화살표: 모바일 세로, 데스크톱 가로
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  color: $text-muted;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    transform: rotate(90deg);
+  }
+
+  @include lg {
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    width: 20px;
+    padding: 0;
+    transform: translateY(-50%);
+
+    svg {
+      transform: none;
+    }
+  }
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+  padding: 22px 20px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+  text-align: center;
+
+  @include md {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    padding: 26px 24px;
+  }
+}
+
+.summaryPart {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md {
+    font-size: 19px;
+  }
+}
+
+.summaryPartBrand {
+  color: $primary;
+}
+
+.summaryPlus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: $surface;
+  border: 1px solid $border;
+  color: $text-muted;
+  flex-shrink: 0;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}

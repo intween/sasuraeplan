@@ -1,0 +1,239 @@
+@use "sass:color";
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  position: relative;
+  overflow: hidden;
+  padding-top: 108px;
+  padding-bottom: 64px;
+  background:
+    radial-gradient(circle at 85% 18%, rgba(124, 58, 237, 0.07), transparent 34%),
+    radial-gradient(circle at 68% 52%, rgba(71, 87, 243, 0.09), transparent 40%),
+    $background-soft;
+
+  @include md { padding-top: 132px; padding-bottom: 88px; }
+  @include lg { padding-top: 152px; padding-bottom: 112px; }
+}
+
+.container {
+  @include container($container-wide);
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 44px;
+  align-items: center;
+
+  @include lg {
+    grid-template-columns: 42fr 58fr;
+    gap: 56px;
+  }
+}
+
+// ── Entrance (CSS only, 기본값은 보이는 상태) ─────
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+.copy,
+.productEnter {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .copy { animation: heroIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .productEnter { animation: heroIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.14s both; }
+}
+
+// ── Copy ───────────────────────────────────────
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 18px;
+}
+
+.headline {
+  margin-bottom: 20px;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.28;
+  letter-spacing: -0.032em;
+  color: $text-primary;
+  text-wrap: balance;
+
+  @include sm { font-size: 42px; }
+  @include lg { font-size: 50px; }
+  @include xl { font-size: 54px; }
+}
+
+.headlineAccent {
+  @include gradient-text;
+}
+
+.description {
+  max-width: 460px;
+  margin-bottom: 30px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.66;
+  letter-spacing: -0.015em;
+  color: $text-secondary;
+  text-wrap: balance;
+
+  @include md { font-size: 19px; }
+}
+
+.ctaRow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @include sm { flex-direction: row; flex-wrap: wrap; }
+}
+
+.ctaPrimary {
+  @include button-primary;
+  min-height: 52px;
+  padding: 0 26px;
+  font-size: 15.5px;
+}
+
+.ctaSecondary {
+  @include button-secondary;
+  min-height: 52px;
+  padding: 0 24px;
+  font-size: 15.5px;
+}
+
+.trustList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trustItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: $text-secondary;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: $primary;
+  }
+}
+
+// ── Product ────────────────────────────────────
+.product {
+  position: relative;
+}
+
+.productInner {
+  position: relative;
+  z-index: 1;
+
+  @include lg { margin-right: 46px; }
+  @include xl { margin-right: 62px; }
+}
+
+.floatCard {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  min-width: 150px;
+  padding: 12px 14px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 14px;
+  box-shadow: $shadow-float;
+
+  @include lg { display: block; }
+}
+
+.floatLabel {
+  @include label-text;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.floatValue {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: $primary;
+}
+
+.floatText {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.floatChip {
+  display: inline-block;
+  margin-top: 7px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.chipSuccess {
+  background: $success-soft;
+  color: $success;
+}
+
+.chipWarning {
+  background: $warning-soft;
+  color: $warning;
+}
+
+.cardVc {
+  top: 6%;
+  right: -8px;
+  animation: floatY 7s ease-in-out infinite;
+
+  @include xl { right: -18px; }
+}
+
+.cardSupport {
+  top: 44%;
+  right: -22px;
+  animation: floatY 8.5s ease-in-out infinite 0.8s;
+
+  @include xl { right: -34px; }
+}
+
+.cardImprove {
+  bottom: 4%;
+  right: 4px;
+  animation: floatY 9.5s ease-in-out infinite 1.6s;
+
+  @include xl { right: -6px; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@include reduced-motion {
+  .cardVc,
+  .cardSupport,
+  .cardImprove { animation: none; }
+}

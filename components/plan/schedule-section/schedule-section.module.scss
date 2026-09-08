@@ -1,0 +1,192 @@
+@use "sass:color";
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.section {
+  @include section-spacing;
+  background: $background-soft;
+}
+
+.container { @include container($container-wide); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+
+  @include lg { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 56px; }
+}
+
+.copy { min-width: 0; }
+
+.eyebrow { @include eyebrow; margin-bottom: 14px; }
+.title { @include section-title; margin: 0 0 16px; word-break: keep-all; }
+
+.desc {
+  @include section-desc;
+  margin: 0 0 22px;
+  word-break: keep-all;
+}
+
+.commandCard {
+  padding: 16px 18px;
+  background: $primary-light;
+  border: 1px solid rgba($primary, 0.2);
+  border-radius: $radius-md;
+}
+
+.commandLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $primary;
+
+  svg { width: 13px; height: 13px; }
+}
+
+.command {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md { font-size: 16px; }
+}
+
+.productCol { min-width: 0; }
+
+.product {
+  @include product-frame;
+  padding-bottom: 16px;
+}
+
+.productBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  background: $surface-muted;
+  border-bottom: 1px solid $border-light;
+  font-size: 13px;
+  font-weight: 700;
+  color: $text-primary;
+
+  svg { width: 15px; height: 15px; color: $primary; }
+
+  @include md { padding: 14px 20px; }
+}
+
+.productChip {
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: $surface;
+  border: 1px solid $border;
+  font-size: 11px;
+  font-weight: 700;
+  color: $text-muted;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid $border-light;
+
+  @include md { padding: 15px 20px; }
+}
+
+.taskCheck {
+  width: 17px;
+  height: 17px;
+  border: 2px solid $border-strong;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.taskName {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-primary;
+  word-break: keep-all;
+}
+
+.taskDue {
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: $text-muted;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.taskDueSoon {
+  background: $warning-soft;
+  border-color: rgba($warning, 0.28);
+  color: $warning;
+}
+
+.alerts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 16px 0;
+
+  @include md { padding: 16px 20px 0; }
+}
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 12px 13px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+  font-size: 13px;
+  line-height: 1.6;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 2px; color: $text-muted; }
+}
+
+.alertPrimary {
+  background: $primary-light;
+  border-color: rgba($primary, 0.22);
+  font-weight: 600;
+  color: $text-primary;
+
+  svg { color: $primary; }
+}
+
+.note {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-muted;
+}

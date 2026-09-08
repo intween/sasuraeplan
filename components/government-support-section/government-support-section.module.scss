@@ -1,0 +1,305 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  @include section-spacing;
+  background: $background-soft;
+}
+
+.container { @include container($container-wide); }
+
+.head {
+  max-width: 660px;
+  margin: 0 auto 40px;
+  text-align: center;
+
+  @include md { margin-bottom: 52px; }
+}
+
+.eyebrow { @include eyebrow; margin-bottom: 14px; }
+.title { @include section-title; margin: 0 0 12px; }
+.message { @include section-message; margin: 0; }
+
+// ── Matching product ───────────────────────────
+.product {
+  @include product-frame;
+}
+
+.productBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  background: $surface-muted;
+  border-bottom: 1px solid $border-light;
+  font-size: 13px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.productChip {
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: $primary-light;
+  color: $primary;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.panes {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include lg { grid-template-columns: 226px 1fr; }
+  @include xl { grid-template-columns: 226px 1fr 282px; }
+}
+
+.pane {
+  padding: 20px 18px;
+  border-bottom: 1px solid $border-light;
+
+  @include md { padding: 22px 20px; }
+  @include lg { border-bottom: none; border-right: 1px solid $border-light; }
+
+  &:last-child { border-bottom: none; border-right: none; }
+}
+
+.paneLabel {
+  @include label-text;
+  display: block;
+  margin-bottom: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+// ── 내 사업 조건 ────────────────────────────────
+.conditions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.condition {
+  padding: 12px 13px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+}
+
+.conditionKey {
+  @include label-text;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.conditionValue {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.conditionNote {
+  margin: 14px 0 0;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: $text-muted;
+}
+
+// ── 추천 지원사업 ───────────────────────────────
+.programs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.program {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 15px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-sm;
+}
+
+.programSelected {
+  border-color: rgba($primary, 0.4);
+  background: $primary-light;
+}
+
+.programIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: $primary-light;
+  color: $primary;
+
+  svg { width: 17px; height: 17px; }
+}
+
+.programSelected .programIcon { background: $surface; }
+
+.programBody { flex: 1; min-width: 0; }
+
+.programTitle {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.programCategory {
+  display: block;
+  margin-top: 3px;
+  font-size: 11.5px;
+  color: $text-muted;
+}
+
+.programStatus {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.programStatus { background: $success-soft; color: $success; }
+.programStatusWarn { background: $warning-soft; color: $warning; }
+
+.programsNote {
+  margin: 14px 0 0;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: $text-muted;
+}
+
+// ── 지원사업 상세 ────────────────────────────────
+.detailCard {
+  padding: 15px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+}
+
+.detailTitle {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.detailList {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0 0 14px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid $border-light;
+}
+
+.detailRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.detailKey { margin: 0; font-size: 11.5px; color: $text-muted; }
+.detailValue { margin: 0; font-size: 12px; font-weight: 600; color: $text-primary; }
+
+.formPreviewLabel {
+  @include label-text;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.formList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.formItem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 11px;
+  background: $surface;
+  border: 1px solid $border-light;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+}
+
+.formNum {
+  flex-shrink: 0;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: $primary;
+  font-variant-numeric: tabular-nums;
+}
+
+.detailActions {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.detailGhost,
+.detailCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 13px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+
+  svg { width: 13px; height: 13px; }
+}
+
+.detailGhost {
+  background: $surface;
+  border: 1px solid $border;
+  color: $text-secondary;
+}
+
+.detailCta {
+  background: $primary;
+  border: 1px solid transparent;
+  color: #fff;
+}
+
+.footNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 0;
+  padding: 16px 18px;
+  background: $surface-muted;
+  border-top: 1px solid $border-light;
+  font-size: 12.5px;
+  line-height: 1.68;
+  color: $text-secondary;
+
+  svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; color: $primary; }
+  strong { color: $text-primary; font-weight: 700; }
+}

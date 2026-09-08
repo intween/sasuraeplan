@@ -1,0 +1,269 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  @include section-spacing;
+  background: $background;
+}
+
+.container { @include container($container-wide); }
+
+.head {
+  max-width: 620px;
+  margin: 0 auto 40px;
+  text-align: center;
+
+  @include md { margin-bottom: 52px; }
+}
+
+.eyebrow { @include eyebrow; margin-bottom: 14px; }
+.title { @include section-title; margin: 0 0 12px; }
+.message { @include section-message; margin: 0; }
+
+// ── Cycle rail ─────────────────────────────────
+.rail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 40px;
+  padding: 22px 18px;
+  background: $background-soft;
+  border: 1px solid $border-light;
+  border-radius: $radius-lg;
+  list-style: none;
+
+  @include md { margin-bottom: 52px; gap: 9px; }
+}
+
+.railItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.node {
+  padding: 8px 13px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: $text-secondary;
+  white-space: nowrap;
+
+  @include md { font-size: 13px; }
+}
+
+.nodeVersion {
+  border-color: rgba($primary, 0.32);
+  background: $primary-light;
+  color: $primary;
+  font-weight: 700;
+}
+
+.nodeAction {
+  border-color: rgba($secondary, 0.28);
+  background: $secondary-light;
+  color: $secondary;
+}
+
+.nodeOptional {
+  border-style: dashed;
+  color: $text-muted;
+}
+
+.railArrow {
+  color: $border-strong;
+  svg { width: 13px; height: 13px; display: block; }
+}
+
+// ── Roadmap product ────────────────────────────
+.product {
+  @include product-frame;
+}
+
+.productBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  background: $surface-muted;
+  border-bottom: 1px solid $border-light;
+  font-size: 13px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.productChip {
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: $warning-soft;
+  color: $warning;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include lg { grid-template-columns: 1fr 1fr; }
+}
+
+.pane {
+  padding: 20px 18px;
+  border-bottom: 1px solid $border-light;
+
+  @include md { padding: 24px 22px; }
+  @include lg { border-bottom: none; border-right: 1px solid $border-light; }
+
+  &:last-child { border-bottom: none; border-right: none; }
+}
+
+.issueTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+
+  svg { width: 17px; height: 17px; flex-shrink: 0; color: $warning; }
+}
+
+.blockLabel {
+  @include label-text;
+  display: block;
+  margin-bottom: 7px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.blockText {
+  margin: 0 0 18px;
+  font-size: 13.5px;
+  line-height: 1.72;
+  color: $text-secondary;
+}
+
+.checkList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checkItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 11px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-secondary;
+
+  svg { width: 12px; height: 12px; color: $primary; }
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  gap: 12px;
+  padding-bottom: 16px;
+}
+
+.stepMarker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.stepNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: $primary-light;
+  color: $primary;
+  font-size: 11px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.stepLine {
+  flex: 1;
+  width: 1.5px;
+  margin-top: 4px;
+  background: $border-light;
+}
+
+.stepBody { padding-top: 3px; }
+
+.stepTitle {
+  display: block;
+  margin: 0 0 3px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.stepDesc {
+  display: block;
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: $text-muted;
+}
+
+.paneCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 4px;
+  padding: 10px 15px;
+  border: 1px solid rgba($secondary, 0.3);
+  border-radius: 10px;
+  background: $secondary-light;
+  color: $secondary;
+  font-size: 12.5px;
+  font-weight: 700;
+
+  svg { width: 14px; height: 14px; }
+}
+
+.footNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 16px 18px;
+  background: $surface-muted;
+  border-top: 1px solid $border-light;
+  font-size: 12.5px;
+  line-height: 1.68;
+  color: $text-secondary;
+
+  svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; color: $primary; }
+  strong { color: $text-primary; font-weight: 700; }
+}

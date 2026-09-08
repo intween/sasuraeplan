@@ -1,0 +1,117 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.section {
+  @include section-spacing;
+  background: $background-soft;
+}
+
+.container { @include container($container-wide); }
+
+.head {
+  max-width: 660px;
+  margin: 0 auto 36px;
+  text-align: center;
+
+  @include md { margin-bottom: 48px; }
+}
+
+.eyebrow { @include eyebrow; margin-bottom: 14px; }
+.title { @include section-title; margin: 0 0 16px; word-break: keep-all; }
+
+.sub {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  @include md { font-size: 18px; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 40px;
+
+  @include lg { grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 52px; }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+
+  &:hover {
+    border-color: rgba($primary, 0.32);
+    box-shadow: $shadow-card;
+    transform: translateY(-2px);
+  }
+
+  @include md { padding: 26px 22px; }
+}
+
+.cardAccent {
+  border-color: rgba($primary, 0.4);
+  background: linear-gradient(180deg, $primary-light 0%, $surface 52%);
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 14px;
+  border-radius: 11px;
+  background: $primary-light;
+  color: $primary;
+
+  svg { width: 18px; height: 18px; }
+}
+
+.cardTitle {
+  margin: 0 0 12px;
+  font-size: 16.5px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+  word-break: keep-all;
+}
+
+.quoteList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quote {
+  padding: 10px 12px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.cardDesc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.72;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.demoWrap { display: block; }

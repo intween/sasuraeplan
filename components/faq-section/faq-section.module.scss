@@ -1,0 +1,95 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  @include section-spacing;
+  background: $background;
+}
+
+.container {
+  @include container;
+  max-width: 840px;
+}
+
+.head {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.eyebrow { @include eyebrow; margin-bottom: 14px; }
+.title { @include section-title; margin: 0; }
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  overflow: hidden;
+  transition: border-color 0.18s ease;
+
+  &:hover { border-color: $border-strong; }
+
+  h3 { margin: 0; }
+}
+
+.itemOpen {
+  border-color: rgba($primary, 0.35);
+  background: $background-soft;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  min-height: 60px;
+  padding: 17px 20px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: $text-primary;
+  text-align: left;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: -3px;
+  }
+
+  @include md { font-size: 16px; }
+}
+
+.icon {
+  flex-shrink: 0;
+  color: $text-muted;
+  transition: transform 0.2s ease, color 0.2s ease;
+
+  svg { width: 18px; height: 18px; display: block; }
+
+  @include reduced-motion { transition: none; }
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+  color: $primary;
+}
+
+.panel { overflow: hidden; }
+
+.answer {
+  margin: 0;
+  padding: 0 20px 20px;
+  font-size: 14.5px;
+  line-height: 1.78;
+  color: $text-secondary;
+  white-space: pre-line;
+}

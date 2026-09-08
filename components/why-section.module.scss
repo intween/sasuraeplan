@@ -1,0 +1,142 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.section {
+  @include section-spacing;
+  background: $background;
+}
+
+.container {
+  @include container;
+}
+
+.head {
+  max-width: 700px;
+  margin: 0 auto 48px;
+  text-align: center;
+
+  @include md {
+    margin-bottom: 64px;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 14px;
+}
+
+.title {
+  @include section-title;
+  margin: 0;
+}
+
+// ── Flow ───────────────────────────────────────
+.flow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @include lg {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+}
+
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px 18px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba($primary, 0.35);
+    box-shadow: $shadow-card;
+  }
+
+  @include reduced-motion {
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+.stepIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: $primary-light;
+  color: $primary;
+
+  svg {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+.stepIconAi {
+  background: $secondary-light;
+  color: $secondary;
+}
+
+.stepNumber {
+  @include label-text;
+  letter-spacing: 0.08em;
+}
+
+.stepTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+}
+
+.stepDesc {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.68;
+  color: $text-secondary;
+}
+
+.arrow {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: -13px;
+  z-index: 1;
+  transform: translateY(-50%);
+  color: $border-strong;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  @include lg {
+    display: block;
+  }
+}
+
+.step:last-child .arrow {
+  display: none;
+}

@@ -1,0 +1,169 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.section {
+  position: relative;
+  overflow: hidden;
+  padding-top: 104px;
+  padding-bottom: 64px;
+  background: linear-gradient(180deg, $background-purple 0%, $background 62%);
+
+  @include md { padding-top: 136px; padding-bottom: 88px; }
+  @include lg { padding-top: 156px; padding-bottom: 104px; }
+}
+
+// 아주 옅은 브랜드 글로우 하나. 계속 움직이지 않는 정적 배경.
+.glow {
+  position: absolute;
+  top: -240px;
+  left: 50%;
+  width: 900px;
+  max-width: 140vw;
+  height: 560px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba($primary, 0.13) 0%, rgba($primary, 0) 68%);
+  pointer-events: none;
+}
+
+.container {
+  @include container($container-wide);
+  position: relative;
+}
+
+.copy {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border: 1px solid rgba($primary, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: $primary;
+  word-break: keep-all;
+
+  @include md { font-size: 13.5px; }
+
+  svg { width: 14px; height: 14px; }
+}
+
+.headline {
+  margin: 20px 0 0;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.26;
+  letter-spacing: -0.035em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include sm { font-size: 44px; }
+  @include md { font-size: 56px; }
+  @include lg { font-size: 62px; }
+}
+
+.lead {
+  margin: 16px 0 0;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+  word-break: keep-all;
+
+  @include md { font-size: 24px; }
+  @include lg { font-size: 26px; }
+}
+
+.leadAccent { color: $primary; }
+
+.description {
+  max-width: 620px;
+  margin: 18px auto 0;
+  font-size: 15px;
+  line-height: 1.76;
+  color: $text-secondary;
+  word-break: keep-all;
+  text-wrap: pretty;
+
+  @include md { font-size: 17px; }
+}
+
+.ctaRow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+
+  @include sm { flex-direction: row; justify-content: center; gap: 12px; }
+}
+
+.ctaPrimary {
+  @include button-primary;
+  min-height: 52px;
+  padding: 0 26px;
+  font-size: 16px;
+  box-shadow: 0 8px 22px rgba($primary, 0.25);
+
+  &:hover { box-shadow: 0 10px 26px rgba($primary, 0.3); }
+}
+
+.ctaSecondary {
+  @include button-secondary;
+  min-height: 52px;
+  padding: 0 24px;
+  font-size: 16px;
+}
+
+.trust {
+  margin: 18px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-muted;
+  word-break: keep-all;
+
+  @include md { font-size: 13.5px; }
+}
+
+// ── 제품 목업 ──────────────────────────────────
+.product {
+  position: relative;
+  max-width: 1000px;
+  margin: 44px auto 0;
+
+  @include md { margin-top: 60px; }
+}
+
+.productNote {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-muted;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .copy > * {
+    animation: heroUp 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .copy > *:nth-child(1) { animation-delay: 0.02s; }
+  .copy > *:nth-child(2) { animation-delay: 0.08s; }
+  .copy > *:nth-child(3) { animation-delay: 0.14s; }
+  .copy > *:nth-child(4) { animation-delay: 0.2s; }
+  .copy > *:nth-child(5) { animation-delay: 0.26s; }
+  .copy > *:nth-child(6) { animation-delay: 0.32s; }
+
+  .product { animation: heroUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.34s both; }
+}
+
+@keyframes heroUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}

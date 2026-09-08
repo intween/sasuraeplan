@@ -1,0 +1,145 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom-color: $border-light;
+  box-shadow: 0 1px 0 rgba(17, 24, 39, 0.02);
+}
+
+.inner {
+  @include container($container-wide);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 64px;
+
+  @include md { height: 72px; }
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+  color: $text-primary;
+  text-decoration: none;
+
+  &:focus-visible { outline: 2px solid $primary; outline-offset: 4px; border-radius: 8px; }
+}
+
+.logoImage {
+  display: block;
+  height: 28px;
+  width: auto; // 873x200 원본 비율 유지
+  object-fit: contain;
+
+  @include md { height: 32px; }
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: 22px;
+
+  @include lg { display: flex; }
+  @include xl { gap: 26px; }
+}
+
+.navLink {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: $text-secondary;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+
+  &:hover { color: $text-primary; }
+  &:focus-visible { outline: 2px solid $primary; outline-offset: 4px; border-radius: 4px; }
+}
+
+.actions {
+  display: none;
+  align-items: center;
+  gap: 10px;
+
+  @include lg { display: flex; }
+}
+
+.cta {
+  @include button-primary;
+  min-height: 42px;
+  padding: 0 18px;
+  font-size: 14px;
+  white-space: nowrap;
+
+  @include xl { padding: 0 20px; font-size: 14.5px; }
+}
+
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -8px;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  color: $text-primary;
+  cursor: pointer;
+
+  &:focus-visible { outline: 2px solid $primary; outline-offset: 2px; }
+  @include lg { display: none; }
+
+  svg { width: 22px; height: 22px; }
+}
+
+.mobilePanel {
+  overflow: hidden;
+  background: $surface;
+  border-top: 1px solid $border-light;
+
+  @include lg { display: none; }
+}
+
+.mobileInner {
+  @include container($container-wide);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 12px;
+  padding-bottom: 20px;
+}
+
+.mobileLink {
+  padding: 13px 4px;
+  font-size: 16px;
+  font-weight: 500;
+  color: $text-secondary;
+  text-decoration: none;
+  border-radius: 8px;
+
+  &:hover { color: $text-primary; }
+  &:focus-visible { outline: 2px solid $primary; outline-offset: -2px; }
+}
+
+.mobileCta {
+  @include button-primary;
+  width: 100%;
+  margin-top: 12px;
+}

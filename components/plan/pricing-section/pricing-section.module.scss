@@ -1,0 +1,285 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-spacing;
+  background: $background;
+}
+
+.container {
+  @include container($container-wide);
+}
+
+.head {
+  max-width: 700px;
+  margin: 0 auto 44px;
+  text-align: center;
+
+  @include md {
+    margin-bottom: 56px;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 14px;
+}
+.title {
+  @include section-title;
+  margin: 0 0 14px;
+  word-break: keep-all;
+}
+.desc {
+  @include section-desc;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: stretch;
+
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 26px 22px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-soft;
+
+  @include md {
+    padding: 32px 28px;
+  }
+}
+
+.cardFeatured {
+  border: 1.5px solid $primary;
+  box-shadow: 0 16px 40px rgba($primary, 0.14);
+
+  @include lg {
+    transform: translateY(-8px);
+  }
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: $primary;
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+
+  @include md {
+    left: 28px;
+  }
+}
+
+.planName {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: $primary;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  margin: 0 0 14px;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: $text-primary;
+
+  @include sm {
+    font-size: 36px;
+  }
+}
+
+.priceUnit {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.planDesc {
+  margin: 0 0 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid $border-light;
+  font-size: 14px;
+  line-height: 1.68;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.inherit {
+  display: inline-block;
+  align-self: flex-start;
+  margin: 0 0 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: $primary-light;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: $primary;
+  word-break: keep-all;
+}
+
+.specList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.specRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 14px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+  font-size: 13.5px;
+}
+
+.specLabel {
+  font-weight: 600;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.specValue {
+  font-weight: 700;
+  color: $text-primary;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.specValueMuted {
+  color: $text-muted;
+}
+.specValueBrand {
+  color: $primary;
+}
+
+.cta {
+  @include button-secondary;
+  width: 100%;
+  margin-top: auto;
+}
+
+.ctaFeatured {
+  @include button-primary;
+  width: 100%;
+  margin-top: auto;
+  box-shadow: 0 8px 20px rgba($primary, 0.24);
+}
+
+// ── 공통 포함 ──────────────────────────────────
+.common {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 26px;
+  padding: 22px 24px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+
+  @include lg {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+.commonLabel {
+  @include label-text;
+  flex-shrink: 0;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: $text-secondary;
+}
+
+.commonList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.commonChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    color: $primary;
+  }
+}
+
+// ── 안내 ───────────────────────────────────────
+.notes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.note {
+  position: relative;
+  padding-left: 15px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: $text-muted;
+  word-break: keep-all;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 9px;
+    left: 3px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: $border-strong;
+  }
+
+  @include md {
+    font-size: 13.5px;
+  }
+}

@@ -1,0 +1,307 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  @include section-spacing;
+  background: $background;
+}
+
+.container { @include container($container-wide); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+
+  @include lg { grid-template-columns: 35fr 65fr; gap: 52px; }
+}
+
+.eyebrow { @include eyebrow; margin-bottom: 14px; }
+.title { @include section-title; margin: 0 0 12px; }
+.message { @include section-message; margin: 0 0 26px; }
+
+.points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.point {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid $border-light;
+  font-size: 15px;
+  font-weight: 600;
+  color: $text-primary;
+
+  &:last-child { border-bottom: 1px solid $border-light; }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: $primary;
+  }
+}
+
+// ── Product ────────────────────────────────────
+.product {
+  @include product-frame;
+  font-size: 13px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: $surface-muted;
+  border-bottom: 1px solid $border-light;
+}
+
+.tab {
+  padding: 5px 11px;
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: $text-muted;
+}
+
+.tabActive {
+  background: $surface;
+  border: 1px solid $border;
+  color: $text-primary;
+}
+
+.progressWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  color: $text-secondary;
+}
+
+.progressTrack {
+  width: 72px;
+  height: 5px;
+  border-radius: 999px;
+  background: $border-light;
+  overflow: hidden;
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: $primary;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include md { grid-template-columns: 132px 1fr; }
+  @include xl { grid-template-columns: 140px 1fr 214px; }
+}
+
+.outline {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 10px;
+  background: #fbfcfe;
+  border-right: 1px solid $border-light;
+
+  @include md { display: flex; }
+}
+
+.outlineLabel {
+  @include label-text;
+  padding: 2px 8px 8px;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.outlineItem {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 8px;
+  border-radius: 7px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: $text-secondary;
+
+  svg { width: 12px; height: 12px; flex-shrink: 0; color: $success; }
+}
+
+.outlineItemActive {
+  background: $primary-light;
+  color: $primary;
+  font-weight: 600;
+
+  svg { color: $primary; }
+}
+
+.outlineDot {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border: 1.5px solid $border-strong;
+  border-radius: 50%;
+}
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 16px;
+
+  @include md { padding: 20px 22px; }
+}
+
+.editorTitle {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $text-primary;
+}
+
+.field {
+  padding: 13px 14px;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+}
+
+.fieldActive {
+  border-color: rgba($primary, 0.4);
+  box-shadow: 0 0 0 3px rgba($primary, 0.08);
+}
+
+.fieldLabel {
+  @include label-text;
+  display: block;
+  margin-bottom: 7px;
+}
+
+.fieldText {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: $text-secondary;
+}
+
+.highlight {
+  padding: 1px 3px;
+  border-radius: 4px;
+  background: rgba($secondary, 0.12);
+  color: $secondary;
+  font-weight: 600;
+}
+
+.wordCount {
+  @include label-text;
+  align-self: flex-end;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+// ── AI panel ───────────────────────────────────
+.aiPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 16px 14px;
+  background: $secondary-light;
+  border-top: 1px solid $border-light;
+
+  @include xl {
+    border-top: none;
+    border-left: 1px solid $border-light;
+  }
+}
+
+.aiHead {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.aiBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba($secondary, 0.13);
+  color: $secondary;
+  font-size: 10px;
+  font-weight: 700;
+
+  svg { width: 10px; height: 10px; }
+}
+
+.aiCard {
+  padding: 12px;
+  background: $surface;
+  border: 1px solid rgba($secondary, 0.18);
+  border-radius: 11px;
+}
+
+.aiCardLabel {
+  @include label-text;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.aiCardText {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: $text-secondary;
+}
+
+.aiActions {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.aiButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border: 1px solid rgba($secondary, 0.3);
+  border-radius: 9px;
+  background: $surface;
+  color: $secondary;
+  font-size: 11.5px;
+  font-weight: 600;
+
+  svg { width: 12px; height: 12px; }
+}
+
+.aiButtonPrimary {
+  border-color: transparent;
+  background: $primary;
+  color: #fff;
+}
+
+.aiFootnote {
+  margin: 0;
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: $text-muted;
+}

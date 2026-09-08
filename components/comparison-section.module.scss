@@ -1,0 +1,296 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.section {
+  @include section-spacing;
+  background: $background-soft;
+}
+
+.container {
+  @include container;
+}
+
+.head {
+  max-width: 700px;
+  margin: 0 auto 48px;
+  text-align: center;
+
+  @include md {
+    margin-bottom: 60px;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 14px;
+}
+.title {
+  @include section-title;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  @include lg {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 26px 22px;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-soft;
+
+  @include md {
+    padding: 32px 30px;
+  }
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 14px;
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: $primary-light;
+  color: $primary;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.cardIconAlt {
+  background: $secondary-light;
+  color: $secondary;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $text-primary;
+
+  @include md {
+    font-size: 21px;
+  }
+}
+
+// ── Flow chips ─────────────────────────────────
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.flowItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: $text-secondary;
+}
+
+.flowChip {
+  padding: 6px 11px;
+  border: 1px solid $border;
+  border-radius: 999px;
+  background: $surface-muted;
+  white-space: nowrap;
+}
+
+.flowChipLast {
+  border-color: rgba($primary, 0.28);
+  background: $primary-light;
+  color: $primary;
+}
+
+.flowArrow {
+  color: $text-muted;
+  svg {
+    width: 12px;
+    height: 12px;
+    display: block;
+  }
+}
+
+// ── Mini product UI ────────────────────────────
+.mini {
+  margin-top: auto;
+  padding: 16px;
+  background: $surface-muted;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+}
+
+.miniHead {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: $secondary;
+
+  svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.miniHeadPlain {
+  color: $text-muted;
+}
+
+.coachBubble {
+  padding: 12px 14px;
+  background: $surface;
+  border: 1px solid $border-light;
+  border-radius: 12px 12px 12px 4px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: $text-primary;
+}
+
+.coachInput {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 11px 13px;
+  background: $surface;
+  border: 1px solid rgba($primary, 0.3);
+  border-radius: 10px;
+  font-size: 12.5px;
+  color: $text-muted;
+}
+
+.coachInputText {
+  flex: 1;
+}
+
+.coachSend {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  background: $primary;
+  color: #fff;
+
+  svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+// ── Upload mock ────────────────────────────────
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 20px 16px;
+  background: $surface;
+  border: 1.5px dashed rgba($primary, 0.35);
+  border-radius: 12px;
+  text-align: center;
+
+  svg {
+    width: 22px;
+    height: 22px;
+    color: $primary;
+  }
+}
+
+.dropzoneTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.fileRow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 10px;
+  padding: 11px 13px;
+  background: $surface;
+  border: 1px solid $border-light;
+  border-radius: 10px;
+}
+
+.fileIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  background: $primary-light;
+  color: $primary;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.fileMeta {
+  flex: 1;
+  min-width: 0;
+}
+
+.fileName {
+  display: block;
+  overflow: hidden;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: $text-primary;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileSub {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: $text-muted;
+}
+
+.fileState {
+  flex-shrink: 0;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: $success-soft;
+  color: $success;
+  font-size: 10.5px;
+  font-weight: 700;
+}
