@@ -48,8 +48,7 @@ export function FinalCTA() {
           <Reveal className={styles.copy}>
             <h2 className={styles.title}>
               잘 쓴 계획서라고 생각했다면,
-              <br />
-              한 번 더 확인해보세요.
+              <br />한 번 더 확인해보세요.
             </h2>
 
             <p className={styles.lead}>VC 관점으로 분석하고, AI와 보완하고, 전문가의 시선까지.</p>
@@ -69,22 +68,15 @@ export function FinalCTA() {
           <Reveal className={styles.formCol} delay={0.1}>
             <div className={styles.formCard}>
               <h3 className={styles.formTitle}>이용 문의하기</h3>
-              <p className={styles.formHint}>시작 방식과 준비 상황을 남겨주시면 확인 후 안내드립니다.</p>
+              {/* <p className={styles.formHint}>시작 방식과 준비 상황을 남겨주시면 확인 후 안내드립니다.</p> */}
 
               <form onSubmit={handleSubmit}>
                 <div className={styles.fields}>
-                  <div className={`${styles.field} ${styles.fieldWide}`}>
+                  {/* <div className={`${styles.field} ${styles.fieldWide}`}>
                     <label className={styles.label} htmlFor="contact-start-mode">
                       시작 방식 <span className={styles.required}>*</span>
                     </label>
-                    <select
-                      className={styles.select}
-                      id="contact-start-mode"
-                      name="startMode"
-                      required
-                      value={form.startMode}
-                      onChange={handleChange}
-                    >
+                    <select className={styles.select} id="contact-start-mode" name="startMode" required value={form.startMode} onChange={handleChange}>
                       <option value="">선택해 주세요</option>
                       {startModes.map((item) => (
                         <option key={item} value={item}>
@@ -92,70 +84,34 @@ export function FinalCTA() {
                         </option>
                       ))}
                     </select>
-                  </div>
+                  </div> */}
 
                   <div className={styles.field}>
                     <label className={styles.label} htmlFor="contact-name">
                       이름 <span className={styles.required}>*</span>
                     </label>
-                    <input
-                      className={styles.input}
-                      id="contact-name"
-                      name="name"
-                      type="text"
-                      autoComplete="name"
-                      required
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder="홍길동"
-                    />
+                    <input className={styles.input} id="contact-name" name="name" type="text" autoComplete="name" required value={form.name} onChange={handleChange} placeholder="홍길동" />
                   </div>
 
                   <div className={styles.field}>
                     <label className={styles.label} htmlFor="contact-phone">
                       연락처 <span className={styles.required}>*</span>
                     </label>
-                    <input
-                      className={styles.input}
-                      id="contact-phone"
-                      name="phone"
-                      type="tel"
-                      autoComplete="tel"
-                      required
-                      value={form.phone}
-                      onChange={handleChange}
-                      placeholder="010-0000-0000"
-                    />
+                    <input className={styles.input} id="contact-phone" name="phone" type="tel" autoComplete="tel" required value={form.phone} onChange={handleChange} placeholder="010-0000-0000" />
                   </div>
 
                   <div className={`${styles.field} ${styles.fieldWide}`}>
                     <label className={styles.label} htmlFor="contact-email">
                       이메일 <span className={styles.required}>*</span>
                     </label>
-                    <input
-                      className={styles.input}
-                      id="contact-email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="name@example.com"
-                    />
+                    <input className={styles.input} id="contact-email" name="email" type="email" autoComplete="email" required value={form.email} onChange={handleChange} placeholder="name@example.com" />
                   </div>
 
                   <div className={`${styles.field} ${styles.fieldWide}`}>
                     <label className={styles.label} htmlFor="contact-situation">
                       현재 상태
                     </label>
-                    <select
-                      className={styles.select}
-                      id="contact-situation"
-                      name="situation"
-                      value={form.situation}
-                      onChange={handleChange}
-                    >
+                    <select className={styles.select} id="contact-situation" name="situation" value={form.situation} onChange={handleChange}>
                       <option value="">선택해 주세요</option>
                       {situations.map((item) => (
                         <option key={item} value={item}>
@@ -185,27 +141,12 @@ export function FinalCTA() {
                     <label className={styles.label} htmlFor="contact-message">
                       문의 내용
                     </label>
-                    <textarea
-                      className={styles.textarea}
-                      id="contact-message"
-                      name="message"
-                      value={form.message}
-                      onChange={handleChange}
-                      placeholder="사업 아이템과 현재 준비 상황을 알려주세요."
-                    />
+                    <textarea className={styles.textarea} id="contact-message" name="message" value={form.message} onChange={handleChange} placeholder="사업 아이템과 현재 준비 상황을 알려주세요." />
                   </div>
                 </div>
 
                 <label className={styles.consent} htmlFor="contact-consent">
-                  <input
-                    className={styles.checkbox}
-                    id="contact-consent"
-                    name="consent"
-                    type="checkbox"
-                    required
-                    checked={form.consent}
-                    onChange={handleChange}
-                  />
+                  <input className={styles.checkbox} id="contact-consent" name="consent" type="checkbox" required checked={form.consent} onChange={handleChange} />
                   <span>개인정보 수집 및 이용에 동의합니다.</span>
                 </label>
 

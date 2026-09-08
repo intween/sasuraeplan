@@ -1,12 +1,14 @@
-@use "../../../styles/variables" as *;
-@use "../../../styles/mixins" as *;
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
 
 .section {
   @include section-spacing;
   background: $brand-gradient;
 }
 
-.container { @include container($container-wide); }
+.container {
+  @include container($container-wide);
+}
 
 .grid {
   display: grid;
@@ -14,11 +16,16 @@
   gap: 32px;
   align-items: center;
 
-  @include lg { grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr); gap: 56px; }
+  @include lg {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr);
+    gap: 56px;
+  }
 }
 
 // ── 카피 ───────────────────────────────────────
-.copy { min-width: 0; }
+.copy {
+  min-width: 0;
+}
 
 .title {
   margin: 0 0 16px;
@@ -29,8 +36,12 @@
   color: #fff;
   word-break: keep-all;
 
-  @include md { font-size: 38px; }
-  @include lg { font-size: 44px; }
+  @include md {
+    font-size: 38px;
+  }
+  @include lg {
+    font-size: 44px;
+  }
 }
 
 .lead {
@@ -42,7 +53,9 @@
   color: #fff;
   word-break: keep-all;
 
-  @include md { font-size: 20px; }
+  @include md {
+    font-size: 20px;
+  }
 }
 
 .sub {
@@ -53,7 +66,9 @@
   color: rgba(255, 255, 255, 0.88);
   word-break: keep-all;
 
-  @include md { font-size: 17px; }
+  @include md {
+    font-size: 17px;
+  }
 }
 
 .points {
@@ -74,7 +89,9 @@
   color: #fff;
   word-break: keep-all;
 
-  @include md { font-size: 15.5px; }
+  @include md {
+    font-size: 15.5px;
+  }
 
   svg {
     width: 18px;
@@ -87,7 +104,9 @@
 }
 
 // ── 폼 ─────────────────────────────────────────
-.formCol { min-width: 0; }
+.formCol {
+  min-width: 0;
+}
 
 .formCard {
   padding: 24px 20px;
@@ -95,17 +114,21 @@
   border-radius: $radius-lg;
   box-shadow: 0 24px 60px rgba(17, 24, 39, 0.18);
 
-  @include md { padding: 32px 30px; }
+  @include md {
+    padding: 32px 30px;
+  }
 }
 
 .formTitle {
-  margin: 0 0 6px;
+  margin: 0 0 30px;
   font-size: 19px;
   font-weight: 700;
   letter-spacing: -0.025em;
   color: $text-primary;
 
-  @include md { font-size: 21px; }
+  @include md {
+    font-size: 21px;
+  }
 }
 
 .formHint {
@@ -122,7 +145,9 @@
   gap: 14px;
   margin-bottom: 16px;
 
-  @include sm { grid-template-columns: repeat(2, 1fr); }
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .field {
@@ -133,7 +158,9 @@
 }
 
 .fieldWide {
-  @include sm { grid-column: 1 / -1; }
+  @include sm {
+    grid-column: 1 / -1;
+  }
 }
 
 .label {
@@ -142,7 +169,9 @@
   color: $text-secondary;
 }
 
-.required { color: $primary; }
+.required {
+  color: $primary;
+}
 
 .input,
 .select,
@@ -156,9 +185,13 @@
   font-family: inherit;
   font-size: 14.5px;
   color: $text-primary;
-  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+  transition:
+    border-color 0.16s ease,
+    box-shadow 0.16s ease;
 
-  &::placeholder { color: $text-muted; }
+  &::placeholder {
+    color: $text-muted;
+  }
 
   &:focus {
     outline: none;
@@ -166,7 +199,9 @@
     box-shadow: 0 0 0 3px rgba($primary, 0.14);
   }
 
-  &:focus-visible { outline: none; }
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 .select {
@@ -202,7 +237,10 @@
   flex-shrink: 0;
   cursor: pointer;
 
-  &:focus-visible { outline: 2px solid $primary; outline-offset: 2px; }
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
 }
 
 .submit {
@@ -226,12 +264,27 @@
   color: $text-secondary;
   word-break: keep-all;
 
-  svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; color: $warning; }
+  svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: $warning;
+  }
 }
 
 @include below-md {
-  .grid { gap: 24px; }
-  .priceNote { margin-top: 20px; padding-top: 18px; }
-  .formCard { padding: 22px 18px; }
-  .fields { gap: 12px; }
+  .grid {
+    gap: 24px;
+  }
+  .priceNote {
+    margin-top: 20px;
+    padding-top: 18px;
+  }
+  .formCard {
+    padding: 22px 18px;
+  }
+  .fields {
+    gap: 12px;
+  }
 }
