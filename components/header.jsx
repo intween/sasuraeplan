@@ -11,7 +11,6 @@ const navItems = [
   { label: 'VC 분석', href: '#vc-analysis' },
   { label: '플랜비서', href: '#plan-assistant' },
   { label: '전문가 피드백', href: '#expert-review' },
-  { label: '지원사업', href: '#funding' },
   { label: '이용요금', href: '#pricing' },
 ];
 

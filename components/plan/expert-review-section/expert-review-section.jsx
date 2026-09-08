@@ -55,9 +55,7 @@ export function ExpertReviewSection() {
               이제 <span className={styles.titleAccent}>전문가의 시선으로.</span>
             </h2>
 
-            <p className={styles.desc}>
-              사업계획서의 논리와 설득력을 전문가 피드백으로 한 번 더 확인하세요.
-            </p>
+            <p className={styles.desc}>사업계획서의 논리와 설득력을 전문가 피드백으로 한 번 더 확인하세요.</p>
 
             <ul className={styles.featureList}>
               {features.map((item) => (
@@ -86,20 +84,13 @@ export function ExpertReviewSection() {
               <div className={styles.mockBody}>
                 <ol className={styles.statusRow}>
                   {statuses.map((status) => (
-                    <li
-                      key={status.label}
-                      className={`${styles.statusItem} ${status.current ? styles.statusCurrent : ''} ${
-                        status.done ? styles.statusDone : ''
-                      }`}
-                    >
+                    <li key={status.label} className={`${styles.statusItem} ${status.current ? styles.statusCurrent : ''} ${status.done ? styles.statusDone : ''}`}>
                       {status.label}
                     </li>
                   ))}
                 </ol>
 
-                <p className={styles.mockMessage}>
-                  전문가가 사업계획서와 VC 분석 결과를 검토하고, 피드백이 포함된 검토본을 업로드했습니다.
-                </p>
+                <p className={styles.mockMessage}>전문가가 사업계획서와 VC 분석 결과를 검토하고, 피드백이 포함된 검토본을 업로드했습니다.</p>
 
                 <div className={styles.fileCard}>
                   <span className={styles.fileIcon} aria-hidden="true">
@@ -135,9 +126,7 @@ export function ExpertReviewSection() {
                   ))}
                 </ul>
 
-                <p className={styles.noEdit}>
-                  전문가는 현재 계획서를 직접 수정하지 않습니다. 검토본을 확인한 뒤 반영할 내용을 직접 정하면 됩니다.
-                </p>
+                <p className={styles.noEdit}>전문가는 현재 계획서를 직접 수정하지 않습니다. 검토본을 확인한 뒤 반영할 내용을 직접 정하면 됩니다.</p>
               </div>
             </div>
           </Reveal>
@@ -200,7 +189,7 @@ export function ExpertReviewSection() {
         </Reveal>
         */}
 
-        <Reveal className={styles.premium}>
+        {/* <Reveal className={styles.premium}>
           <Info aria-hidden="true" />
           <p>
             <strong>전문가 피드백은 사업 분야와 검토 범위에 따라 상담 후 안내드립니다.</strong>
@@ -209,7 +198,7 @@ export function ExpertReviewSection() {
             이용 문의하기
             <ArrowRight aria-hidden="true" />
           </a>
-        </Reveal>
+        </Reveal> */}
       </div>
     </section>
   );

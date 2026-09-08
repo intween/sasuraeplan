@@ -401,3 +401,23 @@
   font-weight: 600;
   color: $text-muted;
 }
+
+// ── 모바일: 긴 채팅 대신 4마디 흐름만 ──
+// 왜 점수가 낮아? → 근거가 부족합니다 → 인터뷰 정보 추가 → 계획서 반영 완료
+@include below-md {
+  .desktopOnly { display: none; }
+
+  .panelActions { display: none; }
+
+  .stageBody { gap: 0; }
+  .chat { padding: 14px 14px 16px; }
+  .side { padding: 14px; }
+  .thread { gap: 8px; }
+  .message { font-size: 12.5px; padding: 9px 12px; }
+}
+
+@include below-md {
+  // 결과 패널 대신 대화 흐름(반영 완료 메시지)만으로 마무리한다.
+  .side { display: none; }
+  .caption { margin-top: 10px; }
+}

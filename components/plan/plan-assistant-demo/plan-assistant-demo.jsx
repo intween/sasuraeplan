@@ -31,8 +31,9 @@ const tabs = [
       { from: 'user', text: '왜 고객 검증 점수가 낮은 거야?' },
       { from: 'ai', text: '현재 계획서에서는 고객의 문제는 설명되어 있지만, 실제 고객을 대상으로 확인한 근거가 부족합니다.' },
       { from: 'user', text: '지난주에 잠재 고객 7명을 인터뷰했고 5명이 이 문제를 가장 불편하다고 했어.' },
-      { from: 'ai', text: '실제 고객 검증 근거로 활용할 수 있습니다.' },
-      { from: 'user', text: '그러면 고객검증 부분에 추가해줘.', command: true },
+      // 모바일에서는 대화를 4마디로 줄인다.
+      { from: 'ai', text: '실제 고객 검증 근거로 활용할 수 있습니다.', desktopOnly: true },
+      { from: 'user', text: '그러면 고객검증 부분에 추가해줘.', command: true, desktopOnly: true },
       { from: 'ai', text: '고객 검증 영역에 반영했습니다.', applied: true },
     ],
     panelTitle: '사업계획서 · 고객 검증',
@@ -197,7 +198,11 @@ export function PlanAssistantDemo() {
               {active.messages.map((message, index) => {
                 if (message.applied) {
                   return (
-                    <div key={index} className={styles.applied} style={{ '--msg-delay': `${index * 0.09}s` }}>
+                    <div
+                      key={index}
+                      className={`${styles.applied} ${message.desktopOnly ? styles.desktopOnly : ''}`}
+                      style={{ '--msg-delay': `${index * 0.09}s` }}
+                    >
                       <Check aria-hidden="true" />
                       {message.text}
                     </div>
@@ -205,7 +210,13 @@ export function PlanAssistantDemo() {
                 }
 
                 return (
-                  <p key={index} className={`${styles.message} ${message.from === 'user' ? styles.messageUser : styles.messageAi} ${message.command ? styles.messageCommand : ''}`} style={{ '--msg-delay': `${index * 0.09}s` }}>
+                  <p
+                    key={index}
+                    className={`${styles.message} ${message.from === 'user' ? styles.messageUser : styles.messageAi} ${
+                      message.command ? styles.messageCommand : ''
+                    } ${message.desktopOnly ? styles.desktopOnly : ''}`}
+                    style={{ '--msg-delay': `${index * 0.09}s` }}
+                  >
                     {message.text}
                   </p>
                 );

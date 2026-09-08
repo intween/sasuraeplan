@@ -187,8 +187,24 @@
   margin: 0 auto;
 }
 
+.scopeLabel {
+  @include label-text;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: $text-secondary;
+}
+
 .singleList {
+  margin-bottom: 8px;
+}
+
+// 요금 행은 같은 spec row 형식을 쓰되 브랜드 톤으로만 구분한다.
+.feeRow {
   margin-bottom: 24px;
+  background: $primary-light;
+  border-color: rgba($primary, 0.2);
 }
 
 .cta {
@@ -292,4 +308,12 @@
   @include md {
     font-size: 13.5px;
   }
+}
+
+@include below-md {
+  .head { margin-bottom: 28px; }
+  .card { padding: 20px 18px; }
+  .specRow { padding: 9px 12px; }
+  .specList { gap: 6px; }
+  .planDesc { margin-bottom: 14px; padding-bottom: 14px; }
 }

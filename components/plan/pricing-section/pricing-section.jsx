@@ -1,4 +1,3 @@
-import { Check } from 'lucide-react';
 import { Reveal } from '@/components/reveal';
 import styles from './pricing-section.module.scss';
 
@@ -51,13 +50,12 @@ const notes = [
 ];
 */
 
-const commonFeatures = [
-  'AI 사업계획서 작성',
-  '기존 계획서 업로드',
-  'VC 관점 분석',
-  '플랜비서 · 계획서 수정',
-  '정부지원사업 확인',
-  '전문가 피드백',
+// 이용 범위는 기존 카드의 spec row 스타일을 그대로 사용한다.
+const scope = [
+  { label: 'AI 사업계획서 작성', value: '포함' },
+  { label: 'VC 관점 분석', value: '포함' },
+  { label: '플랜비서 · 계획서 수정', value: '포함' },
+  { label: '전문가 피드백', value: '상담 후 안내', muted: true },
 ];
 
 export function PricingSection() {
@@ -71,27 +69,31 @@ export function PricingSection() {
             <br />
             상담 후 안내드립니다.
           </h2>
-          <p className={styles.desc}>
-            서비스 이용 범위와 전문가 피드백 여부에 따라 달라지기 때문에, 문의 주시면 사업 상황에 맞게 안내드립니다.
-          </p>
+          <p className={styles.desc}>필요한 서비스와 전문가 피드백 범위를 확인하고, 상담 후 이용 비용을 안내드립니다.</p>
         </Reveal>
 
         <div className={styles.single}>
           <Reveal className={`${styles.card} ${styles.cardFeatured}`}>
-            <h3 className={styles.planName}>이용 요금</h3>
+            <h3 className={styles.planName}>이용 안내</h3>
 
-            <p className={styles.price}>협의</p>
+            <p className={styles.planDesc}>사업 단계와 필요한 서비스 범위에 따라 이용 방법과 비용을 안내드립니다.</p>
 
-            <p className={styles.planDesc}>사업 상황과 필요한 이용 범위를 알려주시면 확인 후 안내드립니다.</p>
+            <span className={styles.scopeLabel}>이용 범위 상담</span>
 
-            <ul className={`${styles.commonList} ${styles.singleList}`}>
-              {commonFeatures.map((item) => (
-                <li key={item} className={styles.commonChip}>
-                  <Check aria-hidden="true" />
-                  {item}
+            <ul className={`${styles.specList} ${styles.singleList}`}>
+              {scope.map((item) => (
+                <li key={item.label} className={styles.specRow}>
+                  <span className={styles.specLabel}>{item.label}</span>
+                  <span className={`${styles.specValue} ${item.muted ? styles.specValueMuted : styles.specValueBrand}`}>{item.value}</span>
                 </li>
               ))}
             </ul>
+
+            {/* 요금은 숫자 자리에 크게 띄우지 않고, 이용 범위와 같은 행 형식으로 보여준다. */}
+            <div className={`${styles.specRow} ${styles.feeRow}`}>
+              <span className={styles.specLabel}>요금</span>
+              <span className={`${styles.specValue} ${styles.specValueBrand}`}>상담 후 안내</span>
+            </div>
 
             <a href="#contact" className={styles.ctaFeatured}>
               이용 문의하기

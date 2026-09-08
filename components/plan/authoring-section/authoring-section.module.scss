@@ -1,9 +1,14 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/mixins" as *;
 
+// Hero 와 이어지는 다음 장면처럼 보이도록 상단만 위로 당긴다.
 .section {
   @include section-spacing;
+  padding-top: 36px;
   background: $background-soft;
+
+  @include md { padding-top: 40px; }
+  @include lg { padding-top: 40px; }
 }
 
 .container { @include container($container-wide); }
@@ -169,3 +174,44 @@
 }
 
 
+
+// ── 모바일: 카드 3장을 쌓지 않고 3단계 텍스트 프로세스 + 대표 preview 1개 ──
+@include below-md {
+  .grid { gap: 20px; }
+
+  // 카드 프레임을 걷어내고 텍스트 스텝처럼 보이게 한다.
+  .card {
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+
+    &:hover { transform: none; box-shadow: none; border: none; }
+  }
+
+  .cardAccent { background: none; }
+
+  .cardTop { margin-bottom: 8px; }
+
+  .cardIcon {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+
+    svg { width: 15px; height: 15px; }
+  }
+
+  .cardTitle { margin-bottom: 4px; font-size: 16px; }
+  .cardDesc { font-size: 13.5px; line-height: 1.65; }
+
+  // 앞 두 단계의 예시 UI 는 숨기고, 마지막 "계획서 작성" 결과만 보여준다.
+  .card:not(.cardAccent) .example { display: none; }
+
+  .example { margin-top: 12px; }
+}
+
+@include below-md {
+  .head { margin-bottom: 28px; }
+  .title { margin-bottom: 12px; }
+  .desc br { display: none; }
+}

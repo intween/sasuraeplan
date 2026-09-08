@@ -124,3 +124,132 @@
 }
 
 .demoWrap { display: block; }
+
+// ── 추가 활용 기능: 정부지원사업 ────────────────
+// 독립 섹션이 아니라 플랜비서의 보조 기능으로만 읽히게 한다.
+// 큰 카드 / 목업 없이 divider + mini pill 로만 표현.
+.subFeature {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid $border;
+
+  @include md { margin-top: 48px; padding-top: 36px; }
+  @include lg {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+  }
+}
+
+.subCopy { min-width: 0; }
+
+.subTitle {
+  margin: 0 0 10px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.44;
+  letter-spacing: -0.025em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md { font-size: 21px; }
+}
+
+.subDesc {
+  max-width: 420px;
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: $text-secondary;
+  word-break: keep-all;
+
+  @include md { font-size: 15px; }
+}
+
+.subSide {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.miniFlow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include sm { gap: 8px 0; }
+  @include lg { justify-content: flex-end; }
+}
+
+.miniItem {
+  display: inline-flex;
+  align-items: center;
+}
+
+.miniPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 13px;
+  background: $surface;
+  border: 1px solid $border-light;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: $text-secondary;
+  white-space: nowrap;
+}
+
+.miniIcon {
+  display: inline-flex;
+  color: $primary;
+
+  svg { width: 14px; height: 14px; }
+}
+
+// 줄바꿈되는 좁은 화면에서는 화살표가 줄 끝에 매달리므로 숨긴다.
+.miniArrow {
+  display: none;
+
+  @include sm {
+    display: block;
+    width: 12px;
+    height: 1px;
+    margin: 0 8px;
+    background: $border-strong;
+    flex-shrink: 0;
+  }
+}
+
+// 이메일 알림은 별도 섹션 없이 이 helper text 한 줄로만.
+.miniNote {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: $text-muted;
+  word-break: keep-all;
+
+  @include lg { text-align: right; }
+}
+
+// ── 모바일: 흐름 카드와 데모 사이 간격 압축 ──
+@include below-md {
+  .loop.loop { margin-bottom: 24px; }
+  .head { margin-bottom: 28px; }
+  .subFeature { margin-top: 28px; padding-top: 24px; }
+}
+
+@include below-md {
+  .sub { font-size: 15px; }
+  .subFeature { gap: 16px; }
+  .subDesc { font-size: 13.5px; }
+}

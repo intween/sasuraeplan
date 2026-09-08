@@ -140,3 +140,7 @@
     font-size: 15px;
   }
 }
+
+@include below-md {
+  .head { margin-bottom: 24px; }
+}

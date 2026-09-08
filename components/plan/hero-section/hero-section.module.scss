@@ -1,27 +1,34 @@
-@use "../../../styles/variables" as *;
-@use "../../../styles/mixins" as *;
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
 
 .section {
   position: relative;
   overflow: hidden;
-  padding-top: 104px;
-  padding-bottom: 64px;
-  background: linear-gradient(180deg, $background-purple 0%, $background 62%);
+  padding-top: 84px;
+  padding-bottom: 28px;
+  background: linear-gradient(180deg, $background-purple 0%, $background 78%);
 
-  @include md { padding-top: 136px; padding-bottom: 88px; }
-  @include lg { padding-top: 156px; padding-bottom: 104px; }
+  @include md {
+    padding-top: 92px;
+    padding-bottom: 34px;
+  }
+  @include lg {
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
 }
 
 // 아주 옅은 브랜드 글로우 하나. 계속 움직이지 않는 정적 배경.
+// 장식 요소는 이 옅은 글로우 하나뿐. 카피가 주인공이다.
 .glow {
   position: absolute;
-  top: -240px;
+  top: -200px;
   left: 50%;
-  width: 900px;
+  width: 860px;
   max-width: 140vw;
-  height: 560px;
+  height: 480px;
   transform: translateX(-50%);
-  background: radial-gradient(ellipse at center, rgba($primary, 0.13) 0%, rgba($primary, 0) 68%);
+  background: radial-gradient(ellipse at center, rgba($primary, 0.05) 0%, rgba($primary, 0) 70%);
   pointer-events: none;
 }
 
@@ -36,48 +43,85 @@
   text-align: center;
 }
 
+// 헤드라인과 경쟁하지 않도록 배지는 한 단계 작게.
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 7px 14px;
-  border: 1px solid rgba($primary, 0.22);
+  gap: 6px;
+  padding: 5px 11px;
+  border: 1px solid rgba($primary, 0.2);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.8);
-  font-size: 12.5px;
+  font-size: 11.5px;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: $primary;
   word-break: keep-all;
 
-  @include md { font-size: 13.5px; }
+  @include md {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  @include below-sm {
+    font-size: 11px;
+    padding: 4px 10px;
+    gap: 5px;
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
 
-  svg { width: 14px; height: 14px; }
+  svg {
+    width: 13px;
+    height: 13px;
+  }
 }
 
-// 메인 훅은 "질문 → 관점 전환" 두 덩어리로 읽히게 한다.
+// 메인 질문만 H1 스케일을 쓴다.
 .headline {
-  margin: 20px 0 0;
-  font-size: 34px;
+  margin: 26px 0 0;
+  font-size: 38px;
   font-weight: 800;
-  line-height: 1.26;
+  line-height: 1.24;
   letter-spacing: -0.035em;
   color: $text-primary;
   word-break: keep-all;
 
-  @include sm { font-size: 42px; }
-  @include md { font-size: 52px; }
-  @include lg { font-size: 58px; }
+  @include sm {
+    font-size: 42px;
+  }
+  @include md {
+    margin-top: 30px;
+    font-size: 52px;
+  }
+  @include lg {
+    font-size: 58px;
+  }
 }
 
-.headlineAsk { display: block; }
-
-.headlineTurn {
-  display: block;
-  margin-top: 14px;
+// 관점 전환 문장: H1 보다 약 40% 작게, 데스크톱에서 한 줄로.
+.subhead {
+  max-width: 620px;
+  margin: 16px auto 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.42;
+  letter-spacing: -0.03em;
   color: $primary;
+  word-break: keep-all;
+  text-wrap: balance;
 
-  @include md { margin-top: 18px; }
+  @include sm {
+    font-size: 26px;
+  }
+  @include md {
+    margin-top: 20px;
+    font-size: 30px;
+  }
+  @include lg {
+    font-size: 34px;
+  }
 }
 
 // Hidden: 메인 훅이 두 덩어리가 되면서 별도 lead 줄은 사용하지 않는다.
@@ -96,24 +140,44 @@
 // .leadAccent { color: $primary; }
 
 .description {
-  max-width: 640px;
-  margin: 22px auto 0;
-  font-size: 15.5px;
+  max-width: 660px;
+  margin: 18px auto 0;
+  font-size: 15px;
   line-height: 1.76;
   color: $text-secondary;
   word-break: keep-all;
   text-wrap: pretty;
 
-  @include md { font-size: 17.5px; margin-top: 26px; }
+  // 좁은 화면에서는 강제 줄바꿈 없이 흐르게 한다.
+  br {
+    display: none;
+  }
+
+  @include md {
+    margin-top: 28px;
+    font-size: 17px;
+    br {
+      display: inline;
+    }
+  }
 }
 
 .ctaRow {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 30px;
+  align-items: stretch;
+  gap: 4px;
+  margin-top: 22px;
 
-  @include sm { flex-direction: row; justify-content: center; gap: 12px; }
+  @include sm {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  @include md {
+    margin-top: 28px;
+  }
 }
 
 .ctaPrimary {
@@ -123,14 +187,112 @@
   font-size: 16px;
   box-shadow: 0 8px 22px rgba($primary, 0.25);
 
-  &:hover { box-shadow: 0 10px 26px rgba($primary, 0.3); }
+  &:hover {
+    box-shadow: 0 10px 26px rgba($primary, 0.3);
+  }
 }
 
-.ctaSecondary {
-  @include button-secondary;
-  min-height: 52px;
-  padding: 0 24px;
-  font-size: 16px;
+// Primary 에 먼저 시선이 가도록 보조 동선은 텍스트 링크로만.
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: $text-secondary;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease;
+  word-break: keep-all;
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  &:hover {
+    color: $primary;
+    border-bottom-color: rgba($primary, 0.35);
+  }
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 3px;
+  }
+}
+
+// ── 제품 흐름 strip (카드 없음) ─────────────────
+.processStrip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, auto));
+  align-items: center;
+  justify-content: center;
+  column-gap: 26px;
+  row-gap: 12px;
+  max-width: 620px;
+  margin: 22px auto 0;
+  padding: 0;
+  list-style: none;
+
+  @include sm {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0;
+    row-gap: 8px;
+  }
+  @include md {
+    margin-top: 36px;
+  }
+}
+
+.processItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.processIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary;
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.processLabel {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: $text-secondary;
+  white-space: nowrap;
+
+  @include md {
+    font-size: 13.5px;
+  }
+}
+
+.processArrow {
+  display: none;
+
+  @include sm {
+    display: block;
+    width: 14px;
+    height: 1px;
+    margin: 0 14px;
+    background: $border-strong;
+  }
+  @include md {
+    width: 18px;
+    margin: 0 16px;
+  }
 }
 
 // Hidden: hero 하단 신뢰 문구는 4단계 흐름으로 대체
@@ -225,9 +387,11 @@
 .product {
   position: relative;
   max-width: 1000px;
-  margin: 44px auto 0;
+  margin: 30px auto 0;
 
-  @include md { margin-top: 60px; }
+  @include md {
+    margin-top: 36px;
+  }
 }
 
 .productNote {
@@ -243,17 +407,37 @@
   .copy > * {
     animation: heroUp 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
-  .copy > *:nth-child(1) { animation-delay: 0.02s; }
-  .copy > *:nth-child(2) { animation-delay: 0.08s; }
-  .copy > *:nth-child(3) { animation-delay: 0.14s; }
-  .copy > *:nth-child(4) { animation-delay: 0.2s; }
-  .copy > *:nth-child(5) { animation-delay: 0.26s; }
-  .copy > *:nth-child(6) { animation-delay: 0.32s; }
+  .copy > *:nth-child(1) {
+    animation-delay: 0.02s;
+  }
+  .copy > *:nth-child(2) {
+    animation-delay: 0.08s;
+  }
+  .copy > *:nth-child(3) {
+    animation-delay: 0.14s;
+  }
+  .copy > *:nth-child(4) {
+    animation-delay: 0.2s;
+  }
+  .copy > *:nth-child(5) {
+    animation-delay: 0.26s;
+  }
+  .copy > *:nth-child(6) {
+    animation-delay: 0.32s;
+  }
 
-  .product { animation: heroUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both; }
+  .processStrip {
+    animation: heroUp 0.62s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
+  }
 }
 
 @keyframes heroUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

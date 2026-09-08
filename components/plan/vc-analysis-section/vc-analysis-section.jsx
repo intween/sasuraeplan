@@ -21,14 +21,7 @@ const priorities = [
 ];
 
 // Full Report 에 포함되는 항목
-const reportItems = [
-  'VC Readiness Score',
-  'Startup Stage · 종합등급',
-  'VC 5축 · 25개 세부지표',
-  '종합 진단 · 핵심 강점',
-  '우선 보완 영역 · 심사 주의점',
-  'AI 가상 심사위원단 · 예상 심사 질문',
-];
+const reportItems = ['VC Readiness Score', 'Startup Stage · 종합등급', 'VC 5축 · 25개 세부지표', '종합 진단 · 핵심 강점', '우선 보완 영역 · 심사 주의점', 'AI 가상 심사위원단 · 예상 심사 질문'];
 
 export function VCAnalysisSection() {
   // public/vc_img.png 가 있으면 실제 분석 화면을, 없으면 아래 목업을 보여준다.
@@ -40,15 +33,13 @@ export function VCAnalysisSection() {
         <div className={styles.split}>
           {/* 좌측: 설명 + 포함 항목 */}
           <Reveal className={styles.copyCol}>
-            <span className={styles.eyebrow}>VC Analysis</span>
+            <span className={styles.eyebrow}>VC Readiness</span>
             <h2 className={styles.title}>
               내 사업계획서,
               <br />
-              VC가 보면 몇 점일까요?
+              평가자가 보면 몇 점일까요?
             </h2>
-            <p className={styles.desc}>
-              작성자의 시선이 아니라 평가자의 관점에서 사업의 강점과 빈틈을 확인하세요.
-            </p>
+            <p className={styles.desc}>작성자의 시선이 아니라 평가자의 관점에서 사업의 강점과 빈틈을 확인하세요.</p>
 
             <ul className={styles.checkList}>
               {reportItems.map((item) => (
@@ -110,10 +101,7 @@ export function VCAnalysisSection() {
                               <span className={`${styles.axisScore} ${axis.watch ? styles.axisScoreWatch : ''}`}>{axis.score}</span>
                             </div>
                             <div className={styles.axisTrack}>
-                              <span
-                                className={`${styles.axisFill} ${axis.watch ? styles.axisFillWatch : ''}`}
-                                style={{ width: `${axis.score}%`, '--axis-delay': `${index * 0.08}s` }}
-                              />
+                              <span className={`${styles.axisFill} ${axis.watch ? styles.axisFillWatch : ''}`} style={{ width: `${axis.score}%`, '--axis-delay': `${index * 0.08}s` }} />
                             </div>
                           </li>
                         ))}
@@ -121,13 +109,13 @@ export function VCAnalysisSection() {
                     </div>
 
                     <div className={styles.panel}>
-                      <span className={styles.panelLabel}>종합 진단</span>
+                      <span className={`${styles.panelLabel} ${styles.panelLabelDiagnosis}`}>종합 진단</span>
                       <blockquote className={styles.diagnosis}>
                         <Quote aria-hidden="true" />
                         사업모델의 기본 구조는 명확하지만 고객 검증과 재무 산정 근거의 보완이 필요합니다.
                       </blockquote>
 
-                      <span className={styles.blockLabel}>
+                      <span className={`${styles.blockLabel} ${styles.blockLabelStrength}`}>
                         <ThumbsUp aria-hidden="true" />
                         핵심 강점
                       </span>

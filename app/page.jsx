@@ -4,7 +4,6 @@ import { HeroSection } from '@/components/plan/hero-section';
 import { AuthoringSection } from '@/components/plan/authoring-section';
 import { VCAnalysisSection } from '@/components/plan/vc-analysis-section';
 import { PlanAssistantSection } from '@/components/plan/plan-assistant-section';
-import { FundingSection } from '@/components/plan/funding-section';
 import { PricingSection } from '@/components/plan/pricing-section';
 import { ExpertReviewSection } from '@/components/plan/expert-review-section';
 import { FAQSection } from '@/components/plan/faq-section';
@@ -21,6 +20,7 @@ import { FinalCTA } from '@/components/plan/final-cta';
  * import { AIRolesSection } from '@/components/plan/ai-roles-section';
  * import { AISafetySection } from '@/components/plan/ai-safety-section';
  * import { AIFactSection } from '@/components/plan/ai-fact-section';
+ * import { FundingSection } from '@/components/plan/funding-section';       // → PlanAssistantSection 의 추가 활용 기능으로 통합
  * import { FundingEmailSection } from '@/components/plan/funding-email-section';
  * import { ComparisonSection } from '@/components/plan/comparison-section';
  * import { ValueSection } from '@/components/plan/value-section';
@@ -69,10 +69,8 @@ export default function Home() {
         {/* 05 · 전문가 피드백 */}
         <ExpertReviewSection />
 
-        {/* 06 · 정부지원사업 */}
+        {/* Hidden: government support moved into Plan Assistant feature section
         <FundingSection />
-
-        {/* Hidden: reduced to a note inside FundingSection — 지원사업 이메일 알림
         <FundingEmailSection /> */}
 
         {/* Hidden: 계획서 1건 · 버전 정책 설명

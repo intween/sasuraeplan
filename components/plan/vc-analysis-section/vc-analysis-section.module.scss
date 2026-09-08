@@ -21,7 +21,7 @@
   @include lg {
     grid-template-columns: minmax(0, 40fr) minmax(0, 60fr);
     gap: 48px;
-    align-items: center;
+    align-items: start;
   }
 }
 
@@ -420,4 +420,55 @@
   font-size: 12px;
   font-weight: 600;
   color: $text-muted;
+}
+
+// ── 모바일: 전체 리포트를 축소하지 않고 핵심만 남긴 cropped preview ──
+// 점수 · 평가 3개 · 우선 보완 포인트만 보여준다.
+@include below-md {
+  .checkList {
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .checkItem {
+    font-size: 13.5px;
+  }
+
+  // 5축 중 상위 3개만
+  .axisList > li:nth-child(n + 4) {
+    display: none;
+  }
+
+  // 종합 진단 / 핵심 강점 블록은 모바일에서 생략
+  .panelLabelDiagnosis,
+  .diagnosis,
+  .blockLabelStrength,
+  .strengthList {
+    display: none;
+  }
+
+  .panel {
+    padding: 16px 14px;
+  }
+  .scoreValue {
+    font-size: 40px;
+  }
+  .priorityHint {
+    font-size: 11.5px;
+  }
+}
+
+@include below-md {
+  // 리포트 포함 항목은 4개까지만
+  .checkList > li:nth-child(n + 5) {
+    display: none;
+  }
+
+  // 등급만 남기고 나머지 메타 행은 생략
+  .metaList > div:nth-child(n + 2) {
+    display: none;
+  }
+
+  .split {
+    gap: 24px;
+  }
 }

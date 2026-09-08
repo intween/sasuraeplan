@@ -145,3 +145,41 @@
     transform: translateY(-50%);
   }
 }
+
+// ── 모바일: 세로로 쌓인 4개 카드를 한 줄짜리 행으로 압축 ──
+@include below-md {
+  .node {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px 14px;
+    text-align: left;
+  }
+
+  .nodeIcon {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px 0 0;
+    border-radius: 9px;
+
+    svg { width: 15px; height: 15px; }
+  }
+
+  .nodeLabel { margin-bottom: 0; font-size: 14.5px; }
+
+  .nodeDetail {
+    width: 100%;
+    margin-top: 4px;
+    padding-left: 40px;
+    font-size: 12.5px;
+  }
+
+  .nodeScore { font-size: 16px; }
+  .arrow { height: 12px; }
+}
+
+@include below-md {
+  .arrow { height: 8px; }
+  .node { padding: 11px 13px; }
+}

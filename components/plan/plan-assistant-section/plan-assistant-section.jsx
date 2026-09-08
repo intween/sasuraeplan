@@ -1,4 +1,4 @@
-import { BarChart3, ClipboardCheck, MessageSquare, Wand2 } from 'lucide-react';
+import { BarChart3, ClipboardCheck, MessageSquare, PencilLine, Search, Wand2 } from 'lucide-react';
 import { PlanAssistantDemo } from '@/components/plan/plan-assistant-demo';
 import { Reveal } from '@/components/reveal';
 // 기존 analysis-loop-section 의 흐름 UI 를 그대로 재사용한다. (섹션 통합)
@@ -11,6 +11,13 @@ const loop = [
   { icon: MessageSquare, label: '플랜비서에게 질문', detail: '점수가 낮은 이유를 확인' },
   { icon: ClipboardCheck, label: '추가 정보 정리', detail: '부족한 근거를 보완' },
   { icon: Wand2, label: '실제 계획서 수정', detail: '“계획서에 넣어줘”', accent: true },
+];
+
+// 정부지원사업은 독립 섹션 대신 플랜비서의 "추가 활용 기능" 으로만 보여준다.
+const fundingFlow = [
+  { icon: Search, label: '관련 공고 확인' },
+  { icon: ClipboardCheck, label: '지원요건 정리' },
+  { icon: PencilLine, label: '계획서 보완' },
 ];
 
 /* Hidden: overlaps with the demo below — 플랜비서 기능 카드 3종
@@ -45,9 +52,7 @@ export function PlanAssistantSection() {
             <br />
             그다음 무엇을 바꾸느냐입니다.
           </h2>
-          <p className={styles.sub}>
-            점수가 낮은 이유를 물어보고, 부족한 정보를 보완하고, 완성된 내용을 실제 계획서에 반영하세요.
-          </p>
+          <p className={styles.sub}>분석 결과를 플랜비서와 이야기하고, 부족한 내용을 실제 사업계획서까지 보완하세요.</p>
         </Reveal>
 
         <ol className={`${loopStyles.loop} ${styles.loop}`}>
@@ -58,9 +63,7 @@ export function PlanAssistantSection() {
                   <node.icon />
                 </span>
                 <span className={loopStyles.nodeLabel}>{node.label}</span>
-                <span className={`${loopStyles.nodeDetail} ${node.kind === 'score' ? loopStyles.nodeScore : ''}`}>
-                  {node.detail}
-                </span>
+                <span className={`${loopStyles.nodeDetail} ${node.kind === 'score' ? loopStyles.nodeScore : ''}`}>{node.detail}</span>
               </div>
 
               {index < loop.length - 1 && <span className={loopStyles.arrow} aria-hidden="true" />}
@@ -96,6 +99,38 @@ export function PlanAssistantSection() {
         <Reveal className={styles.demoWrap} delay={0.08}>
           <PlanAssistantDemo />
         </Reveal>
+
+        {/* 추가 활용 기능 — 정부지원사업. 목업 없이 mini feature 수준으로만. */}
+        {/* <Reveal className={styles.subFeature}>
+          <div className={styles.subCopy}>
+            <h3 className={styles.subTitle}>
+              지원사업 준비에도
+              <br />
+              그대로 활용하세요.
+            </h3>
+            <p className={styles.subDesc}>
+              내 사업과 맞는 공고를 확인하고, 지원 요건을 플랜비서와 정리해 사업계획서에 바로 반영할 수 있습니다.
+            </p>
+          </div>
+
+          <div className={styles.subSide}>
+            <ol className={styles.miniFlow}>
+              {fundingFlow.map((item, index) => (
+                <li key={item.label} className={styles.miniItem}>
+                  <span className={styles.miniPill}>
+                    <span className={styles.miniIcon} aria-hidden="true">
+                      <item.icon />
+                    </span>
+                    {item.label}
+                  </span>
+                  {index < fundingFlow.length - 1 && <span className={styles.miniArrow} aria-hidden="true" />}
+                </li>
+              ))}
+            </ol>
+
+            <p className={styles.miniNote}>관련된 새로운 지원사업이 등록되면 이메일로 알려드립니다.</p>
+          </div>
+        </Reveal> */}
       </div>
     </section>
   );

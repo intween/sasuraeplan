@@ -1,6 +1,15 @@
-import { ArrowRight, Sparkles, Upload } from 'lucide-react';
-import { ProductMockup } from '@/components/plan/product-mockup';
+import { ArrowRight, BarChart3, Sparkles, UserCheck, Wand2 } from 'lucide-react';
+// Hero 에는 제품 목업을 두지 않는다. (아래 AI Business Plan 섹션에서 실제 UI 를 보여준다)
+// import { ProductMockup } from '@/components/plan/product-mockup';
 import styles from './hero-section.module.scss';
+
+// 카드가 아니라 한 줄짜리 proof strip. "플랜 사수는 이런 흐름입니다" 정도만 전달한다.
+const process = [
+  { icon: Sparkles, label: 'AI 작성' },
+  { icon: BarChart3, label: 'VC 분석' },
+  { icon: Wand2, label: '플랜비서 보완' },
+  { icon: UserCheck, label: '전문가 피드백' },
+];
 
 /* Hidden: overlaps with the hero sub copy and the core product flow below
 const flow = [
@@ -44,35 +53,29 @@ export function HeroSection() {
             AI 작성 · VC 분석 · 전문가 피드백
           </span>
 
+          {/* 메인 질문만 H1. 관점 전환 문장은 한 단계 작은 supporting headline. */}
           <h1 className={styles.headline}>
-            <span className={styles.headlineAsk}>
-              사업계획서,
-              <br />
-              잘 썼다고 생각하세요?
-            </span>
-            <span className={styles.headlineTurn}>
-              평가자는
-              <br />
-              다르게 볼 수 있습니다.
-            </span>
+            사업계획서,
+            <br />잘 썼다고 생각하세요?
           </h1>
 
+          <p className={styles.subhead}>평가자는 다르게 볼 수 있습니다.</p>
+
           <p className={styles.description}>
-            내가 놓친 사업의 빈틈을 VC 관점으로 분석하고,
-            <br />
-            플랜비서와 보완하고, 전문가의 시선으로 한 번 더 점검하세요.
+            내가 놓친 사업의 빈틈을 VC 관점으로 분석하고, <br />
+            플랜비서와 보완하고 전문가의 시선으로 한 번 더 점검하세요.
           </p>
 
-          <div className={styles.ctaRow}>
+          {/* <div className={styles.ctaRow}>
             <a href="#contact" className={styles.ctaPrimary}>
               AI와 계획서 시작하기
               <ArrowRight aria-hidden="true" />
             </a>
-            <a href="#contact" className={styles.ctaSecondary}>
-              <Upload aria-hidden="true" />
-              기존 계획서 업로드
+            <a href="#contact" className={styles.ctaLink}>
+              기존 계획서가 있나요? 업로드하기
+              <ArrowRight aria-hidden="true" />
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* Hidden: overlaps with the hero sub copy and the core product flow below
@@ -90,10 +93,24 @@ export function HeroSection() {
         </ol>
         */}
 
+        {/* Hidden: 제품 목업은 Hero 에서 제거. 동일 UI 반복을 피한다.
         <div className={styles.product}>
           <ProductMockup />
           <span className={styles.productNote}>서비스 화면 예시</span>
         </div>
+        */}
+
+        <ol className={styles.processStrip}>
+          {process.map((step, index) => (
+            <li key={step.label} className={styles.processItem}>
+              <span className={styles.processIcon} aria-hidden="true">
+                <step.icon />
+              </span>
+              <span className={styles.processLabel}>{step.label}</span>
+              {index < process.length - 1 && <span className={styles.processArrow} aria-hidden="true" />}
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

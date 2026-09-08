@@ -1,5 +1,5 @@
-@use "../../../styles/variables" as *;
-@use "../../../styles/mixins" as *;
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
 
 // 전문가 영역도 플랜 사수 제품의 한 기능으로 보이도록
 // 별도 팔레트 없이 랜딩 전체와 동일한 브랜드 토큰만 사용한다.
@@ -10,7 +10,9 @@
   background: $background-soft;
 }
 
-.container { @include container($container-wide); }
+.container {
+  @include container($container-wide);
+}
 
 .split {
   display: grid;
@@ -19,11 +21,17 @@
   align-items: start;
 
   // 설명을 줄인 뒤 좌우 높이 차가 커져 데스크톱에서는 세로 중앙 정렬한다.
-  @include lg { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 48px; align-items: center; }
+  @include lg {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 48px;
+    align-items: start;
+  }
 }
 
 // ── 좌: 설명 ───────────────────────────────────
-.copyCol { min-width: 0; }
+.copyCol {
+  min-width: 0;
+}
 
 .badge {
   display: inline-block;
@@ -44,14 +52,18 @@
   word-break: keep-all;
 }
 
-.titleAccent { color: $primary; }
+.titleAccent {
+  color: $primary;
+}
 
 .desc {
   @include section-desc;
   margin: 0 0 14px;
   word-break: keep-all;
 
-  &:last-of-type { margin-bottom: 0; }
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 .featureList {
@@ -72,9 +84,16 @@
   color: $text-secondary;
   word-break: keep-all;
 
-  @include md { font-size: 15px; }
+  @include md {
+    font-size: 15px;
+  }
 
-  svg { width: 18px; height: 18px; flex-shrink: 0; color: $primary; }
+  svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: $primary;
+  }
 }
 
 .assignNote {
@@ -91,11 +110,19 @@
   color: $text-secondary;
   word-break: keep-all;
 
-  svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; color: $primary; }
+  svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: $primary;
+  }
 }
 
 // ── 우: 검토 완료 제품 화면 ────────────────────
-.mockCol { min-width: 0; }
+.mockCol {
+  min-width: 0;
+}
 
 .mock {
   background: $surface;
@@ -113,7 +140,9 @@
   background: $surface-muted;
   border-bottom: 1px solid $border-light;
 
-  @include md { padding: 12px 20px; }
+  @include md {
+    padding: 12px 20px;
+  }
 }
 
 .mockLogo {
@@ -123,7 +152,9 @@
   flex-shrink: 0;
   object-fit: contain;
 
-  @include md { height: 19px; }
+  @include md {
+    height: 19px;
+  }
 }
 
 .mockBarTitle {
@@ -147,7 +178,9 @@
 .mockBody {
   padding: 20px 18px;
 
-  @include md { padding: 24px 26px; }
+  @include md {
+    padding: 24px 26px;
+  }
 }
 
 // 진행 상태
@@ -191,7 +224,9 @@
   color: $text-secondary;
   word-break: keep-all;
 
-  @include md { font-size: 14.5px; }
+  @include md {
+    font-size: 14.5px;
+  }
 }
 
 // 검토본 파일
@@ -216,7 +251,10 @@
   color: $primary;
   flex-shrink: 0;
 
-  svg { width: 18px; height: 18px; }
+  svg {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .fileBody {
@@ -280,7 +318,11 @@
   font-weight: 700;
   color: $text-primary;
 
-  svg { width: 14px; height: 14px; color: $primary; }
+  svg {
+    width: 14px;
+    height: 14px;
+    color: $primary;
+  }
 }
 
 // 전문가 의견
@@ -369,7 +411,11 @@
   border: 1px solid $border;
   border-radius: $radius-lg;
 
-  @include lg { flex-direction: row; align-items: center; padding: 26px 24px; }
+  @include lg {
+    flex-direction: row;
+    align-items: center;
+    padding: 26px 24px;
+  }
 }
 
 .sources {
@@ -377,7 +423,9 @@
   flex-direction: column;
   gap: 10px;
 
-  @include lg { flex: 1.3; }
+  @include lg {
+    flex: 1.3;
+  }
 }
 
 .sourceCard {
@@ -407,7 +455,10 @@
   color: $primary;
   flex-shrink: 0;
 
-  svg { width: 17px; height: 17px; }
+  svg {
+    width: 17px;
+    height: 17px;
+  }
 }
 
 .sourceBody {
@@ -424,7 +475,9 @@
   color: $text-primary;
   word-break: keep-all;
 
-  @include md { font-size: 14.5px; }
+  @include md {
+    font-size: 14.5px;
+  }
 }
 
 .sourceNote {
@@ -442,11 +495,17 @@
   color: $text-muted;
   flex-shrink: 0;
 
-  svg { width: 17px; height: 17px; transform: rotate(90deg); }
+  svg {
+    width: 17px;
+    height: 17px;
+    transform: rotate(90deg);
+  }
 
   @include lg {
     padding: 0 16px;
-    svg { transform: none; }
+    svg {
+      transform: none;
+    }
   }
 }
 
@@ -460,7 +519,9 @@
   border-radius: $radius-md;
   text-align: center;
 
-  @include lg { flex: 1; }
+  @include lg {
+    flex: 1;
+  }
 }
 
 // 핵심 단계 강조
@@ -475,10 +536,14 @@
   letter-spacing: -0.02em;
   color: $text-primary;
 
-  @include md { font-size: 16px; }
+  @include md {
+    font-size: 16px;
+  }
 }
 
-.stageActive .stageTitle { color: $primary; }
+.stageActive .stageTitle {
+  color: $primary;
+}
 
 .stageNote {
   font-size: 12.5px;
@@ -495,7 +560,9 @@
   border: 1px solid $border;
   border-radius: $radius-lg;
 
-  @include md { padding: 28px 26px; }
+  @include md {
+    padding: 28px 26px;
+  }
 }
 
 .afterHead {
@@ -504,7 +571,12 @@
   gap: 10px;
   margin-bottom: 18px;
 
-  svg { width: 18px; height: 18px; flex-shrink: 0; color: $primary; }
+  svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: $primary;
+  }
 }
 
 .afterTitle {
@@ -515,7 +587,9 @@
   color: $text-primary;
   word-break: keep-all;
 
-  @include md { font-size: 18px; }
+  @include md {
+    font-size: 18px;
+  }
 }
 
 .afterThread {
@@ -534,7 +608,9 @@
   line-height: 1.65;
   word-break: keep-all;
 
-  @include md { max-width: 78%; }
+  @include md {
+    max-width: 78%;
+  }
 }
 
 .afterexpert {
@@ -590,9 +666,18 @@
   border-radius: $radius-lg;
   text-align: center;
 
-  @include md { flex-direction: row; justify-content: center; gap: 16px; }
+  @include md {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+  }
 
-  > svg { width: 17px; height: 17px; flex-shrink: 0; color: $primary; }
+  > svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    color: $primary;
+  }
 
   p {
     margin: 0;
@@ -601,10 +686,14 @@
     color: $text-primary;
     word-break: keep-all;
 
-    @include md { font-size: 15.5px; }
+    @include md {
+      font-size: 15.5px;
+    }
   }
 
-  strong { font-weight: 700; }
+  strong {
+    font-weight: 700;
+  }
 }
 
 .premiumCta {
@@ -613,4 +702,78 @@
   padding: 0 18px;
   font-size: 14px;
   flex-shrink: 0;
+}
+
+// ── 모바일: 전문가 화면은 상태 + 검토본 + 대표 코멘트 1개만 ──
+@include below-md {
+  .mockMessage,
+  .fileActions,
+  .noEdit {
+    display: none;
+  }
+
+  // 대표 피드백 1건만 남긴다.
+  .commentList > .comment:nth-child(n + 2) {
+    display: none;
+  }
+
+  .mockBody {
+    padding: 16px 14px;
+    gap: 0;
+  }
+  .statusRow {
+    margin-bottom: 14px;
+  }
+  .fileCard {
+    margin-bottom: 16px;
+  }
+}
+
+@include below-md {
+  .split {
+    gap: 24px;
+  }
+  .title {
+    margin-bottom: 14px;
+  }
+
+  .featureList {
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .feature {
+    font-size: 13.5px;
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .assignNote {
+    margin-top: 16px;
+    padding: 12px 14px;
+    font-size: 12.5px;
+  }
+
+  // 하단 안내 strip 은 문의 섹션과 중복되므로 한 줄 문구로만 압축한다.
+  .premium {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 14px 16px;
+    text-align: left;
+
+    p {
+      font-size: 12.5px;
+    }
+  }
+
+  .premiumCta {
+    display: none;
+  }
+
+  .fileName {
+    font-size: 13px;
+  }
 }
