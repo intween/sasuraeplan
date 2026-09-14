@@ -1,0 +1,67 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.card {
+  @include card;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  text-decoration: none;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+
+  &:hover { border-color: $primary; background: $background-soft; }
+  &:focus-visible { outline: 2px solid $primary; outline-offset: 2px; }
+
+  @include md { padding: 30px 28px; }
+}
+
+.iconBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 18px;
+  background: $primary-light;
+  border-radius: $radius-xs;
+  color: $primary;
+
+  svg { width: 22px; height: 22px; }
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md { font-size: 19px; }
+}
+
+// data 의 줄바꿈을 데스크톱에서만 살린다. 모바일에서는 자연스럽게 wrap 시킨다.
+.desc {
+  margin: 8px 0 0;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: $text-secondary;
+  word-break: keep-all;
+  text-wrap: pretty;
+  white-space: normal;
+
+  @include md { font-size: 15px; white-space: pre-line; }
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: $primary;
+
+  svg { width: 15px; height: 15px; }
+}

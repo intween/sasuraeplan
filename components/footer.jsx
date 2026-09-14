@@ -1,17 +1,20 @@
+import Link from 'next/link';
 import { BrandLogo } from '@/components/brand-logo';
 import styles from './footer.module.scss';
 
+// header 와 같은 이유로 루트 기준 href 를 쓴다 — /help 에서도 랜딩 섹션으로 이동해야 한다.
 const serviceLinks = [
-  { label: 'AI 작성', href: '#authoring' },
-  { label: 'VC 분석', href: '#vc-analysis' },
-  { label: '플랜비서', href: '#plan-assistant' },
-  { label: '전문가 피드백', href: '#expert-review' },
+  { label: 'AI 작성', href: '/#authoring' },
+  { label: 'VC 분석', href: '/#vc-analysis' },
+  { label: '플랜비서', href: '/#plan-assistant' },
+  { label: '전문가 피드백', href: '/#expert-review' },
 ];
 
 const supportLinks = [
-  { label: '이용요금', href: '#pricing' },
-  { label: 'FAQ', href: '#faq' },
-  { label: '이용 문의하기', href: '#contact' },
+  { label: '사용가이드', href: '/help', page: true },
+  { label: '이용요금', href: '/#pricing' },
+  { label: 'FAQ', href: '/#faq' },
+  { label: '이용 문의하기', href: '/#contact' },
 ];
 
 // 개인정보처리방침 / 이용약관은 아직 실제 페이지가 없어 링크를 만들지 않는다.
@@ -46,9 +49,15 @@ export function Footer() {
             <ul className={styles.linkList}>
               {supportLinks.map((item) => (
                 <li key={item.label}>
-                  <a className={styles.link} href={item.href}>
-                    {item.label}
-                  </a>
+                  {item.page ? (
+                    <Link className={styles.link} href={item.href}>
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a className={styles.link} href={item.href}>
+                      {item.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

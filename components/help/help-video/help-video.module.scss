@@ -1,0 +1,110 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.figure {
+  margin: 0 0 40px;
+
+  @include md { margin-bottom: 56px; }
+}
+
+// 항상 16:9. overflow 를 막아 모바일에서 player 가 화면 밖으로 나가지 않게 한다.
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: $surface-muted;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+
+  @include md { border-radius: $radius-lg; }
+}
+
+.player,
+.cover,
+.placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.player {
+  display: block;
+  background: #000;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: $text-muted;
+  font-size: 14px;
+  font-weight: 600;
+
+  svg { width: 26px; height: 26px; }
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background-color: $primary-light;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+
+  &:focus-visible { outline: 2px solid $primary; outline-offset: -3px; }
+  &:hover .playButton { background: $primary-dark; }
+}
+
+.playButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: $primary;
+  color: #fff;
+  box-shadow: $shadow-soft;
+  transition: background-color 0.18s ease;
+
+  @include md { width: 64px; height: 64px; }
+
+  svg { width: 24px; height: 24px; fill: currentColor; margin-left: 2px; }
+}
+
+.coverLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.caption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.captionTitle {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: $text-primary;
+  word-break: keep-all;
+
+  @include md { font-size: 15px; }
+}
+
+.duration {
+  flex-shrink: 0;
+  font-size: 13px;
+  color: $text-muted;
+}
