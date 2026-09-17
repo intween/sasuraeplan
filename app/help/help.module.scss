@@ -49,12 +49,21 @@
   @include md { font-size: 16.5px; white-space: pre-line; }
 }
 
+// 카드 5개를 "위 2개 · 아래 3개"로 고정한다.
+// 6칸 grid 를 깔고 위 2개는 3칸씩, 아래 3개는 2칸씩 차지하게 해서
+// 두 줄의 전체 폭을 정확히 같게 맞춘다(아래 줄 카드가 그만큼 좁아진다).
 .cardGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
 
-  @include md { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  @include md {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 20px;
+
+    > *:nth-child(-n + 2) { grid-column: span 3; }
+    > *:nth-child(n + 3) { grid-column: span 2; }
+  }
 }
 
 // ── 가이드 상세 ────────────────────────────────

@@ -35,6 +35,14 @@
   background: #000;
 }
 
+// 파일 영상은 GIF 처럼 자동 반복 재생된다.
+// 시연 영상 비율이 16:9 와 달라도 잘리지 않게 contain 으로 두고,
+// 남는 여백은 검정 대신 프레임 배경색으로 자연스럽게 채운다.
+.videoPlayer {
+  background: $surface-muted;
+  object-fit: contain;
+}
+
 .placeholder {
   display: flex;
   flex-direction: column;
@@ -87,10 +95,6 @@
 }
 
 .caption {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
   margin-top: 12px;
 }
 
@@ -101,10 +105,4 @@
   word-break: keep-all;
 
   @include md { font-size: 15px; }
-}
-
-.duration {
-  flex-shrink: 0;
-  font-size: 13px;
-  color: $text-muted;
 }

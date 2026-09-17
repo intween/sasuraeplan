@@ -21,7 +21,7 @@ const priorities = [
 ];
 
 // Full Report 에 포함되는 항목
-const reportItems = ['VC Readiness Score', 'Startup Stage · 종합등급', 'VC 5축 · 25개 세부지표', '종합 진단 · 핵심 강점', '우선 보완 영역 · 심사 주의점', 'AI 가상 심사위원단 · 예상 심사 질문'];
+const reportItems = ['VC Readiness Score', 'Startup Stage · 종합등급', 'VC 5축 · 25개 세부지표', '종합 진단 · 핵심 강점', '우선 보완 영역 · 심사 주의점', 'AI 가상 심사위원단 · 예상 심사 질문', '창업가 역량 진단'];
 
 export function VCAnalysisSection() {
   // public/vc_img.png 가 있으면 실제 분석 화면을, 없으면 아래 목업을 보여준다.
@@ -55,7 +55,7 @@ export function VCAnalysisSection() {
           <Reveal className={styles.shotCol} delay={0.08}>
             {shot ? (
               <>
-                <VCScreenshot src={shot.src} width={shot.width} height={shot.height} alt="플랜 사수 VC 분석 결과 화면" />
+                <VCScreenshot src={shot.src} width={shot.width} height={shot.height} alt="사수래AI VC 분석 결과 화면" />
                 <span className={styles.note}>실제 VC 분석 결과 화면</span>
               </>
             ) : (

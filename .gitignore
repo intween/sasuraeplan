@@ -13,3 +13,10 @@ __v0_jsx-dev-runtime.ts
 node_modules
 .next/
 .DS_Store
+
+# 작업용 원본 미디어 (화면 녹화 원본 · 로고 원본)
+# public/ 에 인코딩해서 넣은 파일만 커밋하고, 루트의 원본은 리포에 두지 않는다.
+/*.mp4
+/*.mov
+/*.MP4
+/KakaoTalk_*.jpg

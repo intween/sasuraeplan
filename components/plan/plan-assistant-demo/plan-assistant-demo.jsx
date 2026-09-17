@@ -150,7 +150,7 @@ export function PlanAssistantDemo() {
   return (
     <div className={styles.demo}>
       <div className={styles.tabsWrap}>
-        <div className={styles.tabs} role="tablist" aria-label="플랜비서 사용 예시" onKeyDown={onKeyDown}>
+        <div className={styles.tabs} role="tablist" aria-label="사수AI 사용 예시" onKeyDown={onKeyDown}>
           {tabs.map((tab, index) => {
             const isActive = tab.id === activeId;
             return (
@@ -190,7 +190,7 @@ export function PlanAssistantDemo() {
               {/* <span className={styles.chatBadge} aria-hidden="true">
               <Sparkles />
             </span> */}
-              <span className={styles.chatName}>플랜비서</span>
+              <span className={styles.chatName}>사수AI</span>
               <span className={styles.chatCtx}>계획서 v1 · VC 분석 연결됨</span>
             </div>
 

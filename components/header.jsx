@@ -13,7 +13,7 @@ import styles from './header.module.scss';
 const navItems = [
   { label: 'AI 작성', href: '/#authoring' },
   { label: 'VC 분석', href: '/#vc-analysis' },
-  { label: '플랜비서', href: '/#plan-assistant' },
+  { label: '사수AI', href: '/#plan-assistant' },
   { label: '전문가 피드백', href: '/#expert-review' },
   { label: '이용요금', href: '/#pricing' },
   // 사용가이드는 주요 CTA 가 아니다 — 버튼이 아니라 일반 nav 링크로만 둔다.
@@ -55,7 +55,7 @@ export function Header() {
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
-        <a href="/#top" className={styles.logo} aria-label="플랜 사수 홈">
+        <a href="/#top" className={styles.logo} aria-label="사수래AI 홈">
           <BrandLogo className={styles.logoImage} priority />
         </a>
 

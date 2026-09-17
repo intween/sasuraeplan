@@ -29,7 +29,7 @@ export function ComparisonSection() {
 
         <Reveal className={styles.tableWrap} delay={0.06}>
           <table className={styles.table}>
-            <caption className={styles.caption}>일반적인 생성형 AI와 플랜 사수의 사용 방식 비교</caption>
+            <caption className={styles.caption}>일반적인 생성형 AI와 사수래AI의 사용 방식 비교</caption>
             <thead>
               <tr>
                 <th scope="col" className={styles.colFeature}>
@@ -39,7 +39,7 @@ export function ComparisonSection() {
                   일반적인 생성형 AI
                 </th>
                 <th scope="col" className={styles.colPlan}>
-                  <span className={styles.planHead}>플랜 사수</span>
+                  <span className={styles.planHead}>사수래AI</span>
                 </th>
               </tr>
             </thead>
@@ -52,7 +52,7 @@ export function ComparisonSection() {
                   <td className={styles.cellGeneral} data-label="일반적인 생성형 AI">
                     {row.general}
                   </td>
-                  <td className={styles.cellPlan} data-label="플랜 사수">
+                  <td className={styles.cellPlan} data-label="사수래AI">
                     <span className={styles.planValue}>
                       <Check aria-hidden="true" />
                       {row.plan}

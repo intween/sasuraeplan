@@ -15,7 +15,7 @@ const phases = [
   {
     icon: Sparkles,
     stage: '분석 이후',
-    role: 'AI 플랜비서',
+    role: 'AI 사수AI',
     direction: '내가 묻습니다',
     desc: '현재 계획서와 VC 분석 결과를 기준으로 사업을 계속 발전시키는 역할입니다.',
     from: 'user',

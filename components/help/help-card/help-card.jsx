@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Building2, LineChart, Rocket, Sparkles } from 'lucide-react';
+import { ArrowRight, Building2, Compass, LineChart, Rocket, Sparkles } from 'lucide-react';
 import { helpGuidePath } from '@/lib/help-guides';
 import styles from './help-card.module.scss';
 
@@ -9,6 +9,7 @@ const ICONS = {
   chart: LineChart,
   sparkles: Sparkles,
   building: Building2,
+  compass: Compass,
 };
 
 // Help 메인의 큰 카드. shadow 는 쓰지 않고 hover 에서만 테두리를 브랜드 컬러로 바꾼다.

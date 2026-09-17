@@ -22,14 +22,14 @@ export async function generateMetadata({ params }) {
   // data 의 줄바꿈은 화면용이라 메타에서는 한 줄로 편다.
   const description = guide.description.replace(/\n/g, ' ');
   return {
-    title: `${guide.title} | 플랜 사수 사용가이드`,
+    title: `${guide.title} | 사수래AI 사용가이드`,
     description,
     alternates: { canonical: `${HELP_ROOT_PATH}/${guide.slug}` },
-    openGraph: { title: `${guide.title} | 플랜 사수 사용가이드`, description, type: 'article', locale: 'ko_KR' },
+    openGraph: { title: `${guide.title} | 사수래AI 사용가이드`, description, type: 'article', locale: 'ko_KR' },
   };
 }
 
-// 가이드 상세 — 4개 가이드가 모두 이 하나의 템플릿을 쓴다.
+// 가이드 상세 — 5개 가이드가 모두 이 하나의 템플릿을 쓴다.
 // 순서는 항상 같다: tab → breadcrumb → 제목 → 영상 → 핵심 사용 순서 → 알아두세요 → 다음 가이드.
 // 지원사업 · 전문가 피드백만 steps 대신 sections(영역 + 흐름)을 쓴다.
 export default async function HelpGuidePage({ params }) {

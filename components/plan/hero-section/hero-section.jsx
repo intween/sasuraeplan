@@ -3,11 +3,11 @@ import { ArrowRight, BarChart3, Sparkles, UserCheck, Wand2 } from 'lucide-react'
 // import { ProductMockup } from '@/components/plan/product-mockup';
 import styles from './hero-section.module.scss';
 
-// 카드가 아니라 한 줄짜리 proof strip. "플랜 사수는 이런 흐름입니다" 정도만 전달한다.
+// 카드가 아니라 한 줄짜리 proof strip. "사수래AI는 이런 흐름입니다" 정도만 전달한다.
 const process = [
   { icon: Sparkles, label: 'AI 작성' },
   { icon: BarChart3, label: 'VC 분석' },
-  { icon: Wand2, label: '플랜비서 보완' },
+  { icon: Wand2, label: '사수AI 보완' },
   { icon: UserCheck, label: '전문가 피드백' },
 ];
 
@@ -29,7 +29,7 @@ const flow = [
     no: '03',
     icon: Wand2,
     title: '분석에서 끝내지 마세요',
-    desc: '플랜비서와 이야기하며 실제 계획서에 반영',
+    desc: '사수AI와 이야기하며 실제 계획서에 반영',
     accent: true,
   },
   {
@@ -63,7 +63,7 @@ export function HeroSection() {
 
           <p className={styles.description}>
             내가 놓친 사업의 빈틈을 VC 관점으로 분석하고, <br />
-            플랜비서와 보완하고 전문가의 시선으로 한 번 더 점검하세요.
+            사수AI와 보완하고 전문가의 시선으로 한 번 더 점검하세요.
           </p>
 
           {/* <div className={styles.ctaRow}>

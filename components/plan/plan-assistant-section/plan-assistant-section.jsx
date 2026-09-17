@@ -5,22 +5,22 @@ import { Reveal } from '@/components/reveal';
 import loopStyles from '@/components/plan/analysis-loop-section/analysis-loop-section.module.scss';
 import styles from './plan-assistant-section.module.scss';
 
-// VC 분석 결과 → 플랜비서에게 질문 → 추가 정보 정리 → 실제 계획서 수정
+// VC 분석 결과 → 사수AI에게 질문 → 추가 정보 정리 → 실제 계획서 수정
 const loop = [
   { icon: BarChart3, label: 'VC 분석 결과', detail: '72점', kind: 'score' },
-  { icon: MessageSquare, label: '플랜비서에게 질문', detail: '점수가 낮은 이유를 확인' },
+  { icon: MessageSquare, label: '사수AI에게 질문', detail: '점수가 낮은 이유를 확인' },
   { icon: ClipboardCheck, label: '추가 정보 정리', detail: '부족한 근거를 보완' },
   { icon: Wand2, label: '실제 계획서 수정', detail: '“계획서에 넣어줘”', accent: true },
 ];
 
-// 정부지원사업은 독립 섹션 대신 플랜비서의 "추가 활용 기능" 으로만 보여준다.
+// 정부지원사업은 독립 섹션 대신 사수AI의 "추가 활용 기능" 으로만 보여준다.
 const fundingFlow = [
   { icon: Search, label: '관련 공고 확인' },
   { icon: ClipboardCheck, label: '지원요건 정리' },
   { icon: PencilLine, label: '계획서 보완' },
 ];
 
-/* Hidden: overlaps with the demo below — 플랜비서 기능 카드 3종
+/* Hidden: overlaps with the demo below — 사수AI 기능 카드 3종
 const features = [
   {
     icon: MessageSquare,
@@ -52,7 +52,7 @@ export function PlanAssistantSection() {
             <br />
             그다음 무엇을 바꾸느냐입니다.
           </h2>
-          <p className={styles.sub}>분석 결과를 플랜비서와 이야기하고, 부족한 내용을 실제 사업계획서까지 보완하세요.</p>
+          <p className={styles.sub}>분석 결과를 사수AI와 이야기하고, 부족한 내용을 실제 사업계획서까지 보완하세요.</p>
         </Reveal>
 
         <ol className={`${loopStyles.loop} ${styles.loop}`}>
@@ -71,7 +71,7 @@ export function PlanAssistantSection() {
           ))}
         </ol>
 
-        {/* Hidden: overlaps with the demo below — 플랜비서 기능 카드 3종
+        {/* Hidden: overlaps with the demo below — 사수AI 기능 카드 3종
         <div className={styles.grid}>
           {features.map((feature, index) => (
             <Reveal
@@ -109,7 +109,7 @@ export function PlanAssistantSection() {
               그대로 활용하세요.
             </h3>
             <p className={styles.subDesc}>
-              내 사업과 맞는 공고를 확인하고, 지원 요건을 플랜비서와 정리해 사업계획서에 바로 반영할 수 있습니다.
+              내 사업과 맞는 공고를 확인하고, 지원 요건을 사수AI와 정리해 사업계획서에 바로 반영할 수 있습니다.
             </p>
           </div>
 

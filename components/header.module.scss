@@ -45,7 +45,7 @@
 .logoImage {
   display: block;
   height: 28px;
-  width: auto; // 873x200 원본 비율 유지
+  width: auto; // 993x188 원본 비율 유지
   object-fit: contain;
 
   @include md { height: 32px; }

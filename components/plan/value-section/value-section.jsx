@@ -21,7 +21,7 @@ export function ValueSection() {
             같은 사업이라면 하나입니다.
           </h2>
           <p className={styles.desc}>
-            플랜 사수의 기본 이용 단위는 <strong>사업 아이템 기준 계획서 1건</strong>입니다. <br />
+            사수래AI의 기본 이용 단위는 <strong>사업 아이템 기준 계획서 1건</strong>입니다. <br />
             같은 사업이라면 버전을 아무리 늘려도 계획서 1건 안에서 관리됩니다.
           </p>
         </Reveal>

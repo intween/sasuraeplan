@@ -54,11 +54,14 @@
   @include md { font-size: 15px; white-space: pre-line; }
 }
 
+// 한 줄에 카드 2~3개가 섞여 서더라도 "가이드 보기"는 카드 아래쪽에 정렬시킨다.
 .action {
   display: inline-flex;
   align-items: center;
+  align-self: flex-start;
   gap: 5px;
-  margin-top: 20px;
+  margin-top: auto;
+  padding-top: 20px;
   font-size: 14px;
   font-weight: 700;
   color: $primary;

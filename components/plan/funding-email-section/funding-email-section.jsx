@@ -23,7 +23,7 @@ export function FundingEmailSection() {
             </h2>
 
             <p className={styles.desc}>
-              플랜 사수에 등록된 사업 정보를 기준으로 관련성이 높은 새로운 정부지원사업이 확인되면 이메일로 안내할 수 있습니다.
+              사수래AI에 등록된 사업 정보를 기준으로 관련성이 높은 새로운 정부지원사업이 확인되면 이메일로 안내할 수 있습니다.
             </p>
 
             <div className={styles.caution}>
@@ -67,7 +67,7 @@ export function FundingEmailSection() {
                 </div>
 
                 <span className={styles.mailCta}>
-                  플랜 사수에서 확인하기
+                  사수래AI에서 확인하기
                   <ArrowRight aria-hidden="true" />
                 </span>
 

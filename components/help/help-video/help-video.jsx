@@ -6,9 +6,11 @@ import styles from './help-video.module.scss';
 
 // 가이드 상단의 16:9 영상 카드.
 //
-// 가이드의 메인 visual 이라 본문보다 먼저 온다. 규칙 두 가지:
-//  1) 자동재생하지 않는다. 사용자가 Play 를 눌렀을 때만 player 를 mount 한다.
-//  2) 영상 URL 이 아직 없으면 "영상 준비 중" placeholder 로 그린다 —
+// 가이드의 메인 visual 이라 본문보다 먼저 온다. 규칙 세 가지:
+//  1) 직접 올린 파일(mp4 등)은 GIF 처럼 음소거 자동 반복 재생한다 —
+//     시연 화면이라 소리가 없고, 클릭 없이 바로 보이는 편이 가이드에 맞다.
+//  2) YouTube / Vimeo 는 iframe 을 미리 띄우지 않는다. 사용자가 Play 를 눌렀을 때만 mount 한다.
+//  3) 영상 URL 이 아직 없으면 "영상 준비 중" placeholder 로 그린다 —
 //     나중에 lib/help-guides.js 의 video.videoUrl 만 채우면 그대로 재생된다.
 //
 // 새 dependency 없이 iframe(YouTube / Vimeo) 또는 <video>(mp4 등)만 사용한다.
@@ -50,9 +52,10 @@ export function HelpVideo({ video }) {
   const [isPlaying, setIsPlaying] = useState(false);
   if (!video) return null;
 
-  const { title, videoUrl, thumbnail, duration } = video;
+  const { title, videoUrl, thumbnail } = video;
   const embedSrc = buildEmbedSrc(videoUrl);
-  const canPlay = Boolean(embedSrc) || isFileVideo(videoUrl);
+  const isFile = isFileVideo(videoUrl);
+  const canPlay = Boolean(embedSrc) || isFile;
 
   return (
     <figure className={styles.figure}>
@@ -64,7 +67,24 @@ export function HelpVideo({ video }) {
           </div>
         )}
 
-        {canPlay && !isPlaying && (
+        {/* 파일 영상: 커버 없이 바로 재생한다.
+            muted 없이는 브라우저가 autoPlay 를 막으므로 muted 는 필수다. */}
+        {isFile && (
+          <video
+            className={`${styles.player} ${styles.videoPlayer}`}
+            src={videoUrl}
+            title={title}
+            aria-label={title}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster={thumbnail || undefined}
+          />
+        )}
+
+        {embedSrc && !isPlaying && (
           <button
             type="button"
             className={styles.cover}
@@ -79,7 +99,7 @@ export function HelpVideo({ video }) {
           </button>
         )}
 
-        {canPlay && isPlaying && embedSrc && (
+        {embedSrc && isPlaying && (
           <iframe
             className={styles.player}
             src={embedSrc}
@@ -89,14 +109,10 @@ export function HelpVideo({ video }) {
           />
         )}
 
-        {canPlay && isPlaying && !embedSrc && (
-          <video className={styles.player} src={videoUrl} title={title} controls autoPlay playsInline />
-        )}
       </div>
 
       <figcaption className={styles.caption}>
         <span className={styles.captionTitle}>{title}</span>
-        {duration && <span className={styles.duration}>{duration}</span>}
       </figcaption>
     </figure>
   );

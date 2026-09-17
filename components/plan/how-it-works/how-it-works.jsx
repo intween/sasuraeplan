@@ -25,7 +25,7 @@ const steps = [
   {
     no: '04',
     icon: MessageSquare,
-    title: '플랜비서와 분석 상담',
+    title: '사수AI와 분석 상담',
     desc: '왜 이런 평가가 나왔는지, 어떤 부분을 보완해야 하는지 자유롭게 질문합니다.',
   },
   {

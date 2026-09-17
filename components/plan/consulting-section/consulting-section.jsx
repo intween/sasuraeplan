@@ -10,7 +10,7 @@ const stages = [
   },
   {
     icon: ClipboardCheck,
-    label: '플랜 사수에',
+    label: '사수래AI에',
     desc: '해야 할 일과 받은 피드백을 이어서 관리합니다.',
     accent: true,
   },
@@ -31,7 +31,7 @@ export function ConsultingSection() {
             컨설팅에서 받은 조언을
             <br />그날로 끝내지 마세요.
           </h2>
-          <p className={styles.desc}>컨설턴트가 방향을 잡아줬다면, 플랜 사수는 그 다음 실행을 이어갑니다.</p>
+          <p className={styles.desc}>컨설턴트가 방향을 잡아줬다면, 사수래AI는 그 다음 실행을 이어갑니다.</p>
         </Reveal>
 
         <ol className={styles.flow}>
@@ -59,7 +59,7 @@ export function ConsultingSection() {
           <span className={styles.summaryPlus} aria-hidden="true">
             <Plus />
           </span>
-          <span className={`${styles.summaryPart} ${styles.summaryPartBrand}`}>플랜 사수의 지속적인 실행 관리</span>
+          <span className={`${styles.summaryPart} ${styles.summaryPartBrand}`}>사수래AI의 지속적인 실행 관리</span>
         </Reveal>
       </div>
     </section>

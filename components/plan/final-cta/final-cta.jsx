@@ -8,7 +8,7 @@ import styles from './final-cta.module.scss';
 const situations = ['아이디어 단계', '계획서 작성 중', '기존 계획서 보유', '지원사업 준비', '기타'];
 const startModes = ['AI와 새로 작성', '기존 계획서 업로드', '아직 모르겠음'];
 /* Hidden: CTA 에서 기능을 다시 나열하지 않는다.
-const points = ['AI 작성 · 기존 계획서 업로드', 'VC 관점 분석 · 플랜비서 수정', '전문가 피드백 · 정부지원사업'];
+const points = ['AI 작성 · 기존 계획서 업로드', 'VC 관점 분석 · 사수AI 수정', '전문가 피드백 · 정부지원사업'];
 */
 
 /* Hidden: 요금제 노출을 중단해 관심 플랜 선택도 함께 숨긴다.

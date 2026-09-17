@@ -54,10 +54,10 @@ export default function Home() {
         {/* Hidden: merged into PlanAssistantSection — 분석 이후 개선 루프
         <AnalysisLoopSection /> */}
 
-        {/* 04 · 플랜비서와 계획서 수정 */}
+        {/* 04 · 사수AI와 계획서 수정 */}
         <PlanAssistantSection />
 
-        {/* Hidden: overlaps with PlanAssistantSection — 작성 코치 · 플랜비서는 같은 AI
+        {/* Hidden: overlaps with PlanAssistantSection — 작성 코치 · 사수AI는 같은 AI
         <AIRolesSection /> */}
 
         {/* Hidden: moved to FAQ — AI 수정 정책

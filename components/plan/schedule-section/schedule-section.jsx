@@ -26,7 +26,7 @@ export function ScheduleSection() {
               실제 일정으로.
             </h2>
             <p className={styles.desc}>
-              플랜비서와 이야기하다 나온 준비 과제는 머릿속에만 남기지 않아도 됩니다. 그대로 일정으로 옮겨 두면, 기한이 다가올 때 알려드립니다.
+              사수AI와 이야기하다 나온 준비 과제는 머릿속에만 남기지 않아도 됩니다. 그대로 일정으로 옮겨 두면, 기한이 다가올 때 알려드립니다.
             </p>
 
             <div className={styles.commandCard}>

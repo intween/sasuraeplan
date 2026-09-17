@@ -28,7 +28,7 @@ export function ProblemSection() {
     <section className={styles.section} id="problem">
       <div className={styles.container}>
         <Reveal className={styles.head}>
-          <span className={styles.eyebrow}>Why Plan Sasu</span>
+          <span className={styles.eyebrow}>Why Sasurae AI</span>
           <h2 className={styles.title}>
             쓰는 것도 어렵고,
             <br />
@@ -52,7 +52,7 @@ export function ProblemSection() {
         <Reveal className={styles.bridge}>
           <ArrowRight aria-hidden="true" />
           <p>
-            플랜 사수는 <strong>작성부터 분석, 수정까지</strong> 이 과정을 하나로 연결합니다.
+            사수래AI는 <strong>작성부터 분석, 수정까지</strong> 이 과정을 하나로 연결합니다.
           </p>
         </Reveal>
       </div>

@@ -23,7 +23,7 @@ export function PartnerSection() {
 
             <h2 className={styles.title}>창업교육·컨설팅을 운영하고 계신가요?</h2>
             <p className={styles.desc}>
-              수강생이 컨설팅 이후에도 스스로 사업 준비를 이어갈 수 있도록 플랜 사수를 활용할 수 있습니다.
+              수강생이 컨설팅 이후에도 스스로 사업 준비를 이어갈 수 있도록 사수래AI를 활용할 수 있습니다.
             </p>
 
             <a href="#contact" className={styles.cta}>

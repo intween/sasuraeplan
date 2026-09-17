@@ -2,16 +2,16 @@ import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 export const metadata = {
-  title: '플랜 사수 | AI 사업계획서 작성부터 VC 분석까지',
-  description: '아이디어만 있어도 AI와 사업계획서를 작성하고, VC 관점으로 분석받고, 플랜비서와 대화하며 계획서를 수정합니다. 일정과 정부지원사업 준비까지 이어가는 AI 사업 준비 플랫폼, 플랜 사수.',
+  title: '사수래AI | AI 사업계획서 작성부터 VC 분석까지',
+  description: '아이디어만 있어도 AI와 사업계획서를 작성하고, VC 관점으로 분석받고, 사수AI와 대화하며 계획서를 수정합니다. 일정과 정부지원사업 준비까지 이어가는 AI 사업 준비 플랫폼, 사수래AI.',
   generator: 'v0.app',
-  keywords: ['플랜 사수', 'PLAN SASU', '사업계획서', 'AI 사업계획서', 'VC 분석', '플랜비서', 'AI 사업계획서 작성', '창업지원사업', '예비창업패키지', '창업', '스타트업'],
+  keywords: ['사수래AI', '사수래', 'SASURAE AI', '사업계획서', 'AI 사업계획서', 'VC 분석', '사수AI', 'AI 사업계획서 작성', '창업지원사업', '예비창업패키지', '창업', '스타트업'],
   openGraph: {
-    title: '플랜 사수 | AI 사업계획서 작성부터 VC 분석까지',
-    description: '아이디어만 있어도 AI와 사업계획서를 작성하고, VC 관점으로 분석받고, 플랜비서와 대화하며 계획서를 수정합니다. 일정과 정부지원사업 준비까지 이어가는 AI 사업 준비 플랫폼, 플랜 사수.',
+    title: '사수래AI | AI 사업계획서 작성부터 VC 분석까지',
+    description: '아이디어만 있어도 AI와 사업계획서를 작성하고, VC 관점으로 분석받고, 사수AI와 대화하며 계획서를 수정합니다. 일정과 정부지원사업 준비까지 이어가는 AI 사업 준비 플랫폼, 사수래AI.',
     type: 'website',
     locale: 'ko_KR',
-    siteName: '플랜 사수',
+    siteName: '사수래AI',
   },
   icons: {
     icon: [

@@ -168,11 +168,11 @@ export function ExpertReviewSection() {
           </div>
         </Reveal>
 
-        --- 검토본 → 플랜비서 ---
+        --- 검토본 → 사수AI ---
         <Reveal className={styles.afterCard}>
           <div className={styles.afterHead}>
             <MessageSquare aria-hidden="true" />
-            <h3 className={styles.afterTitle}>전문가 피드백을 그대로 플랜비서에게</h3>
+            <h3 className={styles.afterTitle}>전문가 피드백을 그대로 사수AI에게</h3>
           </div>
 
           <ul className={styles.afterThread}>

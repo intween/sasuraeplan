@@ -4,7 +4,7 @@ import styles from './analysis-loop-section.module.scss';
 
 const loop = [
   { icon: BarChart3, label: 'VC 분석', detail: '72점', kind: 'score' },
-  { icon: MessageSquare, label: '왜 이런 평가인지 질문', detail: '플랜비서가 근거를 설명' },
+  { icon: MessageSquare, label: '왜 이런 평가인지 질문', detail: '사수AI가 근거를 설명' },
   { icon: ClipboardCheck, label: '필요한 근거 확보', detail: '실제 고객 인터뷰 진행' },
   { icon: Wand2, label: '“계획서에 넣어줘”', detail: 'AI가 실제 계획서 수정', accent: true },
   { icon: RefreshCw, label: '필요 시 재분석', detail: '새로운 VC 평가 확인', optional: true },

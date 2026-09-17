@@ -6,7 +6,7 @@ import styles from './footer.module.scss';
 const serviceLinks = [
   { label: 'AI 작성', href: '/#authoring' },
   { label: 'VC 분석', href: '/#vc-analysis' },
-  { label: '플랜비서', href: '/#plan-assistant' },
+  { label: '사수AI', href: '/#plan-assistant' },
   { label: '전문가 피드백', href: '/#expert-review' },
 ];
 
@@ -65,7 +65,7 @@ export function Footer() {
         </div>
 
         <div className={styles.bottom}>
-          <p className={styles.copyright}>© {new Date().getFullYear()} 플랜 사수. All rights reserved.</p>
+          <p className={styles.copyright}>© {new Date().getFullYear()} 사수래AI. All rights reserved.</p>
           <ul className={styles.legal}>
             {legalItems.map((label) => (
               <li key={label} className={styles.legalItem}>

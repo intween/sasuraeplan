@@ -18,17 +18,17 @@ const programs = [
   },
 ];
 
-// 지원사업 확인 → 플랜비서 상담 → 계획서 활용
+// 지원사업 확인 → 사수AI 상담 → 계획서 활용
 const linkFlow = [
   { icon: Search, label: '내 사업에 맞는 지원사업 확인' },
   { icon: ExternalLink, label: '공고 내용 확인' },
-  { icon: MessageSquare, label: '플랜비서와 지원 준비', quote: '내 계획서에서 무엇을 보완해야 해?', accent: true },
+  { icon: MessageSquare, label: '사수AI와 지원 준비', quote: '내 계획서에서 무엇을 보완해야 해?', accent: true },
 ];
 
 const actions = [
   { icon: ExternalLink, label: '공고 확인' },
   { icon: Scale, label: '내 사업과 비교하기' },
-  { icon: MessageSquare, label: '플랜비서에게 물어보기' },
+  { icon: MessageSquare, label: '사수AI에게 물어보기' },
 ];
 
 export function FundingSection() {
@@ -43,7 +43,7 @@ export function FundingSection() {
             직접 찾고 계신가요?
           </h2>
           <p className={styles.desc}>
-            관련 공고를 확인하고, 플랜비서와 지원 준비까지 이어가세요.
+            관련 공고를 확인하고, 사수AI와 지원 준비까지 이어가세요.
           </p>
         </Reveal>
 

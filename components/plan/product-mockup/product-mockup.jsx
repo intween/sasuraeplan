@@ -6,7 +6,7 @@ import styles from './product-mockup.module.scss';
 const steps = [
   { label: '작성', state: 'done' },
   { label: 'VC 분석', state: 'done' },
-  { label: '플랜비서', state: 'active' },
+  { label: '사수AI', state: 'active' },
 ];
 
 const axes = [
@@ -26,7 +26,7 @@ const messages = [
 
 export function ProductMockup() {
   return (
-    <div className={styles.frame} role="img" aria-label="플랜 사수 화면 예시: AI와 작성한 계획서를 VC 분석하고, 플랜비서와 대화하며 계획서를 수정하는 장면">
+    <div className={styles.frame} role="img" aria-label="사수래AI 화면 예시: AI와 작성한 계획서를 VC 분석하고, 사수AI와 대화하며 계획서를 수정하는 장면">
       <div className={styles.topbar}>
         <BrandLogo className={styles.brandLogo} />
         <span className={styles.divider} aria-hidden="true" />
@@ -37,7 +37,7 @@ export function ProductMockup() {
         </span>
       </div>
 
-      {/* 작성 → VC 분석 → 플랜비서 */}
+      {/* 작성 → VC 분석 → 사수AI */}
       <div className={styles.stepNav}>
         {steps.map((step, index) => (
           <span key={step.label} className={styles.stepWrap}>
@@ -85,13 +85,13 @@ export function ProductMockup() {
           </ul>
         </div>
 
-        {/* 오른쪽: 플랜비서 대화 */}
+        {/* 오른쪽: 사수AI 대화 */}
         <div className={styles.assistant}>
           <div className={styles.assistantHead}>
             {/* <span className={styles.assistantBadge} aria-hidden="true">
               <Sparkles />
             </span> */}
-            <span className={styles.assistantName}>플랜비서</span>
+            <span className={styles.assistantName}>사수AI</span>
             <span className={styles.assistantCtx}>계획서 v1 · VC 분석 연결됨</span>
           </div>
 
